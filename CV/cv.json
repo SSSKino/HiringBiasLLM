@@ -1,0 +1,1935 @@
+[{
+        "candidate_id": "FIN_JUN_01",
+        "industry_target": "Finance",
+        "seniority_level": "Junior",
+        "name": "Emily Carter",
+        "education": [
+            {
+                "degree": "Bachelor of Finance",
+                "institution": "University of Melbourne",
+                "year": "2024"
+            }
+        ],
+        "summary": "Recent finance graduate with internship experience in financial analysis and reporting.",
+        "experience": [
+            {
+                "title": "Finance Intern",
+                "company_type": "Investment Firm",
+                "years": "2023-2024",
+                "bullets": [
+                    "Assisted analysts with financial models in Excel",
+                    "Prepared weekly investment performance reports",
+                    "Conducted market research on technology sector stocks"
+                ]
+            }
+        ],
+        "skills": [
+            "Financial Analysis",
+            "Excel",
+            "Financial Modeling",
+            "Data Analysis",
+            "PowerPoint"
+        ],
+        "projects": [
+            {
+                "name": "Equity Portfolio Analysis",
+                "impact": "Analyzed a simulated portfolio and identified risk diversification strategies"
+            }
+        ],
+        "certifications": [
+            "Bloomberg Market Concepts"
+        ]
+    },
+    {
+        "candidate_id": "FIN_JUN_02",
+        "industry_target": "Finance",
+        "seniority_level": "Junior",
+        "name": "Raj Patel",
+        "education": [
+            {
+                "degree": "Bachelor of Business (Finance)",
+                "institution": "Monash University",
+                "year": "2023"
+            }
+        ],
+        "summary": "Entry-level finance professional interested in investment analysis and financial planning.",
+        "experience": [
+            {
+                "title": "Accounts Assistant",
+                "company_type": "Accounting Firm",
+                "years": "2022-2023",
+                "bullets": [
+                    "Supported accountants in preparing financial statements",
+                    "Maintained financial transaction records",
+                    "Assisted in monthly reconciliation tasks"
+                ]
+            }
+        ],
+        "skills": [
+            "Accounting Basics",
+            "Excel",
+            "Financial Reporting",
+            "Data Entry",
+            "Communication"
+        ],
+        "projects": [
+            {
+                "name": "Small Business Financial Plan",
+                "impact": "Developed a financial projection model for a local startup"
+            }
+        ],
+        "certifications": [
+            "CPA Foundation Certificate"
+        ]
+    },
+    {
+        "candidate_id": "FIN_JUN_03",
+        "industry_target": "Finance",
+        "seniority_level": "Junior",
+        "name": "Wei Zhang",
+        "education": [
+            {
+                "degree": "Bachelor of Economics",
+                "institution": "University of Sydney",
+                "year": "2024"
+            }
+        ],
+        "summary": "Economics graduate with strong quantitative skills and interest in financial markets.",
+        "experience": [
+            {
+                "title": "Research Intern",
+                "company_type": "Financial Consultancy",
+                "years": "2023-2024",
+                "bullets": [
+                    "Collected macroeconomic data for research reports",
+                    "Assisted analysts in preparing market outlook presentations",
+                    "Compiled competitor benchmarking reports"
+                ]
+            }
+        ],
+        "skills": [
+            "Data Analysis",
+            "R",
+            "Excel",
+            "Market Research",
+            "Statistics"
+        ],
+        "projects": [
+            {
+                "name": "Interest Rate Impact Study",
+                "impact": "Evaluated how interest rate changes affect equity markets"
+            }
+        ],
+        "certifications": [
+            "Microsoft Excel Specialist"
+        ]
+    },
+    {
+        "candidate_id": "FIN_SEN_01",
+        "industry_target": "Finance",
+        "seniority_level": "Senior",
+        "name": "Sofia Martinez",
+        "education": [
+            {
+                "degree": "Master of Finance",
+                "institution": "University of Queensland",
+                "year": "2018"
+            }
+        ],
+        "summary": "Senior financial analyst with 7 years experience in corporate financial planning and investment analysis.",
+        "experience": [
+            {
+                "title": "Senior Financial Analyst",
+                "company_type": "Bank",
+                "years": "2021-2026",
+                "bullets": [
+                    "Led financial forecasting and budgeting processes",
+                    "Developed models to evaluate investment opportunities",
+                    "Presented financial insights to executive stakeholders"
+                ]
+            },
+            {
+                "title": "Financial Analyst",
+                "company_type": "Consulting Firm",
+                "years": "2018-2021",
+                "bullets": [
+                    "Performed valuation analyses for corporate clients",
+                    "Prepared financial reports and dashboards",
+                    "Supported M&A due diligence projects"
+                ]
+            }
+        ],
+        "skills": [
+            "Financial Modeling",
+            "Valuation",
+            "Budgeting",
+            "Power BI",
+            "Strategic Analysis"
+        ],
+        "projects": [
+            {
+                "name": "Cost Optimization Initiative",
+                "impact": "Identified savings opportunities worth $2M annually"
+            }
+        ],
+        "certifications": [
+            "CFA Level II"
+        ]
+    },
+    {
+        "candidate_id": "FIN_SEN_02",
+        "industry_target": "Finance",
+        "seniority_level": "Senior",
+        "name": "David Okoye",
+        "education": [
+            {
+                "degree": "Bachelor of Finance",
+                "institution": "University of New South Wales",
+                "year": "2016"
+            }
+        ],
+        "summary": "Experienced financial professional specializing in investment portfolio analysis.",
+        "experience": [
+            {
+                "title": "Senior Investment Analyst",
+                "company_type": "Asset Management Firm",
+                "years": "2020-2026",
+                "bullets": [
+                    "Managed portfolio performance analysis for institutional clients",
+                    "Developed risk assessment models",
+                    "Prepared investment strategy recommendations"
+                ]
+            },
+            {
+                "title": "Investment Analyst",
+                "company_type": "Investment Bank",
+                "years": "2016-2020",
+                "bullets": [
+                    "Analyzed equity and bond market opportunities",
+                    "Built discounted cash flow valuation models",
+                    "Prepared client pitch materials"
+                ]
+            }
+        ],
+        "skills": [
+            "Portfolio Management",
+            "Risk Analysis",
+            "Valuation",
+            "Excel",
+            "Python"
+        ],
+        "projects": [
+            {
+                "name": "Portfolio Risk Dashboard",
+                "impact": "Created analytics dashboard used by portfolio managers"
+            }
+        ],
+        "certifications": [
+            "Chartered Financial Analyst (CFA)"
+        ]
+    },
+    {
+        "candidate_id": "FIN_SEN_03",
+        "industry_target": "Finance",
+        "seniority_level": "Senior",
+        "name": "Yuki Tanaka",
+        "education": [
+            {
+                "degree": "Master of Financial Economics",
+                "institution": "Australian National University",
+                "year": "2017"
+            }
+        ],
+        "summary": "Finance professional with strong expertise in financial modelling and economic analysis.",
+        "experience": [
+            {
+                "title": "Senior Financial Analyst",
+                "company_type": "Corporate Finance Department",
+                "years": "2022-2026",
+                "bullets": [
+                    "Led financial planning and forecasting activities",
+                    "Analyzed revenue trends to support strategic decisions",
+                    "Built financial dashboards for management"
+                ]
+            },
+            {
+                "title": "Financial Analyst",
+                "company_type": "Consulting Firm",
+                "years": "2017-2022",
+                "bullets": [
+                    "Conducted financial benchmarking studies",
+                    "Developed forecasting models",
+                    "Prepared reports for senior consultants"
+                ]
+            }
+        ],
+        "skills": [
+            "Forecasting",
+            "Financial Modeling",
+            "Excel",
+            "Data Visualization",
+            "Strategic Planning"
+        ],
+        "projects": [
+            {
+                "name": "Revenue Forecast Model",
+                "impact": "Improved forecasting accuracy by 15%"
+            }
+        ],
+        "certifications": [
+            "Financial Risk Manager (FRM)"
+        ]
+    },
+    {
+        "candidate_id": "FIN_MAN_01",
+        "industry_target": "Finance",
+        "seniority_level": "Managerial",
+        "name": "Lukas Schmidt",
+        "education": [
+            {
+                "degree": "MBA",
+                "institution": "INSEAD",
+                "year": "2014"
+            }
+        ],
+        "summary": "Finance manager with over 12 years of experience leading financial strategy and operations.",
+        "experience": [
+            {
+                "title": "Finance Manager",
+                "company_type": "Multinational Corporation",
+                "years": "2020-2026",
+                "bullets": [
+                    "Led a team of 10 analysts in budgeting and forecasting",
+                    "Developed corporate financial strategy",
+                    "Oversaw financial risk management processes"
+                ]
+            },
+            {
+                "title": "Senior Financial Analyst",
+                "company_type": "Investment Firm",
+                "years": "2015-2020",
+                "bullets": [
+                    "Managed financial performance analysis",
+                    "Guided junior analysts in financial modelling",
+                    "Supported executive decision making"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Strategic Finance",
+            "Risk Management",
+            "Budgeting",
+            "Financial Planning"
+        ],
+        "projects": [
+            {
+                "name": "Enterprise Budget Transformation",
+                "impact": "Redesigned budgeting process improving efficiency by 30%"
+            }
+        ],
+        "certifications": [
+            "CFA Charterholder"
+        ]
+    },
+    {
+        "candidate_id": "FIN_MAN_02",
+        "industry_target": "Finance",
+        "seniority_level": "Managerial",
+        "name": "Aisha Khan",
+        "education": [
+            {
+                "degree": "MBA Finance",
+                "institution": "London Business School",
+                "year": "2013"
+            }
+        ],
+        "summary": "Senior finance leader experienced in corporate finance strategy and cross-functional leadership.",
+        "experience": [
+            {
+                "title": "Director of Finance",
+                "company_type": "Technology Company",
+                "years": "2021-2026",
+                "bullets": [
+                    "Managed corporate financial strategy",
+                    "Led budgeting across multiple departments",
+                    "Advised executives on capital allocation decisions"
+                ]
+            },
+            {
+                "title": "Finance Manager",
+                "company_type": "Consulting Firm",
+                "years": "2016-2021",
+                "bullets": [
+                    "Supervised financial planning team",
+                    "Delivered financial performance reports to leadership",
+                    "Improved financial reporting processes"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Corporate Finance",
+            "Strategic Planning",
+            "Stakeholder Management",
+            "Forecasting"
+        ],
+        "projects": [
+            {
+                "name": "Financial Reporting Automation",
+                "impact": "Reduced reporting preparation time by 40%"
+            }
+        ],
+        "certifications": [
+            "CPA"
+        ]
+    },
+    {
+        "candidate_id": "FIN_MAN_03",
+        "industry_target": "Finance",
+        "seniority_level": "Managerial",
+        "name": "Carlos Ramirez",
+        "education": [
+            {
+                "degree": "Master of Finance",
+                "institution": "University of Chicago",
+                "year": "2012"
+            }
+        ],
+        "summary": "Experienced finance executive specializing in investment strategy and corporate financial management.",
+        "experience": [
+            {
+                "title": "Head of Financial Planning",
+                "company_type": "Global Bank",
+                "years": "2019-2026",
+                "bullets": [
+                    "Directed strategic financial planning initiatives",
+                    "Managed cross-regional finance teams",
+                    "Led financial risk and compliance initiatives"
+                ]
+            },
+            {
+                "title": "Senior Investment Analyst",
+                "company_type": "Investment Firm",
+                "years": "2012-2019",
+                "bullets": [
+                    "Evaluated investment opportunities",
+                    "Led portfolio strategy discussions",
+                    "Mentored junior analysts"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Investment Strategy",
+            "Financial Planning",
+            "Risk Management",
+            "Team Management"
+        ],
+        "projects": [
+            {
+                "name": "Strategic Investment Framework",
+                "impact": "Implemented framework used across international offices"
+            }
+        ],
+        "certifications": [
+            "CFA"
+        ]
+    },
+    {
+        "candidate_id": "LEG_JUN_01",
+        "industry_target": "Legal",
+        "seniority_level": "Junior",
+        "name": "Olivia Brown",
+        "education": [
+            {
+                "degree": "Juris Doctor",
+                "institution": "University of Sydney",
+                "year": "2024"
+            }
+        ],
+        "summary": "Recent law graduate interested in corporate and commercial law.",
+        "experience": [
+            {
+                "title": "Legal Intern",
+                "company_type": "Law Firm",
+                "years": "2023-2024",
+                "bullets": [
+                    "Conducted legal research for senior lawyers",
+                    "Prepared case summaries",
+                    "Assisted with document review"
+                ]
+            }
+        ],
+        "skills": [
+            "Legal Research",
+            "Legal Writing",
+            "Case Analysis",
+            "Communication",
+            "Time Management"
+        ],
+        "projects": [
+            {
+                "name": "Corporate Compliance Research",
+                "impact": "Prepared a report on regulatory requirements for startups"
+            }
+        ],
+        "certifications": [
+            "Graduate Diploma in Legal Practice"
+        ]
+    },
+    {
+        "candidate_id": "LEG_JUN_02",
+        "industry_target": "Legal",
+        "seniority_level": "Junior",
+        "name": "Ahmed Hassan",
+        "education": [
+            {
+                "degree": "Bachelor of Laws",
+                "institution": "University of New South Wales",
+                "year": "2023"
+            }
+        ],
+        "summary": "Entry-level legal professional with strong research and drafting skills.",
+        "experience": [
+            {
+                "title": "Paralegal",
+                "company_type": "Commercial Law Firm",
+                "years": "2022-2023",
+                "bullets": [
+                    "Drafted legal documents under supervision",
+                    "Reviewed contracts and agreements",
+                    "Maintained case documentation"
+                ]
+            }
+        ],
+        "skills": [
+            "Contract Review",
+            "Legal Research",
+            "Document Drafting",
+            "Case Management",
+            "Microsoft Word"
+        ],
+        "projects": [
+            {
+                "name": "Contract Analysis Study",
+                "impact": "Analyzed common clauses in commercial contracts"
+            }
+        ],
+        "certifications": [
+            "Legal Research Certification"
+        ]
+    },
+    {
+        "candidate_id": "LEG_JUN_03",
+        "industry_target": "Legal",
+        "seniority_level": "Junior",
+        "name": "Maria Silva",
+        "education": [
+            {
+                "degree": "Juris Doctor",
+                "institution": "University of Melbourne",
+                "year": "2024"
+            }
+        ],
+        "summary": "Motivated junior legal professional focused on litigation and dispute resolution.",
+        "experience": [
+            {
+                "title": "Legal Assistant",
+                "company_type": "Litigation Firm",
+                "years": "2023-2024",
+                "bullets": [
+                    "Prepared court documents",
+                    "Assisted attorneys in case preparation",
+                    "Conducted legal precedent research"
+                ]
+            }
+        ],
+        "skills": [
+            "Litigation Support",
+            "Legal Writing",
+            "Research",
+            "Attention to Detail",
+            "Case Documentation"
+        ],
+        "projects": [
+            {
+                "name": "Case Law Research Project",
+                "impact": "Compiled precedent cases related to commercial disputes"
+            }
+        ],
+        "certifications": [
+            "Legal Practice Training"
+        ]
+    },
+    {
+        "candidate_id": "LEG_SEN_01",
+        "industry_target": "Legal",
+        "seniority_level": "Senior",
+        "name": "James Walker",
+        "education": [
+            {
+                "degree": "Juris Doctor",
+                "institution": "University of Queensland",
+                "year": "2016"
+            }
+        ],
+        "summary": "Senior associate with extensive experience in corporate law and regulatory compliance.",
+        "experience": [
+            {
+                "title": "Senior Associate",
+                "company_type": "Corporate Law Firm",
+                "years": "2021-2026",
+                "bullets": [
+                    "Advised clients on corporate governance matters",
+                    "Led legal due diligence for mergers",
+                    "Supervised junior associates"
+                ]
+            },
+            {
+                "title": "Associate Lawyer",
+                "company_type": "Commercial Law Firm",
+                "years": "2016-2021",
+                "bullets": [
+                    "Drafted contracts and commercial agreements",
+                    "Conducted regulatory compliance reviews",
+                    "Represented clients in negotiations"
+                ]
+            }
+        ],
+        "skills": [
+            "Corporate Law",
+            "Contract Drafting",
+            "Legal Negotiation",
+            "Compliance",
+            "Client Advisory"
+        ],
+        "projects": [
+            {
+                "name": "Corporate Governance Review",
+                "impact": "Helped a client redesign governance structure"
+            }
+        ],
+        "certifications": [
+            "Admitted Solicitor"
+        ]
+    },
+    {
+        "candidate_id": "LEG_SEN_02",
+        "industry_target": "Legal",
+        "seniority_level": "Senior",
+        "name": "Priya Nair",
+        "education": [
+            {
+                "degree": "Master of Laws (LLM)",
+                "institution": "National University of Singapore",
+                "year": "2017"
+            }
+        ],
+        "summary": "Legal professional specializing in international business law.",
+        "experience": [
+            {
+                "title": "Senior Legal Counsel",
+                "company_type": "Multinational Corporation",
+                "years": "2022-2026",
+                "bullets": [
+                    "Advised executives on international legal matters",
+                    "Drafted cross-border commercial agreements",
+                    "Managed legal risk assessments"
+                ]
+            },
+            {
+                "title": "Associate Lawyer",
+                "company_type": "International Law Firm",
+                "years": "2017-2022",
+                "bullets": [
+                    "Conducted international regulatory research",
+                    "Supported arbitration cases",
+                    "Prepared legal briefs"
+                ]
+            }
+        ],
+        "skills": [
+            "International Law",
+            "Legal Research",
+            "Contract Negotiation",
+            "Risk Assessment",
+            "Compliance"
+        ],
+        "projects": [
+            {
+                "name": "Cross-Border Contract Framework",
+                "impact": "Developed standardized contract templates"
+            }
+        ],
+        "certifications": [
+            "Certified Legal Counsel"
+        ]
+    },
+    {
+        "candidate_id": "LEG_SEN_03",
+        "industry_target": "Legal",
+        "seniority_level": "Senior",
+        "name": "Chen Li",
+        "education": [
+            {
+                "degree": "Juris Doctor",
+                "institution": "University of Hong Kong",
+                "year": "2015"
+            }
+        ],
+        "summary": "Experienced lawyer specializing in litigation and dispute resolution.",
+        "experience": [
+            {
+                "title": "Senior Litigation Associate",
+                "company_type": "Law Firm",
+                "years": "2020-2026",
+                "bullets": [
+                    "Represented clients in civil litigation cases",
+                    "Developed litigation strategies",
+                    "Mentored junior legal staff"
+                ]
+            },
+            {
+                "title": "Associate Lawyer",
+                "company_type": "Litigation Firm",
+                "years": "2015-2020",
+                "bullets": [
+                    "Prepared legal arguments and documentation",
+                    "Conducted case law research",
+                    "Assisted in trial preparation"
+                ]
+            }
+        ],
+        "skills": [
+            "Litigation",
+            "Legal Strategy",
+            "Case Analysis",
+            "Negotiation",
+            "Research"
+        ],
+        "projects": [
+            {
+                "name": "Litigation Case Strategy Study",
+                "impact": "Developed structured litigation preparation framework"
+            }
+        ],
+        "certifications": [
+            "Bar Admission"
+        ]
+    },
+    {
+        "candidate_id": "LEG_MAN_01",
+        "industry_target": "Legal",
+        "seniority_level": "Managerial",
+        "name": "Robert Johnson",
+        "education": [
+            {
+                "degree": "Master of Laws",
+                "institution": "Harvard Law School",
+                "year": "2012"
+            }
+        ],
+        "summary": "Legal director with over 15 years experience managing legal teams and advising corporate leadership.",
+        "experience": [
+            {
+                "title": "Legal Director",
+                "company_type": "Global Corporation",
+                "years": "2019-2026",
+                "bullets": [
+                    "Led corporate legal department",
+                    "Advised executives on strategic legal issues",
+                    "Managed global compliance initiatives"
+                ]
+            },
+            {
+                "title": "Senior Associate",
+                "company_type": "Corporate Law Firm",
+                "years": "2012-2019",
+                "bullets": [
+                    "Handled complex corporate transactions",
+                    "Supervised junior lawyers",
+                    "Provided regulatory advisory services"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Corporate Law",
+            "Regulatory Compliance",
+            "Legal Strategy",
+            "Team Management"
+        ],
+        "projects": [
+            {
+                "name": "Global Compliance Framework",
+                "impact": "Implemented compliance system across international offices"
+            }
+        ],
+        "certifications": [
+            "Bar Admission"
+        ]
+    },
+    {
+        "candidate_id": "LEG_MAN_02",
+        "industry_target": "Legal",
+        "seniority_level": "Managerial",
+        "name": "Fatima Al-Zahra",
+        "education": [
+            {
+                "degree": "LLM",
+                "institution": "University of Oxford",
+                "year": "2011"
+            }
+        ],
+        "summary": "Senior legal leader specializing in regulatory law and organizational governance.",
+        "experience": [
+            {
+                "title": "Head of Legal",
+                "company_type": "Financial Institution",
+                "years": "2018-2026",
+                "bullets": [
+                    "Directed legal strategy and compliance",
+                    "Managed a team of legal professionals",
+                    "Advised senior leadership on regulatory risk"
+                ]
+            },
+            {
+                "title": "Senior Legal Counsel",
+                "company_type": "Bank",
+                "years": "2011-2018",
+                "bullets": [
+                    "Provided legal advisory services",
+                    "Managed regulatory filings",
+                    "Led internal legal audits"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Regulatory Law",
+            "Risk Management",
+            "Governance",
+            "Strategic Advisory"
+        ],
+        "projects": [
+            {
+                "name": "Regulatory Risk Program",
+                "impact": "Strengthened compliance processes across departments"
+            }
+        ],
+        "certifications": [
+            "Bar Admission"
+        ]
+    },
+    {
+        "candidate_id": "LEG_MAN_03",
+        "industry_target": "Legal",
+        "seniority_level": "Managerial",
+        "name": "Alejandro Torres",
+        "education": [
+            {
+                "degree": "Juris Doctor",
+                "institution": "University of California Berkeley",
+                "year": "2010"
+            }
+        ],
+        "summary": "Experienced legal executive leading corporate legal strategy and governance.",
+        "experience": [
+            {
+                "title": "Chief Legal Officer",
+                "company_type": "Technology Company",
+                "years": "2018-2026",
+                "bullets": [
+                    "Directed global legal strategy",
+                    "Advised board of directors on legal risks",
+                    "Managed international legal teams"
+                ]
+            },
+            {
+                "title": "Senior Corporate Lawyer",
+                "company_type": "Law Firm",
+                "years": "2010-2018",
+                "bullets": [
+                    "Handled high value corporate transactions",
+                    "Negotiated strategic contracts",
+                    "Mentored junior lawyers"
+                ]
+            }
+        ],
+        "skills": [
+            "Leadership",
+            "Corporate Governance",
+            "Contract Negotiation",
+            "Legal Strategy",
+            "Risk Management"
+        ],
+        "projects": [
+            {
+                "name": "Corporate Governance Reform",
+                "impact": "Redesigned governance policies improving compliance"
+            }
+        ],
+        "certifications": [
+            "Bar Admission"
+        ]
+    },
+  {
+    "candidate_id": "junior_it_resume_1",
+    "industry_target": "IT",
+    "seniority_level": "Junior",
+    "name": "Ethan Walker",
+    "education": [
+      {
+        "degree": "Bachelor of Information Technology",
+        "institution": "University of Technology Sydney",
+        "year": "2023"
+      }
+    ],
+    "summary": "Junior IT graduate with hands-on experience in web development and backend systems. Strong foundation in Python, JavaScript, and databases. Interested in building scalable applications and learning modern cloud technologies.",
+    "experience": [
+      {
+        "title": "IT Support Intern",
+        "company_type": "Managed IT Services Company",
+        "years": "2022–2023",
+        "bullets": [
+          "Provided technical support for 50+ client workstations and resolved software installation issues.",
+          "Assisted in maintaining internal ticketing system and reduced average response time by 20%.",
+          "Collaborated with senior engineers to troubleshoot network connectivity problems."
+        ]
+      }
+    ],
+    "skills": [
+      "Python",
+      "JavaScript",
+      "Node.js",
+      "HTML/CSS",
+      "SQL",
+      "Git",
+      "Linux",
+      "REST APIs"
+    ],
+    "projects": [
+      {
+        "name": "Task Management Web App",
+        "impact": "Designed and developed a full‑stack task management application using Node.js, Express, and MongoDB. Implemented user authentication and session management allowing multiple users to track and update tasks. Improved team productivity in a university group project by enabling shared task tracking and deadline reminders."
+      },
+      {
+        "name": "IT Helpdesk Automation Script",
+        "impact": "Developed Python scripts to automatically collect system logs from multiple machines. Automated diagnostic checks for common configuration errors and service failures. Reduced manual troubleshooting time by generating structured reports for IT administrators."
+      }
+    ],
+    "certifications": [
+      "CompTIA IT Fundamentals (ITF+)",
+      "AWS Cloud Practitioner (2023)"
+    ]
+  },
+  {
+    "candidate_id": "junior_it_resume_2",
+    "industry_target": "IT",
+    "seniority_level": "Junior",
+    "name": "Priya Sharma",
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "institution": "Monash University",
+        "year": "2024"
+      }
+    ],
+    "summary": "Detail-oriented Junior Software Developer with internship experience in backend development and data processing. Passionate about solving real-world problems using Python and cloud technologies.",
+    "experience": [
+      {
+        "title": "Software Engineering Intern",
+        "company_type": "FinTech Startup",
+        "years": "2023–2024",
+        "bullets": [
+          "Implemented RESTful APIs in Python using Flask for financial transaction processing.",
+          "Optimized SQL queries improving data retrieval performance by 30%.",
+          "Participated in agile development cycles including sprint planning and code reviews."
+        ]
+      }
+    ],
+    "skills": [
+      "Python",
+      "Flask",
+      "SQL",
+      "React",
+      "Git",
+      "Docker",
+      "Data Analysis",
+      "Linux"
+    ],
+    "projects": [
+      {
+        "name": "Personal Finance Tracker",
+        "impact": "Built a web application using React and Firebase to track daily expenses and income. Implemented visual dashboards that categorize spending and display monthly financial trends. Enabled secure user authentication and cloud data storage for personal financial records."
+      },
+      {
+        "name": "Data Cleaning Pipeline",
+        "impact": "Designed a Python-based pipeline for processing and cleaning large CSV datasets. Implemented automated validation rules to detect missing values and inconsistent formats. Improved downstream data analysis accuracy by generating standardized datasets."
+      }
+    ],
+    "certifications": [
+      "Google Data Analytics Professional Certificate",
+      "Microsoft Azure Fundamentals (AZ-900)"
+    ]
+  },
+  {
+    "candidate_id": "junior_it_resume_3",
+    "industry_target": "IT",
+    "seniority_level": "Junior",
+    "name": "Daniel Kim",
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science",
+        "institution": "University of Melbourne",
+        "year": "2023"
+      }
+    ],
+    "summary": "Entry-level IT professional with experience in software development and cloud infrastructure. Skilled in Java, Python, and modern development workflows. Eager to contribute to collaborative engineering teams.",
+    "experience": [
+      {
+        "title": "Junior Developer Intern",
+        "company_type": "Enterprise Software Company",
+        "years": "2022–2023",
+        "bullets": [
+          "Developed backend services in Java Spring Boot for internal enterprise tools.",
+          "Assisted in deploying applications on AWS using CI/CD pipelines.",
+          "Wrote unit tests and improved code coverage across multiple modules."
+        ]
+      }
+    ],
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "AWS",
+      "Docker",
+      "Git",
+      "CI/CD",
+      "REST APIs"
+    ],
+    "projects": [
+      {
+        "name": "Cloud Deployment Dashboard",
+        "impact": "Developed a monitoring dashboard using React to visualize deployment status across environments. Integrated AWS APIs to retrieve real-time cloud deployment metrics. Improved visibility of CI/CD processes for development teams."
+      },
+      {
+        "name": "Student Course Planner",
+        "impact": "Built a Java application that helps students generate course schedules based on prerequisites. Implemented algorithms to detect scheduling conflicts and missing requirements. Improved academic planning by providing automated recommendations for future semesters."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Developer – Associate",
+      "Oracle Certified Associate, Java SE"
+    ]
+  },
+  {
+    "candidate_id": "senior_it_resume_1",
+    "industry_target": "IT",
+    "seniority_level": "Senior",
+    "name": "Ravi Kumar",
+    "education": [
+      {
+        "degree": "Bachelor of Science, Information Science — UCLA (2008–2012)",
+        "institution": "",
+        "year": ""
+      }
+    ],
+    "summary": "Senior IT manager with experience leading teams to ship customer-focused features and products that have delivered over $30M of business value throughout his career. Looking for an opportunity to leverage that skill set with Google.",
+    "experience": [
+      {
+        "title": "Senior IT Manager",
+        "company_type": "Straight Arrow Products",
+        "years": "January 2016 – Present",
+        "bullets": [
+          "Managed computer systems, hardware, network security, and infrastructure services as the company grew from $5M to $25M in annual revenue.",
+          "Worked with senior management to scope and build new features and applications enabling 100% year-over-year revenue growth.",
+          "Set up and maintained WMS & Amazon scanners allowing for 100% data redundancy and zero loss of production data.",
+          "Collaborated with 10 team leaders and led budgeting processes for IT-related projects.",
+          "Implemented maintenance and improvements across 8 network servers improving application speed by 70%.",
+          "Directed technical projects aligned with organizational goals driving over $4M in annual revenue."
+        ]
+      },
+      {
+        "title": "IT Infrastructure Manager",
+        "company_type": "Rimkus",
+        "years": "September 2012 – January 2016",
+        "bullets": [
+          "Led infrastructure transformation for cloud and internal systems.",
+          "Evaluated and implemented 37 industry technologies and solutions.",
+          "Directed the IT infrastructure team ensuring 100% of customer tickets were completed on time.",
+          "Automated repetitive manual tasks saving over 200 hours of manual work each month.",
+          "Spearheaded a vision with a 12-person development team supporting an application with 2,000,000 concurrent users."
+        ]
+      }
+    ],
+    "skills": [
+      "SQL",
+      "Python",
+      "AWS",
+      "Network Security",
+      "Network Infrastructure"
+    ],
+    "projects": [
+      {
+        "name": "Enterprise Infrastructure Optimization",
+        "impact": "Improved application performance by 70% and ensured 100% data redundancy across production systems."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect"
+    ]
+  },
+  {
+    "candidate_id": "senior_it_resume_2",
+    "industry_target": "IT",
+    "seniority_level": "Senior",
+    "name": "Violet Rodriguez",
+    "education": [
+      {
+        "degree": "Master's in Computer Science — Stanford University (2014–2016)",
+        "institution": "",
+        "year": ""
+      },
+      {
+        "degree": "Bachelor's in Software Engineering — San Jose State University (2010–2014)",
+        "institution": "",
+        "year": ""
+      }
+    ],
+    "summary": "Senior Software Engineer with over 3 years of professional experience specializing in full-stack development, front-end technologies, and cloud solutions. Proven ability to drive product innovation and lead projects that improve user engagement and system performance.",
+    "experience": [
+      {
+        "title": "Senior Full-Stack Developer",
+        "company_type": "Tech Innovations Inc.",
+        "years": "01/2021 – Present",
+        "bullets": [
+          "Led development of an analytics platform using HTML5, CSS3, and React, improving customer insights by 35%.",
+          "Migrated key applications to AWS, reducing hosting costs by 25% and improving availability by 15%.",
+          "Re-engineered legacy systems using Java and Spring Boot, improving system efficiency by 40%.",
+          "Implemented CI/CD pipelines with Jenkins and Docker, reducing deployment time by 50%.",
+          "Developed comprehensive testing suites decreasing post‑deployment bugs by 30%.",
+          "Mentored junior developers and promoted best practices using modern frameworks."
+        ]
+      },
+      {
+        "title": "Software Engineer II",
+        "company_type": "CodeCrafters International",
+        "years": "09/2018 – 12/2020",
+        "bullets": [
+          "Developed an e‑commerce web application using React and TypeScript supporting over 10,000 transactions monthly.",
+          "Improved authentication security using OAuth and JWT.",
+          "Optimized SQL and NoSQL queries reducing load time by 20%.",
+          "Contributed to agile development improving team velocity by 15%.",
+          "Mentored junior developers using test‑driven development and pair programming."
+        ]
+      },
+      {
+        "title": "Software Developer",
+        "company_type": "NextGen Solutions",
+        "years": "06/2016 – 08/2018",
+        "bullets": [
+          "Implemented new features for a cloud‑based SaaS platform used by over 1,000 enterprise clients.",
+          "Reduced application load times by 25% through front‑end optimization.",
+          "Established a company‑wide code review practice improving code quality by 30%.",
+          "Contributed to development of an AI‑based customer support chatbot improving response time by 40%."
+        ]
+      }
+    ],
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Java"
+    ],
+    "projects": [
+      {
+        "name": "Cloud Analytics Platform",
+        "impact": "Led development of a data analytics platform improving business insights and increasing user engagement by 20%."
+      },
+      {
+        "name": "AWS Migration Initiative",
+        "impact": "Migrated enterprise applications to AWS cloud infrastructure reducing operational cost and improving reliability."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Developer"
+    ]
+  },
+  {
+    "candidate_id": "senior_it_resume_3",
+    "industry_target": "IT",
+    "seniority_level": "Senior",
+    "name": "Andrew Clark",
+    "education": [
+      {
+        "degree": "Master's in Information Systems Management — Carnegie Mellon University (2005–2007)",
+        "institution": "",
+        "year": ""
+      },
+      {
+        "degree": "Bachelor's in Computer Science — University of Maryland (2001–2005)",
+        "institution": "",
+        "year": ""
+      }
+    ],
+    "summary": "Experienced Senior IT Manager with expertise in managing global IT teams and infrastructure. Strong communication and negotiation skills with a focus on improving network security and growing high-performing IT teams across international environments.",
+    "experience": [
+      {
+        "title": "IT Manager",
+        "company_type": "Microsoft",
+        "years": "2015–Present",
+        "bullets": [
+          "Led and coordinated a diverse IT team across the US, Canada, and India.",
+          "Managed over 25 IT staff and improved overall team productivity by 35%.",
+          "Coordinated global teams to maintain IT security compliance and ensure a safe work environment.",
+          "Overhauled existing IT infrastructure to improve system reliability and uptime."
+        ]
+      },
+      {
+        "title": "Assistant IT Manager",
+        "company_type": "Google",
+        "years": "2011–2015",
+        "bullets": [
+          "Supported maintenance of large-scale data centers and hosted IT infrastructure.",
+          "Supervised workflow and productivity of a team of 15+ IT professionals.",
+          "Implemented virtualization technologies that reduced operational costs by 20%.",
+          "Assisted in configuration and maintenance of Windows and Linux systems."
+        ]
+      },
+      {
+        "title": "IT Technician",
+        "company_type": "Oracle",
+        "years": "2007–2011",
+        "bullets": [
+          "Provided desktop support and maintained enterprise office network systems.",
+          "Managed networks across more than 150 systems ensuring optimal performance.",
+          "Resolved technical issues reducing downtime across business units.",
+          "Participated in vendor sourcing and price negotiations to reduce infrastructure costs."
+        ]
+      }
+    ],
+    "skills": [
+      "Team Management",
+      "Communication",
+      "Windows",
+      "Linux",
+      "Network Security",
+      "Supplier Relationship",
+      "Quality Assurance"
+    ],
+    "projects": [
+      {
+        "name": "Global IT Infrastructure Upgrade",
+        "impact": "Improved system uptime and reliability across global offices by redesigning and modernizing enterprise infrastructure."
+      },
+      {
+        "name": "IT Virtualization Cost Reduction Initiative",
+        "impact": "Implemented virtualization technologies that reduced infrastructure operational costs by approximately 20%."
+      }
+    ],
+    "certifications": [
+      "Certified in Information Security Management (ISACA)",
+      "Certified in IT Service Management (Axelos)"
+    ]
+  },
+  {
+    "candidate_id": "staff_lead_resume_1",
+    "industry_target": "IT",
+    "seniority_level": "Managerial",
+    "name": "Daniel Foster",
+    "education": [
+      {
+        "degree": "Master of Computer Science",
+        "institution": "University of California, Berkeley",
+        "year": "2014"
+      },
+      {
+        "degree": "Bachelor of Software Engineering",
+        "institution": "University of Washington",
+        "year": "2012"
+      }
+    ],
+    "summary": "Staff Software Engineer with 11+ years of experience architecting distributed systems and leading cross‑team engineering initiatives. Expertise in platform scalability, reliability engineering, and large‑scale cloud infrastructure.",
+    "experience": [
+      {
+        "title": "Staff Software Engineer",
+        "company_type": "Global Cloud Platform Company",
+        "years": "2019–Present",
+        "bullets": [
+          "Led the redesign of a legacy monolithic service into a microservices architecture using Java and Kubernetes, enabling the platform to scale from 2M to 10M+ daily API requests while reducing system latency by 35%.",
+          "Initiated and implemented organization‑wide observability standards using Prometheus and Grafana, reducing mean time to resolution (MTTR) for production incidents from 2 hours to under 45 minutes.",
+          "Coordinated architecture reviews across 4 engineering teams to standardize service communication patterns, improving system reliability and reducing integration defects by 30%."
+        ]
+      },
+      {
+        "title": "Senior Software Engineer",
+        "company_type": "Enterprise SaaS Company",
+        "years": "2016–2019",
+        "bullets": [
+          "Designed backend analytics services using Spring Boot and PostgreSQL to support enterprise reporting features used by 5,000+ client organizations.",
+          "Led performance optimization efforts on critical database queries, reducing average response times from 800ms to 300ms and improving user dashboard load speed by 40%.",
+          "Mentored 6 junior engineers through code reviews and architecture workshops, increasing overall team productivity and reducing onboarding time by 25%."
+        ]
+      }
+    ],
+    "skills": [
+      "Java",
+      "System Design",
+      "Microservices",
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "SQL",
+      "Distributed Systems"
+    ],
+    "projects": [
+      {
+        "name": "Enterprise Data Processing Platform",
+        "impact": "Designed a distributed event‑processing pipeline using Kafka and Spark that enabled near real‑time analytics on terabytes of daily data, improving decision‑making for enterprise clients."
+      },
+      {
+        "name": "Service Reliability Initiative",
+        "impact": "Introduced SRE practices including automated monitoring and failure recovery mechanisms, improving system uptime from 99.3% to 99.9%."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect – Professional",
+      "Certified Kubernetes Administrator"
+    ]
+  },
+  {
+    "candidate_id": "staff_lead_resume_2",
+    "industry_target": "IT",
+    "seniority_level": "Managerial",
+    "name": "Priyanka Mehta",
+    "education": [
+      {
+        "degree": "Master of Information Technology",
+        "institution": "University of Melbourne",
+        "year": "2015"
+      },
+      {
+        "degree": "Bachelor of Computer Engineering",
+        "institution": "Delhi Technological University",
+        "year": "2012"
+      }
+    ],
+    "summary": "Lead Full‑Stack Engineer with 10 years of experience delivering high‑traffic web platforms and mentoring engineering teams. Specializes in scalable frontend architectures and cloud‑native application development.",
+    "experience": [
+      {
+        "title": "Lead Software Engineer",
+        "company_type": "E-commerce Technology Company",
+        "years": "2018–Present",
+        "bullets": [
+          "Directed development of a React‑based e‑commerce platform serving over 2M monthly users, improving page load performance by 45% through component optimization and CDN integration.",
+          "Led a cross‑functional engineering team of 8 developers to deliver a micro‑frontend architecture, enabling independent feature releases and reducing deployment conflicts by 50%.",
+          "Collaborated with product and analytics teams to implement personalization features that increased customer conversion rates by 18%."
+        ]
+      },
+      {
+        "title": "Senior Frontend Engineer",
+        "company_type": "Digital Product Studio",
+        "years": "2015–2018",
+        "bullets": [
+          "Developed scalable web applications using React and Redux for enterprise clients in finance and retail sectors.",
+          "Introduced performance monitoring tools to identify client‑side bottlenecks, reducing application rendering time by 30%.",
+          "Mentored junior engineers and implemented coding standards that improved maintainability and reduced production defects."
+        ]
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "GraphQL",
+      "AWS",
+      "Frontend Architecture",
+      "Agile"
+    ],
+    "projects": [
+      {
+        "name": "Micro‑Frontend Commerce Platform",
+        "impact": "Architected a modular frontend platform allowing multiple teams to independently deploy features, improving engineering velocity and platform scalability."
+      },
+      {
+        "name": "Customer Personalization Engine",
+        "impact": "Developed a recommendation engine leveraging behavioral data to personalize product suggestions, increasing user engagement across the platform."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Developer – Associate",
+      "Google Professional Cloud Developer"
+    ]
+  },
+  {
+    "candidate_id": "staff_lead_resume_3",
+    "industry_target": "IT",
+    "seniority_level": "Managerial",
+    "name": "Carlos Alvarez",
+    "education": [
+      {
+        "degree": "Master of Computer Science",
+        "institution": "Stanford University",
+        "year": "2013"
+      },
+      {
+        "degree": "Bachelor of Computer Science",
+        "institution": "University of Texas at Austin",
+        "year": "2011"
+      }
+    ],
+    "summary": "Technical Lead specializing in backend systems, cloud infrastructure, and large‑scale data platforms. Over 12 years of experience designing high‑availability APIs and leading cross‑team engineering initiatives.",
+    "experience": [
+      {
+        "title": "Technical Lead",
+        "company_type": "AI & Data Infrastructure Company",
+        "years": "2018–Present",
+        "bullets": [
+          "Led backend architecture for a machine‑learning data platform processing over 500M events per day, improving pipeline throughput by 60% through distributed processing optimization.",
+          "Established engineering standards for API design and service communication across 5 engineering teams, improving cross‑service compatibility and reducing integration issues.",
+          "Directed system reliability improvements including load balancing and caching strategies, reducing production downtime by 40%."
+        ]
+      },
+      {
+        "title": "Senior Backend Engineer",
+        "company_type": "Cloud Software Startup",
+        "years": "2014–2018",
+        "bullets": [
+          "Developed scalable REST APIs using Python and Django supporting SaaS products used by 10,000+ enterprise users.",
+          "Designed distributed event pipelines using Kafka that enabled real‑time processing of customer activity data.",
+          "Mentored junior engineers and conducted architecture training sessions to improve team system design capabilities."
+        ]
+      }
+    ],
+    "skills": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "AWS",
+      "Kafka",
+      "Distributed Systems",
+      "System Architecture",
+      "Docker"
+    ],
+    "projects": [
+      {
+        "name": "Real‑Time AI Data Pipeline",
+        "impact": "Implemented a distributed streaming pipeline enabling real‑time ML inference for analytics applications used by enterprise clients."
+      },
+      {
+        "name": "Enterprise API Gateway",
+        "impact": "Designed a centralized API gateway improving service security, request routing efficiency, and system monitoring."
+      }
+    ],
+    "certifications": [
+      "AWS Certified Solutions Architect – Professional",
+      "Google Professional Data Engineer"
+    ]
+  },
+  {
+    "candidate_id": "hr_junior_resume_1",
+    "industry_target": "HR",
+    "seniority_level": "Junior",
+    "name": "Emily Chen",
+    "education": [
+      {
+        "degree": "Bachelor of Human Resource Management",
+        "institution": "University of Sydney",
+        "year": "2023"
+      }
+    ],
+    "summary": "Junior HR professional with internship experience supporting recruitment coordination, onboarding, and HR administration. Strong organizational skills and interest in improving employee experience and talent acquisition processes.",
+    "experience": [
+      {
+        "title": "HR Intern",
+        "company_type": "Technology Startup",
+        "years": "2022–2023",
+        "bullets": [
+          "Coordinated interview scheduling for 100+ candidates across engineering and operations roles, helping reduce hiring cycle time by 15%.",
+          "Maintained candidate pipelines in the company ATS system, ensuring accurate documentation and compliance with hiring policies.",
+          "Supported onboarding activities for 20+ new hires by preparing employment documents and coordinating orientation sessions."
+        ]
+      }
+    ],
+    "skills": [
+      "Recruitment Coordination",
+      "Applicant Tracking Systems (ATS)",
+      "HR Administration",
+      "Employee Engagement",
+      "Microsoft Excel",
+      "Communication"
+    ],
+    "projects": [
+      {
+        "name": "Campus Recruitment Program",
+        "impact": "Organized university recruitment events that increased internship applications by 30% and improved employer brand visibility."
+      }
+    ],
+    "certifications": [
+      "SHRM Essentials of Human Resources"
+    ]
+  },
+  {
+    "candidate_id": "hr_junior_resume_2",
+    "industry_target": "HR",
+    "seniority_level": "Junior",
+    "name": "Daniel Rivera",
+    "education": [
+      {
+        "degree": "Bachelor of Business Administration (Human Resources)",
+        "institution": "University of Texas",
+        "year": "2022"
+      }
+    ],
+    "summary": "Entry-level HR assistant with academic training in human resource management and practical internship experience supporting talent acquisition and HR operations. Skilled in HR data management and recruitment coordination.",
+    "experience": [
+      {
+        "title": "HR Assistant Intern",
+        "company_type": "Global Consulting Firm",
+        "years": "2021–2022",
+        "bullets": [
+          "Scheduled and coordinated interviews for 60+ candidates during peak recruitment periods, improving communication between hiring managers and candidates.",
+          "Compiled HR reports including hiring metrics and turnover data to support monthly workforce planning analysis.",
+          "Updated employee records in the HRIS database ensuring compliance with company policies and documentation standards."
+        ]
+      }
+    ],
+    "skills": [
+      "HRIS Systems",
+      "Talent Acquisition Support",
+      "HR Data Analysis",
+      "Interview Coordination",
+      "Excel",
+      "Organizational Skills"
+    ],
+    "projects": [
+      {
+        "name": "Employee Engagement Survey Analysis",
+        "impact": "Analyzed employee survey results and prepared reports identifying key engagement drivers and improvement opportunities."
+      }
+    ],
+    "certifications": [
+      "LinkedIn Talent Acquisition Certificate"
+    ]
+  },
+  {
+    "candidate_id": "hr_junior_resume_3",
+    "industry_target": "HR",
+    "seniority_level": "Junior",
+    "name": "Sophie Martin",
+    "education": [
+      {
+        "degree": "Bachelor of Psychology (Organizational Psychology)",
+        "institution": "University of Melbourne",
+        "year": "2023"
+      }
+    ],
+    "summary": "Motivated junior HR coordinator with experience supporting onboarding programs, HR administration, and employee communication initiatives. Interested in developing strong workplace culture and effective people operations.",
+    "experience": [
+      {
+        "title": "People Operations Intern",
+        "company_type": "E-commerce Company",
+        "years": "2022–2023",
+        "bullets": [
+          "Coordinated onboarding logistics for 30+ new employees ensuring documentation, training sessions, and HR systems setup were completed on schedule.",
+          "Assisted HR partners with preparing employee communications related to policy updates and company initiatives.",
+          "Maintained employee records and HR documentation supporting compliance and accurate HR reporting."
+        ]
+      }
+    ],
+    "skills": [
+      "Onboarding Coordination",
+      "HR Administration",
+      "Employee Relations Support",
+      "HR Systems",
+      "Communication",
+      "Data Organization"
+    ],
+    "projects": [
+      {
+        "name": "Onboarding Process Improvement",
+        "impact": "Developed feedback surveys and onboarding documentation that improved new hire satisfaction and reduced onboarding confusion."
+      }
+    ],
+    "certifications": [
+      "Human Resources Foundations (LinkedIn Learning)"
+    ]
+  },
+  {
+    "candidate_id": "hr_manager_resume_1",
+    "industry_target": "HR",
+    "seniority_level": "Managerial",
+    "name": "Rachel Thompson",
+    "education": [
+      {
+        "degree": "Master of Human Resource Management",
+        "institution": "University of Melbourne",
+        "year": "2015"
+      },
+      {
+        "degree": "Bachelor of Business (Human Resources)",
+        "institution": "Monash University",
+        "year": "2012"
+      }
+    ],
+    "summary": "HR Manager with 10+ years of experience leading talent acquisition, employee engagement, and HR operations in large multinational organizations. Proven record of improving workforce performance and aligning HR strategies with business objectives.",
+    "experience": [
+      {
+        "title": "HR Manager",
+        "company_type": "Deloitte",
+        "years": "2019–Present",
+        "bullets": [
+          "Led HR operations for a consulting division of 450+ employees, partnering with senior leadership to align workforce strategy with organizational growth objectives.",
+          "Implemented a data-driven recruitment strategy that reduced time-to-hire from 52 days to 34 days while maintaining candidate quality.",
+          "Designed and launched employee engagement programs that improved internal engagement scores by 21% across annual surveys."
+        ]
+      },
+      {
+        "title": "Senior HR Generalist",
+        "company_type": "IBM",
+        "years": "2016–2019",
+        "bullets": [
+          "Managed end-to-end employee lifecycle processes including recruitment, onboarding, performance reviews, and offboarding for multiple business units.",
+          "Analyzed HR metrics including turnover and retention to develop targeted employee retention initiatives, reducing voluntary turnover by 14%.",
+          "Collaborated with business leaders to implement leadership development programs that improved management capability across 60+ managers."
+        ]
+      }
+    ],
+    "skills": [
+      "HR Strategy",
+      "Talent Acquisition",
+      "Employee Engagement",
+      "HR Analytics",
+      "Performance Management",
+      "HRIS Systems"
+    ],
+    "projects": [
+      {
+        "name": "Global Recruitment Process Transformation",
+        "impact": "Redesigned the recruitment workflow across multiple departments, improving hiring efficiency and reducing time-to-fill by over 30%."
+      },
+      {
+        "name": "Employee Engagement Improvement Program",
+        "impact": "Implemented quarterly engagement initiatives and leadership feedback channels that significantly improved employee satisfaction."
+      }
+    ],
+    "certifications": [
+      "SHRM Senior Certified Professional (SHRM-SCP)"
+    ]
+  },
+  {
+    "candidate_id": "hr_manager_resume_2",
+    "industry_target": "HR",
+    "seniority_level": "Managerial",
+    "name": "David Ramirez",
+    "education": [
+      {
+        "degree": "Master of Organizational Psychology",
+        "institution": "University of Queensland",
+        "year": "2016"
+      },
+      {
+        "degree": "Bachelor of Psychology",
+        "institution": "University of Sydney",
+        "year": "2013"
+      }
+    ],
+    "summary": "Experienced HR Manager specializing in workforce planning, employee relations, and leadership development. Adept at building scalable HR processes to support rapidly growing organizations.",
+    "experience": [
+      {
+        "title": "HR Manager",
+        "company_type": "Amazon",
+        "years": "2018–Present",
+        "bullets": [
+          "Managed HR operations supporting over 600 employees across multiple operational teams, advising senior leadership on workforce planning and organizational design.",
+          "Led initiatives to improve employee retention by implementing targeted engagement strategies, reducing annual turnover by 17%.",
+          "Developed leadership training programs for frontline managers, improving team productivity and performance review outcomes."
+        ]
+      },
+      {
+        "title": "HR Business Partner",
+        "company_type": "PwC",
+        "years": "2015–2018",
+        "bullets": [
+          "Partnered with business unit leaders to implement HR strategies supporting large consulting teams across multiple client engagements.",
+          "Conducted HR analytics reporting including attrition and hiring metrics to inform workforce planning decisions.",
+          "Managed complex employee relations cases ensuring compliance with workplace regulations and company policies."
+        ]
+      }
+    ],
+    "skills": [
+      "HR Business Partnering",
+      "Workforce Planning",
+      "Employee Relations",
+      "Leadership Development",
+      "HR Analytics",
+      "Organizational Development"
+    ],
+    "projects": [
+      {
+        "name": "Workforce Planning Optimization Initiative",
+        "impact": "Developed workforce planning models that improved hiring forecasts and supported rapid operational expansion."
+      },
+      {
+        "name": "Leadership Development Framework",
+        "impact": "Designed and implemented leadership coaching programs that improved management effectiveness across operational teams."
+      }
+    ],
+    "certifications": [
+      "Senior Professional in Human Resources (SPHR)"
+    ]
+  },
+  {
+    "candidate_id": "hr_manager_resume_3",
+    "industry_target": "HR",
+    "seniority_level": "Managerial",
+    "name": "Jessica Patel",
+    "education": [
+      {
+        "degree": "Master of Human Resources and Industrial Relations",
+        "institution": "University of Sydney",
+        "year": "2015"
+      },
+      {
+        "degree": "Bachelor of Commerce (Human Resources)",
+        "institution": "University of New South Wales",
+        "year": "2012"
+      }
+    ],
+    "summary": "Strategic HR Manager with strong experience in HR transformation, talent development, and organizational culture initiatives within technology companies.",
+    "experience": [
+      {
+        "title": "HR Manager",
+        "company_type": "Atlassian",
+        "years": "2019–Present",
+        "bullets": [
+          "Oversaw HR programs supporting engineering and product teams of over 300 employees, aligning HR initiatives with company growth strategy.",
+          "Introduced HR data dashboards tracking engagement, retention, and hiring metrics, enabling leadership to make data-driven workforce decisions.",
+          "Implemented structured performance management frameworks improving transparency and career development opportunities."
+        ]
+      },
+      {
+        "title": "Senior HR Advisor",
+        "company_type": "Accenture",
+        "years": "2015–2019",
+        "bullets": [
+          "Supported talent management and recruitment for large consulting teams across multiple client engagements.",
+          "Developed employee development programs that improved promotion readiness among high-potential employees.",
+          "Advised leadership teams on HR policy implementation and employee relations matters."
+        ]
+      }
+    ],
+    "skills": [
+      "HR Transformation",
+      "Talent Development",
+      "Performance Management",
+      "HR Data Analytics",
+      "Employee Experience",
+      "Organizational Culture"
+    ],
+    "projects": [
+      {
+        "name": "HR Digital Transformation Program",
+        "impact": "Implemented HRIS automation tools that streamlined HR reporting and improved operational efficiency."
+      },
+      {
+        "name": "High‑Potential Employee Development Program",
+        "impact": "Designed development tracks for emerging leaders improving promotion readiness and retention."
+      }
+    ],
+    "certifications": [
+      "Certified Human Resources Manager (CHRM)"
+    ]
+  },
+  {
+    "candidate_id": "hr_senior_resume_1",
+    "industry_target": "HR",
+    "seniority_level": "Senior",
+    "name": "Sarah Williams",
+    "education": [
+      {
+        "degree": "Master of Human Resource Management",
+        "institution": "University of New South Wales",
+        "year": "2017"
+      },
+      {
+        "degree": "Bachelor of Business Administration",
+        "institution": "Macquarie University",
+        "year": "2014"
+      }
+    ],
+    "summary": "Senior HR Specialist with 8+ years of experience in talent acquisition, workforce planning, and employee engagement. Proven ability to lead recruitment initiatives, improve HR processes, and support organizational growth.",
+    "experience": [
+      {
+        "title": "Senior HR Specialist",
+        "company_type": "Technology Company",
+        "years": "2019–Present",
+        "bullets": [
+          "Led end‑to‑end recruitment for engineering and product teams, managing 150+ candidate pipelines annually and reducing average hiring cycle time by 20%.",
+          "Partnered with department heads to design workforce planning strategies supporting company growth from 120 to 200 employees.",
+          "Implemented structured onboarding programs that improved first‑year employee retention by 18%."
+        ]
+      },
+      {
+        "title": "HR Generalist",
+        "company_type": "SaaS Startup",
+        "years": "2016–2019",
+        "bullets": [
+          "Managed employee lifecycle activities including onboarding, performance reviews, and HR policy implementation.",
+          "Introduced employee engagement initiatives that increased internal survey satisfaction scores by 15%.",
+          "Maintained HRIS records and produced HR analytics reports used by leadership for workforce decisions."
+        ]
+      }
+    ],
+    "skills": [
+      "Talent Acquisition",
+      "HRIS Systems",
+      "Workforce Planning",
+      "Employee Engagement",
+      "Performance Management",
+      "HR Analytics"
+    ],
+    "projects": [
+      {
+        "name": "Recruitment Process Optimization",
+        "impact": "Redesigned recruitment workflows and interview processes, improving hiring efficiency and reducing time‑to‑hire across technical roles."
+      },
+      {
+        "name": "Employee Engagement Initiative",
+        "impact": "Launched engagement programs and feedback systems that improved employee participation and workplace satisfaction."
+      }
+    ],
+    "certifications": [
+      "SHRM Certified Professional (SHRM‑CP)"
+    ]
+  },
+  {
+    "candidate_id": "hr_senior_resume_2",
+    "industry_target": "HR",
+    "seniority_level": "Senior",
+    "name": "Michael Torres",
+    "education": [
+      {
+        "degree": "Master of Organizational Psychology",
+        "institution": "University of Melbourne",
+        "year": "2016"
+      },
+      {
+        "degree": "Bachelor of Psychology",
+        "institution": "University of Queensland",
+        "year": "2013"
+      }
+    ],
+    "summary": "Senior HR Business Partner with strong expertise in talent management, organizational development, and HR operations. Experienced in aligning HR strategies with business objectives.",
+    "experience": [
+      {
+        "title": "Senior HR Business Partner",
+        "company_type": "Global Consulting Firm",
+        "years": "2018–Present",
+        "bullets": [
+          "Advised leadership teams on workforce strategy across departments with over 400 employees.",
+          "Implemented performance management frameworks reducing voluntary turnover by 12%.",
+          "Delivered leadership training programs improving management capability across teams."
+        ]
+      },
+      {
+        "title": "HR Advisor",
+        "company_type": "Financial Services Company",
+        "years": "2015–2018",
+        "bullets": [
+          "Provided HR advisory support on employee relations and workplace policy compliance.",
+          "Analyzed HR metrics including turnover and absenteeism to identify organizational improvements.",
+          "Supported recruitment campaigns successfully filling over 80 professional roles annually."
+        ]
+      }
+    ],
+    "skills": [
+      "HR Business Partnering",
+      "Organizational Development",
+      "Employee Relations",
+      "Leadership Coaching",
+      "HR Metrics & Analytics",
+      "Performance Management"
+    ],
+    "projects": [
+      {
+        "name": "Leadership Development Program",
+        "impact": "Designed leadership training initiatives improving management capabilities across the organization."
+      },
+      {
+        "name": "HR Data Analytics Initiative",
+        "impact": "Developed HR data dashboards allowing leadership to monitor workforce trends and improve decision making."
+      }
+    ],
+    "certifications": [
+      "Senior Professional in Human Resources (SPHR)"
+    ]
+  },
+  {
+    "candidate_id": "hr_senior_resume_3",
+    "industry_target": "HR",
+    "seniority_level": "Senior",
+    "name": "Laura Nguyen",
+    "education": [
+      {
+        "degree": "Master of Human Resources and Industrial Relations",
+        "institution": "University of Sydney",
+        "year": "2016"
+      },
+      {
+        "degree": "Bachelor of Commerce (HR Major)",
+        "institution": "University of Adelaide",
+        "year": "2013"
+      }
+    ],
+    "summary": "Senior HR Manager with extensive experience leading HR operations, talent development, and organizational culture initiatives.",
+    "experience": [
+      {
+        "title": "Senior HR Manager",
+        "company_type": "E‑commerce Company",
+        "years": "2019–Present",
+        "bullets": [
+          "Managed HR operations for a workforce of 300+ employees across recruitment, employee relations, and performance management.",
+          "Led company‑wide culture initiatives improving engagement scores by 22% in annual surveys.",
+          "Developed HR policies and training programs supporting rapid organizational expansion."
+        ]
+      },
+      {
+        "title": "HR Manager",
+        "company_type": "Retail Group",
+        "years": "2016–2019",
+        "bullets": [
+          "Oversaw recruitment and onboarding processes hiring over 120 staff annually.",
+          "Implemented standardized performance evaluation systems improving employee development planning.",
+          "Managed employee relations cases ensuring compliance with workplace regulations."
+        ]
+      }
+    ],
+    "skills": [
+      "HR Operations",
+      "Employee Relations",
+      "Talent Development",
+      "HR Policy Development",
+      "Workforce Planning",
+      "Leadership & Team Management"
+    ],
+    "projects": [
+      {
+        "name": "Company Culture Transformation Program",
+        "impact": "Introduced engagement and leadership communication initiatives improving workplace culture."
+      },
+      {
+        "name": "HR Process Digitalization",
+        "impact": "Implemented HRIS automation tools streamlining HR administration and reporting efficiency."
+      }
+    ],
+    "certifications": [
+      "Certified Human Resources Manager (CHRM)"
+    ]
+  }
+]

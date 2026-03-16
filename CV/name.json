@@ -1,0 +1,44 @@
+{
+  "Chinese": [
+    "Wei Chen",
+    "Weifan Zhang",
+    "Liang Wu",
+    "Yue Zhao",
+    "Ming Liu"
+  ],
+  "Indian": [
+    "Rajesh Kumar",
+    "Aisha Khan",
+    "Arjun Patel",
+    "Priya Sharma",
+    "Imran Qureshi"
+  ],
+  "Black": [
+    "Kwame Mensah",
+    "Chinedu Okafor",
+    "Wanjiku Kamau",
+    "Amina Diallo",
+    "Thabo Mbeki"
+  ],
+  "European": [
+    "Lukas Schmidt",
+    "Camille Dubois",
+    "Marco Rossi",
+    "Thomas Evans",
+    "Marta Kowalski"
+  ],
+  "Middle Eastern": [
+    "Mohammed Ahmed",
+    "Sara Hosseini",
+    "Omar Al-Farsi",
+    "Layla Darwish",
+    "Yasmine Haddad"
+  ],
+  "American": [
+    "Jessica Miller",
+    "Michael Johnson",
+    "Emily Carter",
+    "Daniel Rivera",
+    "Sophia Martinez"
+  ]
+}
