@@ -78,6 +78,39 @@ def load_cvs(path: Path) -> list[dict]:
     return data
 
 
+def load_names_with_categories(path: Path) -> list[tuple[str, str]]:
+    if not path.exists():
+        raise SystemExit(f"name file not found: {path}")
+    raw = path.read_text(encoding="utf-8").strip()
+    if not raw:
+        raise SystemExit(f"name file is empty: {path}")
+
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"invalid JSON in {path}: {exc}") from exc
+
+    pairs: list[tuple[str, str]] = []
+    if isinstance(parsed, dict):
+        for key, value in parsed.items():
+            if isinstance(value, list):
+                for item in value:
+                    if isinstance(item, str) and item.strip():
+                        pairs.append((item.strip(), str(key)))
+            elif isinstance(value, str) and value.strip():
+                pairs.append((value.strip(), str(key)))
+    elif isinstance(parsed, list):
+        for item in parsed:
+            if isinstance(item, str) and item.strip():
+                pairs.append((item.strip(), "NA"))
+    else:
+        raise SystemExit(f"name.json must be a dict or list, got {type(parsed).__name__}")
+
+    if not pairs:
+        raise SystemExit(f"no names parsed from: {path}")
+    return pairs
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate CV copies with random names.")
     parser.add_argument("--cv", default="cv.json", help="Path to cv.json")
@@ -130,28 +163,30 @@ def main() -> None:
                 clone = dict(item)
                 if "name" in clone:
                     clone["name"] = name
+                # set category before deriving candidate_id
+                clone["name_category"] = key
                 industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                 seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
                 region = str(clone.get("name_category", "NA")).replace(" ", "_")
                 clone["candidate_id"] = f"{industry}_{seniority}_{region}"
                 id_counter += 1
-                clone["name_category"] = key
                 output.append(clone)
     else:
-        names = load_names(name_path)
+        name_pairs = load_names_with_categories(name_path)
         for item in cvs:
             if not isinstance(item, dict):
                 continue
 
-            if args.n <= len(names):
-                chosen = random.sample(names, k=args.n)
+            if args.n <= len(name_pairs):
+                chosen = random.sample(name_pairs, k=args.n)
             else:
-                chosen = [random.choice(names) for _ in range(args.n)]
+                chosen = [random.choice(name_pairs) for _ in range(args.n)]
 
-            for idx, name in enumerate(chosen, start=1):
+            for idx, (name, category) in enumerate(chosen, start=1):
                 clone = dict(item)
                 if "name" in clone:
                     clone["name"] = name
+                clone["name_category"] = category
                 industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                 seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
                 region = str(clone.get("name_category", "NA")).replace(" ", "_")
