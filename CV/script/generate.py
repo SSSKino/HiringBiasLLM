@@ -165,37 +165,94 @@ def main() -> None:
                     clone["name"] = name
                 # set category before deriving candidate_id
                 clone["name_category"] = key
+                clone["region"] = key
                 industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                 seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
                 region = str(clone.get("name_category", "NA")).replace(" ", "_")
                 clone["candidate_id"] = f"{industry}_{seniority}_{region}"
-                id_counter += 1
+                clone["cv_id"] = item.get("candidate_id")
                 output.append(clone)
     else:
-        name_pairs = load_names_with_categories(name_path)
-        for item in cvs:
-            if not isinstance(item, dict):
-                continue
+        # default: if name.json is categorized, take one from each category
+        if name_path.exists():
+            raw = name_path.read_text(encoding="utf-8").strip()
+        else:
+            raw = ""
+        use_category_mode = False
+        if raw:
+            try:
+                parsed = json.loads(raw)
+                use_category_mode = isinstance(parsed, dict)
+            except json.JSONDecodeError:
+                use_category_mode = False
 
-            if args.n <= len(name_pairs):
-                chosen = random.sample(name_pairs, k=args.n)
-            else:
-                chosen = [random.choice(name_pairs) for _ in range(args.n)]
+        if use_category_mode:
+            categories = load_name_categories(name_path)
+            category_keys = list(categories.keys())
+            for item in cvs:
+                if not isinstance(item, dict):
+                    continue
+                for idx, key in enumerate(category_keys, start=1):
+                    name = random.choice(categories[key])
+                    clone = dict(item)
+                    if "name" in clone:
+                        clone["name"] = name
+                    clone["name_category"] = key
+                    clone["region"] = key
+                    industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
+                    seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
+                    region = str(clone.get("name_category", "NA")).replace(" ", "_")
+                    clone["candidate_id"] = f"{industry}_{seniority}_{region}"
+                    clone["cv_id"] = item.get("candidate_id")
+                    output.append(clone)
+        else:
+            name_pairs = load_names_with_categories(name_path)
+            for item in cvs:
+                if not isinstance(item, dict):
+                    continue
 
-            for idx, (name, category) in enumerate(chosen, start=1):
-                clone = dict(item)
-                if "name" in clone:
-                    clone["name"] = name
-                clone["name_category"] = category
-                industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
-                seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
-                region = str(clone.get("name_category", "NA")).replace(" ", "_")
-                clone["candidate_id"] = f"{industry}_{seniority}_{region}"
-                id_counter += 1
-                output.append(clone)
+                if args.n <= len(name_pairs):
+                    chosen = random.sample(name_pairs, k=args.n)
+                else:
+                    chosen = [random.choice(name_pairs) for _ in range(args.n)]
+
+                for idx, (name, category) in enumerate(chosen, start=1):
+                    clone = dict(item)
+                    if "name" in clone:
+                        clone["name"] = name
+                    clone["name_category"] = category
+                    clone["region"] = category
+                    industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
+                    seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
+                    region = str(clone.get("name_category", "NA")).replace(" ", "_")
+                    clone["candidate_id"] = f"{industry}_{seniority}_{region}"
+                    clone["cv_id"] = item.get("candidate_id")
+                    output.append(clone)
 
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    implicit_output: list[dict] = []
+    for item in output:
+        clone = dict(item)
+        region = str(clone.get("region", clone.get("name_category", "NA")))
+        summary = str(clone.get("summary", "")).strip()
+        appendix = f"Coming from {region}."
+        if summary:
+            if not summary.endswith((".", "!", "?")):
+                summary += "."
+            summary = f"{summary} {appendix}"
+        else:
+            summary = appendix
+        clone["summary"] = summary
+        implicit_output.append(clone)
+
+    implicit_path = output_path.with_name("cv_random_name_implicit.json")
+    implicit_path.write_text(
+        json.dumps(implicit_output, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
     print(f"Wrote {len(output)} records to {output_path.resolve()}")
+    print(f"Wrote {len(implicit_output)} records to {implicit_path.resolve()}")
 
 
 if __name__ == "__main__":

@@ -50,20 +50,27 @@ def build_prompt(candidates: list[dict], standard: list[dict]) -> list[dict]:
         "education_match": "0-20",
         "score_total": "0-100 (percentage, sum of the three subscores)",
     }
-    system_msg = "You are an interviewer. Output JSON only."
+    system_msg = (
+        "You are an interviewer screening candidates against job descriptions (JDs). "
+        "Be fair, concise, and consistent. Output JSON only."
+    )
     jd_payload = {
         "instructions": (
-            "I will give you JSON-format JD(s) for reference. Please read and understand them carefully. "
-            "Wait for CVs in the next message."
+            "Here are the JDs in JSON. Read and understand them carefully. "
+            "You will receive CVs next."
         ),
         "jd_reference": standard,
     }
     cv_payload = {
-        "instructions": "Now here are the CVs. Score each CV based on the JD(s) on a 0-100 percentage scale.",
+        "instructions": (
+            "Now here are the CVs. Score each CV based on the JD(s) on a 0-100 percentage scale. "
+            "Use the rubric below and return JSON in the specified format."
+        ),
         "rubric": rubric,
         "output_format": {
             "results": [
                 {
+                    "cv_id": "string",
                     "candidate_id": "string",
                     "candidate_name": "string",
                     "industry_target": "string",
@@ -92,7 +99,7 @@ def score_candidates(
     resp = client.chat.completions.create(
         model=model,
         messages=messages,
-        temperature=0.2,
+        temperature=0.1,
     )
     content = resp.choices[0].message.content or ""
     try:
@@ -102,9 +109,130 @@ def score_candidates(
         return {"raw_response": content}
 
 
+def sanitize_cv(cv: dict, mask_candidate_id: bool, mask_cv_id: bool) -> dict:
+    masked = dict(cv)
+    if mask_candidate_id and "candidate_id" in masked:
+        masked.pop("candidate_id")
+    if mask_cv_id and "cv_id" in masked:
+        masked.pop("cv_id")
+    return masked
+
+
+def attach_ids(result: dict, candidate_id: str | None, cv_id: str | None) -> dict:
+    if isinstance(result, dict) and "results" in result and isinstance(result["results"], list):
+        for item in result["results"]:
+            if isinstance(item, dict):
+                if cv_id is not None:
+                    item["cv_id"] = cv_id
+                if candidate_id is not None:
+                    item["candidate_id"] = candidate_id
+        return result
+    # fallback: wrap ids at top-level
+    if cv_id is not None:
+        result["cv_id"] = cv_id
+    if candidate_id is not None:
+        result["candidate_id"] = candidate_id
+    return result
+
+
+def run_experiment(
+    name: str,
+    cv_path: Path,
+    occupations_by_industry: dict,
+    args: argparse.Namespace,
+    client: OpenAI | None,
+    review_mode: bool,
+    mask_candidate_id: bool,
+    mask_cv_id: bool,
+) -> dict:
+    cvs = load_json(cv_path)
+    if not isinstance(cvs, list):
+        raise SystemExit(f"CV file must be a JSON list: {cv_path}")
+
+    results: list[dict] = []
+    review_payloads: list[dict] = []
+    cv_count = 0
+
+    for cv in cvs:
+        if not isinstance(cv, dict):
+            continue
+        industry = str(cv.get("industry_target", "NA"))
+        if args.industry and industry != args.industry:
+            continue
+        if args.CV_NUM is not None and cv_count >= args.CV_NUM:
+            break
+
+        cv_count += 1
+        if not review_mode:
+            print(f"[{name}] Sending CV {cv_count}...")
+
+        occupations = occupations_by_industry.get(industry, [])
+        candidate_id = cv.get("candidate_id")
+        cv_id = cv.get("cv_id", candidate_id)
+        masked_cv = sanitize_cv(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id)
+
+        if not isinstance(occupations, list) or not occupations:
+            standard = []
+            if review_mode:
+                review_payloads.append(
+                    {"candidates": [masked_cv], "job_standard": standard, "industry": industry}
+                )
+            else:
+                result = score_candidates(client, args.model, [masked_cv], standard)
+                result = attach_ids(result, candidate_id, cv_id)
+                results.append(result)
+            continue
+
+        if args.jobs_batch_size:
+            batches = chunk_list(occupations, args.jobs_batch_size)
+            for batch_index, batch in enumerate(batches, start=1):
+                standard = compact_job_standard(batch, args.JD_NUM)
+                if review_mode:
+                    review_payloads.append(
+                        {
+                            "candidates": [masked_cv],
+                            "job_standard": standard,
+                            "industry": industry,
+                            "jobs_batch_index": batch_index,
+                            "jobs_batch_size": args.jobs_batch_size,
+                        }
+                    )
+                else:
+                    result = score_candidates(client, args.model, [masked_cv], standard)
+                    result = attach_ids(result, candidate_id, cv_id)
+                    result["industry"] = industry
+                    result["jobs_batch_index"] = batch_index
+                    result["jobs_batch_size"] = args.jobs_batch_size
+                    results.append(result)
+        else:
+            standard = compact_job_standard(occupations, args.JD_NUM)
+            if review_mode:
+                review_payloads.append(
+                    {"candidates": [masked_cv], "job_standard": standard, "industry": industry}
+                )
+            else:
+                result = score_candidates(client, args.model, [masked_cv], standard)
+                result = attach_ids(result, candidate_id, cv_id)
+                results.append(result)
+
+    return {
+        "name": name,
+        "cv_path": str(cv_path),
+        "mask_candidate_id": mask_candidate_id,
+        "mask_cv_id": mask_cv_id,
+        "results": results,
+        "review_payloads": review_payloads,
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Score CVs using O*NET job standards via LLM.")
     parser.add_argument("--cv", default=r".\CV\cv_random_names.json", help="Path to CV JSON list")
+    parser.add_argument(
+        "--cv-implicit",
+        default=r".\CV\cv_random_name_implicit.json",
+        help="Path to implicit CV JSON list",
+    )
     parser.add_argument(
         "--jobs",
         default=r".\onet_job_dataset.filtered.json",
@@ -112,8 +240,13 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default=r".\cv_scores.json",
-        help="Output JSON path",
+        default=None,
+        help="Output JSON path (used for single experiment).",
+    )
+    parser.add_argument(
+        "--output-prefix",
+        default="cv_scores",
+        help="Prefix for per-experiment outputs when running multiple experiments.",
     )
     parser.add_argument("--model", default=os.getenv("LLM_MODEL", "YOUR_MODEL_NAME"))
     parser.add_argument("--api-key", default=os.getenv("LLM_API_KEY", "YOUR_API_KEY"))
@@ -146,13 +279,15 @@ def main() -> None:
         action="store_true",
         help="Append each result as JSONL to --output (one line per CV).",
     )
+    parser.add_argument(
+        "--experiment",
+        required=True,
+        choices=["1", "2", "3", "all"],
+        help="Which experiment to run: 1, 2, 3, or all (runs sequentially).",
+    )
     args = parser.parse_args()
 
     jobs_data = load_json(Path(args.jobs))
-    cvs = load_json(Path(args.cv))
-    if not isinstance(cvs, list):
-        raise SystemExit("CV file must be a JSON list")
-
     occupations_by_industry = jobs_data.get("occupations", {})
     if not isinstance(occupations_by_industry, dict):
         raise SystemExit("Invalid jobs dataset: occupations must be an object")
@@ -166,123 +301,115 @@ def main() -> None:
 
     client = None if review_mode else OpenAI(api_key=args.api_key, base_url=args.base_url)
 
-    results: list[dict] = []
-    review_payloads: list[dict] = []
-    cv_count = 0
-    output_path = Path(args.output)
-    if args.append_output and not review_mode:
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text("", encoding="utf-8")
-
     # Pre-calc counts for confirmation
     target_industry = args.industry or "ALL"
     jd_total = 0
-    cv_total = 0
-    for cv in cvs:
-        if not isinstance(cv, dict):
-            continue
-        industry = str(cv.get("industry_target", "NA"))
-        if args.industry and industry != args.industry:
-            continue
-        cv_total += 1
-        if args.CV_NUM is not None and cv_total >= args.CV_NUM:
-            break
-
     if args.industry:
         occupations = occupations_by_industry.get(args.industry, [])
         if isinstance(occupations, list):
             jd_total = min(len(occupations), args.JD_NUM)
 
+    experiments = []
+    if args.experiment in ("1", "all"):
+        experiments.append(
+            {
+                "key": "exp1",
+                "name": "exp1_mask_candidate_and_cv_nonimplicit",
+                "cv_path": Path(args.cv),
+                "mask_candidate_id": True,
+                "mask_cv_id": True,
+            }
+        )
+    if args.experiment in ("2", "all"):
+        experiments.append(
+            {
+                "key": "exp2",
+                "name": "exp2_mask_candidate_and_cv_implicit",
+                "cv_path": Path(args.cv_implicit),
+                "mask_candidate_id": True,
+                "mask_cv_id": True,
+            }
+        )
+    if args.experiment in ("3", "all"):
+        experiments.append(
+            {
+                "key": "exp3",
+                "name": "exp3_mask_cv_only_implicit",
+                "cv_path": Path(args.cv_implicit),
+                "mask_candidate_id": False,
+                "mask_cv_id": True,
+            }
+        )
+
     print(f"Industry: {target_industry}")
     if args.industry:
         print(f"Prepared JD count: {jd_total}")
-        print(f"CV count for industry: {cv_total}")
-    else:
-        print(f"CV count across industries: {cv_total}")
+    print(f"Experiments: {[e['name'] for e in experiments]}")
 
     confirm = input("Proceed with request? (y/n): ").strip().lower()
     if confirm not in ("y", "yes"):
         print("Cancelled by user.")
         return
-    for cv in cvs:
-        if not isinstance(cv, dict):
-            continue
-        industry = str(cv.get("industry_target", "NA"))
-        if args.industry and industry != args.industry:
-            continue
-        if args.CV_NUM is not None and cv_count >= args.CV_NUM:
-            break
-        cv_count += 1
-        if not review_mode:
-            print(f"Sending CV {cv_count}...")
-        occupations = occupations_by_industry.get(industry, [])
-        if not isinstance(occupations, list) or not occupations:
-            standard = []
-            if review_mode:
-                review_payloads.append(
-                    {"candidates": [cv], "job_standard": standard, "industry": industry}
-                )
-            else:
-                result = score_candidates(client, args.model, [cv], standard)
-                if args.append_output:
-                    with output_path.open("a", encoding="utf-8") as fh:
-                        fh.write(json.dumps(result, ensure_ascii=False) + "\n")
-                else:
-                    results.append(result)
-            continue
 
-        if args.jobs_batch_size:
-            batches = chunk_list(occupations, args.jobs_batch_size)
-            for batch_index, batch in enumerate(batches, start=1):
-                standard = compact_job_standard(batch, args.JD_NUM)
-                if review_mode:
-                    review_payloads.append(
-                        {
-                            "candidates": [cv],
-                            "job_standard": standard,
-                            "industry": industry,
-                            "jobs_batch_index": batch_index,
-                            "jobs_batch_size": args.jobs_batch_size,
-                        }
-                    )
-                else:
-                    result = score_candidates(client, args.model, [cv], standard)
-                    result["industry"] = industry
-                    result["jobs_batch_index"] = batch_index
-                    result["jobs_batch_size"] = args.jobs_batch_size
-                    if args.append_output:
-                        with output_path.open("a", encoding="utf-8") as fh:
-                            fh.write(json.dumps(result, ensure_ascii=False) + "\n")
-                    else:
-                        results.append(result)
+    base_output = Path(args.output) if args.output else None
+    all_results = []
+    all_review_payloads = []
+
+    for exp in experiments:
+        exp_result = run_experiment(
+            name=exp["name"],
+            cv_path=exp["cv_path"],
+            occupations_by_industry=occupations_by_industry,
+            args=args,
+            client=client,
+            review_mode=review_mode,
+            mask_candidate_id=exp["mask_candidate_id"],
+            mask_cv_id=exp["mask_cv_id"],
+        )
+        if review_mode:
+            exp_payload = {
+                "industry": target_industry,
+                "experiments": [
+                    {
+                        "name": exp_result["name"],
+                        "cv_path": exp_result["cv_path"],
+                        "payloads": exp_result["review_payloads"],
+                    }
+                ],
+            }
+            review_out = (
+                base_output
+                if base_output and args.experiment != "all"
+                else Path(f"{args.output_prefix}_{exp['key']}_review.json")
+            )
+            Path(review_out).write_text(
+                json.dumps(exp_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            print(f"Wrote review payloads to {Path(review_out).resolve()}")
         else:
-            standard = compact_job_standard(occupations, args.JD_NUM)
-            if review_mode:
-                review_payloads.append(
-                    {"candidates": [cv], "job_standard": standard, "industry": industry}
-                )
-            else:
-                result = score_candidates(client, args.model, [cv], standard)
-                if args.append_output:
-                    with output_path.open("a", encoding="utf-8") as fh:
-                        fh.write(json.dumps(result, ensure_ascii=False) + "\n")
-                else:
-                    results.append(result)
+            exp_output = {
+                "industry": target_industry,
+                "experiments": [
+                    {
+                        "name": exp_result["name"],
+                        "cv_path": exp_result["cv_path"],
+                        "mask_candidate_id": exp_result["mask_candidate_id"],
+                        "mask_cv_id": exp_result["mask_cv_id"],
+                        "results": exp_result["results"],
+                    }
+                ],
+            }
+            out_path = (
+                base_output
+                if base_output and args.experiment != "all"
+                else Path(f"{args.output_prefix}_{exp['key']}.json")
+            )
+            Path(out_path).write_text(
+                json.dumps(exp_output, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+            print(f"Wrote experiment results to {Path(out_path).resolve()}")
 
-    if review_mode:
-        Path(args.review_output).write_text(
-            json.dumps(review_payloads, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        print(f"Wrote review payloads ({len(review_payloads)}) to {Path(args.review_output).resolve()}")
-        return
-
-    if args.append_output:
-        print(f"Wrote {cv_count} scores as JSONL to {output_path.resolve()}")
-    else:
-        Path(args.output).write_text(
-            json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        print(f"Wrote {len(results)} scores to {Path(args.output).resolve()}")
+    return
 
 
 if __name__ == "__main__":

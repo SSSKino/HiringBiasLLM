@@ -1,0 +1,3469 @@
+{
+  "industry": "ALL",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "CV\\cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 55,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 48,
+              "scores": {
+                "skills_match": 18,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 55,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_01",
+              "candidate_id": "Finance_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 55,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 17,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 10,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 18,
+                "experience_match": 12,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 43,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 10,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_02",
+              "candidate_id": "Finance_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 44,
+              "scores": {
+                "skills_match": 18,
+                "experience_match": 10,
+                "education_match": 16
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 53,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 10,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 53,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 10,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 24,
+                "experience_match": 18,
+                "education_match": 16
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 12,
+                "education_match": 16
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 55,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_JUN_03",
+              "candidate_id": "Finance_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 12,
+                "education_match": 13
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 87,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_01",
+              "candidate_id": "Finance_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 38,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 91,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 38,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_02",
+              "candidate_id": "Finance_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 96,
+              "scores": {
+                "skills_match": 38,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_SEN_03",
+              "candidate_id": "Finance_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 68,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 22,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 93,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 84,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_01",
+              "candidate_id": "Finance_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 68,
+              "scores": {
+                "skills_match": 24,
+                "experience_match": 24,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Finance",
+              "score_total": 76,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 68,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 22,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_02",
+              "candidate_id": "Finance_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 76,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Finance",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 37,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Investment Fund Managers",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 33,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Finance",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Finance",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "FIN_MAN_03",
+              "candidate_id": "Finance_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Finance",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 33,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_01",
+              "candidate_id": "Legal_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 73,
+              "scores": {
+                "skills_match": 23,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 30,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_02",
+              "candidate_id": "Legal_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 30,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_JUN_03",
+              "candidate_id": "Legal_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 83,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_01",
+              "candidate_id": "Legal_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 38,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 35,
+                "education_match": 19
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 87,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 19
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_02",
+              "candidate_id": "Legal_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 89,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 33,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_SEN_03",
+              "candidate_id": "Legal_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 72,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 77,
+              "scores": {
+                "skills_match": 24,
+                "experience_match": 33,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 63,
+              "scores": {
+                "skills_match": 18,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_01",
+              "candidate_id": "Legal_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 36,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 74,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_02",
+              "candidate_id": "Legal_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 84,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Legal",
+              "score_total": 68,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 26,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "Legal",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Legal",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 20,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "Legal",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "Legal",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "LEG_MAN_03",
+              "candidate_id": "Legal_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Legal",
+              "score_total": 65,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 15,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 62,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 15,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 65,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 15,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "Management Analysts",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 12,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "Management Analysts",
+              "score_total": 62,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 18,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 52,
+              "scores": {
+                "skills_match": 18,
+                "experience_match": 14,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 16,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 15,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 66,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 18,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_2",
+              "candidate_id": "IT_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 63,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 20,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 52,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 56,
+              "scores": {
+                "skills_match": 24,
+                "experience_match": 14,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 58,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 12,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 68,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 20,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 65,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 20,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_3",
+              "candidate_id": "IT_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 53,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 15,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 35,
+                "education_match": 16
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 36,
+                "education_match": 16
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_1",
+              "candidate_id": "IT_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 91,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 65,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 20,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 30,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 20,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 60,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 20,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_2",
+              "candidate_id": "IT_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 65,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 25,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 29,
+                "experience_match": 37,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "senior_it_resume_3",
+              "candidate_id": "IT_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 93,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 75,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 27,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 78,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 26,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 33,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_1",
+              "candidate_id": "IT_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 77,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 82,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 74,
+              "scores": {
+                "skills_match": 24,
+                "experience_match": 32,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 67,
+              "scores": {
+                "skills_match": 25,
+                "experience_match": 22,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 22,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_2",
+              "candidate_id": "IT_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 70,
+              "scores": {
+                "skills_match": 22,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "IT",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "IT",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 28,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "IT",
+              "score_total": 83,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "IT",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "IT",
+              "score_total": 55,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 22,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "staff_lead_resume_3",
+              "candidate_id": "IT_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "IT",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 34,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "Human Resources Managers",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 30,
+              "scores": {
+                "skills_match": 10,
+                "experience_match": 5,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 38,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_1",
+              "candidate_id": "HR_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 33,
+              "scores": {
+                "skills_match": 10,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 35,
+              "scores": {
+                "skills_match": 12,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 50,
+              "scores": {
+                "skills_match": 20,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 35,
+              "scores": {
+                "skills_match": 12,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 40,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 5,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 38,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_2",
+              "candidate_id": "HR_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 40,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 5,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 35,
+              "scores": {
+                "skills_match": 12,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 45,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 10,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 33,
+              "scores": {
+                "skills_match": 10,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 35,
+              "scores": {
+                "skills_match": 15,
+                "experience_match": 5,
+                "education_match": 15
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_junior_resume_3",
+              "candidate_id": "HR_Junior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 33,
+              "scores": {
+                "skills_match": 10,
+                "experience_match": 5,
+                "education_match": 18
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 93,
+              "scores": {
+                "skills_match": 36,
+                "experience_match": 37,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 37,
+                "education_match": 19
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_1",
+              "candidate_id": "HR_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_2",
+              "candidate_id": "HR_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 84,
+              "scores": {
+                "skills_match": 26,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 93,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 91,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_manager_resume_3",
+              "candidate_id": "HR_Managerial_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 34,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 84,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 31,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 80,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 32,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_1",
+              "candidate_id": "HR_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 35,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 84,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 87,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 37,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 85,
+              "scores": {
+                "skills_match": 29,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_2",
+              "candidate_id": "HR_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_Chinese",
+              "candidate_name": "Weifan Zhang",
+              "industry_target": "HR",
+              "score_total": 90,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_Indian",
+              "candidate_name": "Imran Qureshi",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 32,
+                "experience_match": 36,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_Africa",
+              "candidate_name": "Thabo Mbeki",
+              "industry_target": "HR",
+              "score_total": 86,
+              "scores": {
+                "skills_match": 28,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_European",
+              "candidate_name": "Lukas Schmidt",
+              "industry_target": "HR",
+              "score_total": 93,
+              "scores": {
+                "skills_match": 35,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_Middle_Eastern",
+              "candidate_name": "Mohammed Ahmed",
+              "industry_target": "HR",
+              "score_total": 88,
+              "scores": {
+                "skills_match": 30,
+                "experience_match": 38,
+                "education_match": 20
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "hr_senior_resume_3",
+              "candidate_id": "HR_Senior_American",
+              "candidate_name": "Michael Johnson",
+              "industry_target": "HR",
+              "score_total": 92,
+              "scores": {
+                "skills_match": 33,
+                "experience_match": 39,
+                "education_match": 20
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
