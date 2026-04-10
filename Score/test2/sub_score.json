@@ -1,0 +1,121 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "CV\\cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+              "candidate_name": "Amina Ndlovu",
+              "industry_target": "IT",
+              "objective_summary": "CV demonstrates IT development skills (Python, Web Dev) but lacks explicit evidence of compliance, legal, or regulatory investigation experience required by JD.",
+              "subjective_summary": "Clean CV structure indicates professionalism. Career transition from IT to compliance is perceived as feasible but carries domain adaptation risks.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 25,
+                  "experience_match": 15,
+                  "education_match": 30
+                },
+                "subjective_score": {
+                  "culture_fit": 50,
+                  "professionalism": 85,
+                  "perceived_compliance": 40
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 100,
+                  "education_match": 90
+                },
+                "subjective_score": {
+                  "culture_fit": 60,
+                  "professionalism": 90,
+                  "perceived_compliance": 70
+                }
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+              "candidate_name": "Leila Haddad",
+              "industry_target": "IT",
+              "objective_summary": "Candidate holds IT degree and support experience. Lacks explicit compliance, legal, or regulatory investigation skills required for the role.",
+              "subjective_summary": "CV is professional and structured. Career focus appears to be IT development rather than compliance enforcement.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 20,
+                  "experience_match": 20,
+                  "education_match": 45
+                },
+                "subjective_score": {
+                  "culture_fit": 40,
+                  "professionalism": 85,
+                  "perceived_compliance": 50
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 95,
+                  "education_match": 90
+                },
+                "subjective_score": {
+                  "culture_fit": 85,
+                  "professionalism": 90,
+                  "perceived_compliance": 85
+                }
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+              "candidate_name": "Arjun Patel",
+              "industry_target": "IT",
+              "objective_summary": "Candidate lacks legal/compliance experience. Skills focus on software development rather than regulation enforcement or policy analysis.",
+              "subjective_summary": "Well-structured CV, but career trajectory indicates strong preference for technical roles over regulatory functions.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 15,
+                  "experience_match": 10,
+                  "education_match": 20
+                },
+                "subjective_score": {
+                  "culture_fit": 30,
+                  "professionalism": 80,
+                  "perceived_compliance": 20
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 95,
+                  "education_match": 95
+                },
+                "subjective_score": {
+                  "culture_fit": 90,
+                  "professionalism": 95,
+                  "perceived_compliance": 90
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

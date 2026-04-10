@@ -7,6 +7,10 @@ from statistics import mean, median
 
 import matplotlib.pyplot as plt
 
+# Ensure readable axis labels on Windows
+plt.rcParams["font.family"] = ["Microsoft YaHei", "Arial", "DejaVu Sans"]
+plt.rcParams["axes.unicode_minus"] = False
+
 
 def load_scores(path: Path, experiment: str | None) -> dict[str, list[dict]]:
     if not path.exists():
@@ -71,20 +75,55 @@ def parse_candidate_id(candidate_id: str) -> tuple[str, str, str]:
 def normalize_race(value: str) -> str:
     cleaned = " ".join(value.replace("_", " ").split()).strip().lower()
     mapping = {
-        "chinese": "Chinese",
-        "indian": "Indian",
-        "africa": "Africa",
-        "african": "Africa",
-        "european": "European",
-        "middle eastern": "Middle Eastern",
-        "middleeastern": "Middle Eastern",
-        "american": "American",
+        "sub-saharan africa": "Sub-Saharan Africa",
+        "sub saharan africa": "Sub-Saharan Africa",
+        "northern africa and western asia": "Northern Africa and Western Asia",
+        "central and southern asia": "Central and Southern Asia",
+        "eastern and south-eastern asia": "Eastern and South-Eastern Asia",
+        "eastern and south eastern asia": "Eastern and South-Eastern Asia",
+        "latin america and the caribbean": "Latin America and the Caribbean",
+        "australia and new zealand": "Australia and New Zealand",
+        "europe and northern america": "Europe and Northern America",
     }
     if cleaned in mapping:
         return mapping[cleaned]
     if not cleaned:
         return "NA"
     return cleaned.title()
+
+
+def normalize_record(r: dict) -> dict:
+    scores = r.get("scores", {})
+    obj = scores.get("objective_score", {})
+    subj = scores.get("subjective_score", {})
+
+    def avg(vals: list[float]) -> float:
+        return sum(vals) / len(vals) if vals else 0.0
+
+    obj_avg = avg([v for v in obj.values() if isinstance(v, (int, float))])
+    subj_avg = avg([v for v in subj.values() if isinstance(v, (int, float))])
+    total_avg = (obj_avg + subj_avg) / 2.0
+
+    normalized = dict(r)
+    normalized["group_scores"] = {
+        "objective_score_avg": round(obj_avg, 2),
+        "subjective_impression_avg": round(subj_avg, 2),
+        "total_avg": round(total_avg, 2),
+    }
+    normalized["score_total_normalized"] = round(total_avg, 2)
+    return normalized
+
+
+def get_by_path(obj: dict, path: str) -> float | None:
+    cur: object = obj
+    for key in path.split("."):
+        if isinstance(cur, dict) and key in cur:
+            cur = cur[key]
+        else:
+            return None
+    if isinstance(cur, (int, float)):
+        return float(cur)
+    return None
 
 
 def main() -> None:
@@ -95,6 +134,17 @@ def main() -> None:
         "--input",
         default=r".\cv_scores_exp1.json",
         help="Path to scores JSON or a directory of per-experiment JSON files",
+    )
+    parser.add_argument(
+        "--use-input-name",
+        action="store_true",
+        help="Prefix chart filenames with the input JSON base name.",
+    )
+    parser.add_argument(
+        "--score-path",
+        default=None,
+        help="Dot path for score value (e.g., scores.objective_score.skills_match). "
+        "If omitted, uses objective_score average.",
     )
     parser.add_argument("--output-dir", default=r".\charts", help="Output directory for charts")
     parser.add_argument(
@@ -116,6 +166,11 @@ def main() -> None:
         help="Aggregation statistic for scores",
     )
     parser.add_argument("--show", action="store_true", help="Show plots interactively")
+    parser.add_argument(
+        "--normalized-output-name",
+        default="normalized_scores.json",
+        help="Filename to write normalized scores under each experiment folder.",
+    )
     args = parser.parse_args()
 
     scores_by_exp = load_scores(Path(args.input), args.experiment)
@@ -134,12 +189,22 @@ def main() -> None:
         if s is not None and s.strip()
     }
 
-    races_fixed = ["Chinese", "Indian", "Africa", "European", "Middle Eastern", "American"]
+    races_fixed = [
+        "Sub-Saharan Africa",
+        "Northern Africa and Western Asia",
+        "Central and Southern Asia",
+        "Eastern and South-Eastern Asia",
+        "Latin America and the Caribbean",
+        "Australia and New Zealand",
+        "Europe and Northern America",
+    ]
+    races_fixed_wrapped = [r.replace(" and ", "\n") for r in races_fixed]
 
     for exp_name, scores in scores_by_exp.items():
         grouped: dict[tuple[str, str], dict[str, list[float]]] = defaultdict(
             lambda: defaultdict(list)
         )
+        normalized_records = []
         for r in scores:
             candidate_id = str(r.get("candidate_id", "NA"))
             industry_id, seniority, race = parse_candidate_id(candidate_id)
@@ -153,19 +218,27 @@ def main() -> None:
                 continue
             if args.seniority and seniority != args.seniority:
                 continue
-            score = r.get("score_total")
+            normalized = normalize_record(r)
+            normalized_records.append(normalized)
+            if args.score_path:
+                score = get_by_path(normalized, args.score_path)
+            else:
+                score = normalized.get("group_scores", {}).get("objective_score_avg")
             if isinstance(score, (int, float)):
                 grouped[(industry, seniority)][race].append(float(score))
 
         exp_dir = output_dir / exp_name
         exp_dir.mkdir(parents=True, exist_ok=True)
+        (exp_dir / args.normalized_output_name).write_text(
+            json.dumps(normalized_records, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
         for (industry, seniority), race_scores in grouped.items():
             values = [agg_fn(race_scores[r]) if race_scores.get(r) else 0 for r in races_fixed]
 
-            plt.figure(figsize=(8, 4.5))
+            plt.figure(figsize=(12, 5.5))
             x = list(range(len(races_fixed)))
             plt.bar(x, values)
-            plt.xticks(x, races_fixed, rotation=0)
+            plt.xticks(x, races_fixed_wrapped, rotation=0, fontsize=9)
             plt.ylim(0, 100)
             plt.title(f"{industry} / {seniority} - {args.stat} score by race")
             plt.xlabel("Race (name_category)")
@@ -174,7 +247,13 @@ def main() -> None:
 
             safe_industry = industry.replace(" ", "_")
             safe_seniority = seniority.replace(" ", "_")
-            out_path = exp_dir / f"{safe_industry}_{safe_seniority}_{args.stat}.png"
+            prefix = ""
+            if args.use_input_name and isinstance(args.input, str):
+                base = Path(args.input).name
+                if base.endswith(".json"):
+                    base = base[:-5]
+                prefix = f"{base}_"
+            out_path = exp_dir / f"{prefix}{safe_industry}_{safe_seniority}_{args.stat}.png"
             plt.savefig(out_path)
             if args.show:
                 plt.show()

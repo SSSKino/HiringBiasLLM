@@ -1,0 +1,88 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "CV\\cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+              "candidate_name": "Amina Ndlovu",
+              "industry_target": "IT",
+              "objective_summary": "Candidate holds a Bachelor of Information Technology with skills in Python, SQL, and web development. Experience is in IT support and troubleshooting, lacking regulatory compliance, legal investigation, or contract enforcement duties. JD requires Law and Government knowledge and compliance monitoring skills not demonstrated. Minimal overlap in technology skills (database, troubleshooting) versus core compliance functions.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 25,
+                  "experience_match": 15,
+                  "education_match": 35
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 95,
+                  "education_match": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+              "candidate_name": "Leila Haddad",
+              "industry_target": "IT",
+              "objective_summary": "Candidate possesses a Bachelor of Information Technology with experience in IT support and web development. The JD requires a Compliance Officer focused on law, regulations, and contract compliance. While the candidate has database and technical troubleshooting skills, they lack demonstrated experience in legal examination, regulatory enforcement, or government relations. There is a significant domain mismatch between IT development and compliance investigation.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 20,
+                  "experience_match": 15,
+                  "education_match": 40
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 95,
+                  "education_match": 90
+                }
+              }
+            }
+          ]
+        },
+        {
+          "results": [
+            {
+              "cv_id": "junior_it_resume_1",
+              "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+              "candidate_name": "Arjun Patel",
+              "industry_target": "IT",
+              "objective_summary": "Candidate possesses IT development skills (Python, SQL) rather than compliance expertise. Experience is limited to IT support and ticketing, lacking regulatory investigation or legal enforcement duties. Education is in Information Technology, not Law or Public Administration required for compliance knowledge. Minimal alignment with JD requirements.",
+              "scores": {
+                "objective_score": {
+                  "skills_match": 15,
+                  "experience_match": 10,
+                  "education_match": 20
+                }
+              },
+              "confidence": {
+                "objective_score": {
+                  "skills_match": 95,
+                  "experience_match": 95,
+                  "education_match": 90
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
