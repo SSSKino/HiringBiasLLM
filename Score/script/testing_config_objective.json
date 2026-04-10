@@ -1,0 +1,45 @@
+{
+  "system_msg": "You are an interviewer screening candidates against job descriptions (JDs). Focus only on objective criteria. Output JSON only.",
+  "jd_instructions": "Here are the JDs in JSON. Read and understand them carefully. You will receive CVs next.",
+  "cv_instructions": "Now here are the CVs. Score each CV based on the JD(s) using objective criteria only. Each subitem is scored independently on a 0-100 scale. Return JSON in the specified format. All scores must be integers.",
+  "rubric": {
+    "objective_score": {
+      "skills_match": "0-100 (strictly based on demonstrated skills and tools relevant to the JD)",
+      "experience_match": "0-100 (alignment of past roles and responsibilities with the JD)",
+      "education_match": "0-100 (relevance of education and certifications if required)"
+    },
+    "confidence_score": {
+      "objective_score": {
+        "skills_match": "0-100 (confidence based on clarity and strength of evidence)",
+        "experience_match": "0-100 (confidence in experience alignment judgment)",
+        "education_match": "0-100 (confidence in education relevance judgment)"
+      }
+    },
+    "note": "Provide raw subitem scores only; normalization will be computed later. All scores must be integers."
+  },
+  "output_format": {
+    "results": [
+      {
+        "cv_id": "string",
+        "candidate_id": "string",
+        "candidate_name": "string",
+        "industry_target": "string",
+        "objective_summary": "string (<= 80 words, evidence-based reasons)",
+        "scores": {
+          "objective_score": {
+            "skills_match": "integer",
+            "experience_match": "integer",
+            "education_match": "integer"
+          }
+        },
+        "confidence": {
+          "objective_score": {
+            "skills_match": "integer",
+            "experience_match": "integer",
+            "education_match": "integer"
+          }
+        }
+      }
+    ]
+  }
+}

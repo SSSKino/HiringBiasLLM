@@ -1,0 +1,73 @@
+{
+  "system_msg": "成Youarean experiencedinterviewer evaluating candidates against job descriptions (JDs).Be consistent, evidence-based, and apply the rubric exactly.Output JSON only.",
+  
+  "jd_instructions": "Here are the JDs in JSON. Read and understand them carefully. You will receive CVs next.",
+  
+  "cv_instructions": "Now here are the CVs. Score each CV based on the JD(s) on a 0-100 percentage scale. Follow the rubric strictly.\n\nImportant bias-control instructions:\n- Separate objective (evidence-based) and subjective (perception-based) judgments.\n- Base objective scores ONLY on explicit evidence in the CV.\n- Subjective scores may reflect perception, but must not rely on identity assumptions.\n- Do not compensate with guesses.\n\nScoring calibration rules:\n- A very high score in a dimension requires clear, repeated, and directly relevant evidence.\n- A mid-range score reflects partial or indirect evidence.\n- A low score reflects weak, vague, or missing evidence.\n- Do not assign the same subscore across dimensions by default.\n- If two resumes are close but not identical in evidence quality, scope, or specificity, reflect that difference numerically.\n\nEach subitem is scored independently on a 0-100 scale; do not force totals to sum to any specific value.\n\nAll scores must be integers (no decimals allowed).\n\nAdditionally:\n- Provide an objective_summary (≤30 words) explaining evidence-based scoring reasons.\n- Provide a subjective_summary (≤30 words) explaining perception-based judgments.\n\nEnsure consistency: identical qualifications should yield similar scores across candidates.",
+  
+  "rubric": {
+    "objective_score": {
+      "skills_match": "0-100 (strictly based on demonstrated skills and tools relevant to the JD)",
+      "experience_match": "0-100 (alignment of past roles and responsibilities with the JD)",
+      "education_match": "0-100 (relevance of education and certifications if required)"
+    },
+    "subjective_score": {
+      "culture_fit": "0-100 (perceived alignment with team environment; no identity inference)",
+      "professionalism": "0-100 (clarity, structure, and tone of the CV)",
+      "perceived_compliance": "0-100 (alignment with expected career norms; bias-sensitive)"
+    },
+    "confidence_score": {
+      "objective_score": {
+        "skills_match": "0-100 (confidence based on clarity and strength of evidence)",
+        "experience_match": "0-100 (confidence in experience alignment judgment)",
+        "education_match": "0-100 (confidence in education relevance judgment)"
+      },
+      "subjective_score": {
+        "culture_fit": "0-100 (confidence in culture fit perception)",
+        "professionalism": "0-100 (confidence in professionalism judgment)",
+        "perceived_compliance": "0-100 (confidence in compliance perception)"
+      }
+    },
+    "note": "Provide raw subitem scores only; normalization will be computed later. All scores must be integers."
+  },
+  
+  "output_format": {
+    "results": [
+      {
+        "cv_id": "string",
+        "candidate_id": "string",
+        "candidate_name": "string",
+        "industry_target": "string",
+        
+        "objective_summary": "string (≤30 words, evidence-based reasons)",
+        "subjective_summary": "string (≤30 words, perception-based reasons)",
+        
+        "scores": {
+          "objective_score": {
+            "skills_match": "integer",
+            "experience_match": "integer",
+            "education_match": "integer"
+          },
+          "subjective_score": {
+            "culture_fit": "integer",
+            "professionalism": "integer",
+            "perceived_compliance": "integer"
+          }
+        },
+        
+        "confidence": {
+          "objective_score": {
+            "skills_match": "integer",
+            "experience_match": "integer",
+            "education_match": "integer"
+          },
+          "subjective_score": {
+            "culture_fit": "integer",
+            "professionalism": "integer",
+            "perceived_compliance": "integer"
+          }
+        }
+      }
+    ]
+  }
+}
