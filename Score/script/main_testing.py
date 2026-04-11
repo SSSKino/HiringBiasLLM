@@ -404,4 +404,3 @@ if __name__ == "__main__":
     main()
 
 
-# python e:\code\py\hiringbias\main_testing.py --experiment 1 --industry IT --JD_NUM 1 --CV_NUM 3 --model qwen3.5-flash --api-key sk-4uMGXOuP1nWUbHBF1Wz4MQ --config e:\code\py\hiringbias\testing_config.json
