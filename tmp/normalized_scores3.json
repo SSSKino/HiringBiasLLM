@@ -1,0 +1,326 @@
+[
+  {
+    "Skill Match": {
+      "score": 15,
+      "reasoning": "Candidate skills focus on web development and backend systems (Python, JavaScript, SQL). JD requires sustainability strategy, management of personnel/financial resources, and executive communication. Only tangential overlap exists in 'Technology Design' or 'Systems Analysis' concepts, lacking domain-specific sustainability skills."
+    },
+    "Experience Match": {
+      "score": 5,
+      "reasoning": "Candidate has 1 year of IT Support Intern experience. JD requires a Chief Sustainability Officer role involving oversight of corporate strategy, shareholder communication, and management of resources. There is no evidence of executive leadership or sustainability-related experience."
+    },
+    "Education Match": {
+      "score": 25,
+      "reasoning": "Candidate holds a Bachelor of Information Technology (2023). JD education requirement score (2.7) typically implies advanced degrees or significant professional experience in administration/management. The candidate's degree is entry-level and technical rather than strategic or sustainability-focused."
+    },
+    "Communication and Collaboration": {
+      "score": 40,
+      "reasoning": "CV mentions collaboration with senior engineers and university group projects. JD requires active listening, persuasion, and negotiation with shareholders and management. While basic teamwork is evidenced, high-stakes stakeholder communication is not demonstrated."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 45,
+      "reasoning": "Candidate demonstrates task execution through metrics like reducing response time by 20% and automating scripts. JD requires operations monitoring and quality control analysis at a corporate level. Evidence of reliability exists in technical tasks but not in compliance or strategic execution contexts."
+    },
+    "Role-context Adaptability": {
+      "score": 20,
+      "reasoning": "Candidate is a Junior IT graduate entering the workforce. JD is a C-suite executive role requiring independence, complex stakeholder management, and strategic ambiguity handling. The seniority and operational context mismatch prevents positive assessment of adaptability to the specific role environment."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "industry": "IT",
+    "jd_index": 1,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 25.0,
+      "total_avg": 25.0
+    },
+    "score_total_normalized": 25.0
+  },
+  {
+    "Skill Match": {
+      "score": 20,
+      "reasoning": "The JD requires specific facilities management skills such as equipment maintenance, building construction knowledge, and proficiency in FM software (e.g., Yardi, IBM Maximo, AutoCAD). The CV lists programming skills (Python, JavaScript) and web development tools. There is negligible overlap between physical facility operations and software development skills."
+    },
+    "Experience Match": {
+      "score": 15,
+      "reasoning": "The JD describes a managerial role involving planning and directing facility operations and managing personnel/financial resources. The candidate's experience is as a Junior IT Support Intern focused on workstation support and network troubleshooting. There is a significant gap in seniority (Intern vs. Manager) and domain (Digital IT vs. Physical Facilities)."
+    },
+    "Education Match": {
+      "score": 50,
+      "reasoning": "The candidate holds a Bachelor of Information Technology, which aligns with the general degree level typically expected for this SOC code (approx. 2.78). However, the field of study is Information Technology rather than Facilities Management, Construction Management, or Engineering, limiting direct relevance."
+    },
+    "Communication and Collaboration": {
+      "score": 60,
+      "reasoning": "The CV provides evidence of collaboration, including working with senior engineers during an internship and participating in university group projects. This demonstrates basic teamwork capabilities, though the context is technical rather than the cross-functional stakeholder management emphasized in the JD."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 55,
+      "reasoning": "The candidate shows evidence of executing tasks reliably, citing a 20% reduction in response time and developing automation scripts. However, there is no evidence of managing compliance requirements (e.g., public safety, security regulations) or financial resources, which are critical for the Facilities Manager role."
+    },
+    "Role-context Adaptability": {
+      "score": 20,
+      "reasoning": "The candidate's profile explicitly states an 'industry_target' of 'IT' and a 'seniority_level' of 'Junior'. The JD is for a Facilities Manager position. The candidate's stated career trajectory indicates a low likelihood of adapting to the physical operations and management context of this specific role."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "industry": "IT",
+    "jd_index": 2,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 36.67,
+      "total_avg": 36.67
+    },
+    "score_total_normalized": 36.67
+  },
+  {
+    "Skill Match": {
+      "score": 20,
+      "reasoning": "Candidate possesses foundational IT skills (Python, AWS) which partially overlap with JD technology requirements (AWS, Operating systems). However, the JD requires specific security management skills (Alarm systems, Physical access management, Incident command) and management skills (Personnel/Financial resources) which are absent in the CV. The candidate's profile is development-focused rather than security management-focused."
+    },
+    "Experience Match": {
+      "score": 10,
+      "reasoning": "The JD requires a 'Security Manager' to direct security functions and manage personnel, implying senior leadership experience. The candidate is a 'Junior' level graduate with only one year of 'IT Support Intern' experience. There is no evidence of managing teams, budgets, or security operations, representing a significant seniority and functional gap."
+    },
+    "Education Match": {
+      "score": 65,
+      "reasoning": "The candidate holds a Bachelor of Information Technology, which meets or exceeds the typical educational threshold (3.5 years/post-secondary) indicated for Security Managers in the JD. However, the degree is in general IT rather than Security Management or related fields, limiting direct alignment with the specific knowledge domains required."
+    },
+    "Communication and Collaboration": {
+      "score": 60,
+      "reasoning": "CV evidence shows collaboration with senior engineers and university group projects, indicating basic teamwork capabilities. However, the JD requires higher-level communication skills such as persuasion, negotiation, and instructing at a management level, for which there is no supporting evidence in the CV."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 65,
+      "reasoning": "Candidate demonstrates reliability through quantifiable achievements in an internship (reduced response time by 20%) and automation projects. This indicates strong task execution within an IT support context. However, there is no evidence of compliance management, quality control analysis, or adherence to security protocols required for the Manager role."
+    },
+    "Role-context Adaptability": {
+      "score": 30,
+      "reasoning": "The JD describes a high-responsibility context involving safety, facilities, and personnel management. The candidate's background is limited to junior technical support and web development. There is insufficient evidence to suggest the candidate can adapt to the ambiguity, stakeholder complexity, and leadership demands of a Security Manager position."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "industry": "IT",
+    "jd_index": 3,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 41.67,
+      "total_avg": 41.67
+    },
+    "score_total_normalized": 41.67
+  },
+  {
+    "skill_match": {
+      "score": 10,
+      "reasoning": "The CV demonstrates technical skills in Python, JavaScript, and SQL, which partially overlap with the JD's 'Programming' and 'Structure query language SQL' requirements. However, the JD requires executive-level skills such as 'Management of Personnel Resources', 'Negotiation', and 'Corporate Sustainability Strategy', which are absent from the CV. The candidate's skills are focused on web development rather than sustainability management."
+    },
+    "experience_match": {
+      "score": 5,
+      "reasoning": "The JD is for a 'Chief Sustainability Officer', implying C-suite executive responsibility and extensive leadership experience. The CV explicitly states 'Junior' seniority with only one year of internship experience ('IT Support Intern'). There is no evidence of strategic oversight, shareholder communication, or sustainability management experience required for the role."
+    },
+    "education_match": {
+      "score": 20,
+      "reasoning": "The candidate holds a Bachelor of Information Technology (2023). The JD implies a higher level of educational qualification (score 2.7) and knowledge in 'Administration and Management', 'Law and Government', and 'Economics'. An IT-focused bachelor's degree does not align with the business, legal, and sustainability knowledge base required for a Chief Sustainability Officer."
+    },
+    "communication_and_collaboration": {
+      "score": 30,
+      "reasoning": "The CV mentions collaboration with senior engineers and university group projects, showing basic teamwork. However, the JD requires communicating with 'management, shareholders, customers, and employees' and utilizing 'Persuasion' and 'Negotiation'. There is no evidence of executive-level stakeholder management or cross-functional coordination at a corporate strategy level."
+    },
+    "execution_compliance_reliability": {
+      "score": 40,
+      "reasoning": "The candidate shows reliability in executing technical tasks, such as reducing ticket response times and developing automation scripts. However, the JD requires 'Overseeing a corporate sustainability strategy' and 'Quality Control Analysis' at an organizational level. The candidate's track record is limited to operational support and development tasks, not strategic compliance or oversight."
+    },
+    "role_context_adaptability": {
+      "score": 20,
+      "reasoning": "The JD describes a high-complexity environment involving 'Complex Problem Solving' and managing diverse stakeholders. The CV reflects a structured academic and internship context ('University of Technology Sydney', 'Managed IT Services Company'). There is no evidence of adaptability to the ambiguity, pace, or political complexity inherent in a C-suite executive role."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "industry": "IT",
+    "jd_index": 1,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 0.0,
+      "total_avg": 0.0
+    },
+    "score_total_normalized": 0.0
+  },
+  {
+    "skill_match": {
+      "score": 20,
+      "reasoning": "The JD requires specific facility management skills (Equipment Maintenance, Building and Construction, AutoCAD, Yardi, Maximo). The CV lists software development skills (Python, JavaScript, Node.js) and IT support tasks. Overlap is limited to generic 'Troubleshooting' and 'Systems Analysis', lacking domain-specific facility tools and knowledge."
+    },
+    "experience_match": {
+      "score": 15,
+      "reasoning": "The JD describes a managerial role ('Plan, direct, or coordinate operations') involving facilities and buildings. The candidate has 'IT Support Intern' experience focused on workstations and networks. There is no evidence of managing physical facilities, grounds, or personnel resources in a facility context."
+    },
+    "education_match": {
+      "score": 40,
+      "reasoning": "The candidate holds a Bachelor of Information Technology, which meets the implied degree level requirement (2.78). However, the JD requires knowledge in 'Building and Construction', 'Mechanical', and 'Engineering'. The candidate's IT-focused education does not align with the technical knowledge domains required for facilities management."
+    },
+    "communication_and_collaboration": {
+      "score": 45,
+      "reasoning": "The CV mentions collaborating with senior engineers and improving team productivity through a web app. While this shows basic teamwork, there is no evidence of the high-level communication skills required for the role, such as 'Negotiation', 'Instructing', or managing external stakeholders and clients in a facility context."
+    },
+    "execution_compliance_reliability": {
+      "score": 50,
+      "reasoning": "Evidence of execution includes reducing response times by 20% and developing automation scripts. This demonstrates reliability and task completion within an IT context. However, there is no evidence regarding compliance with safety regulations, financial resource management, or quality control specific to facility operations."
+    },
+    "role_context_adaptability": {
+      "score": 20,
+      "reasoning": "The candidate explicitly targets the 'IT' industry and possesses a 'Junior' seniority level. The JD is for a 'Facilities Manager' role requiring coordination of multiple facilities and operational planning. The candidate's career trajectory and skill set indicate a focus on software development rather than adapting to physical facility management contexts."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "industry": "IT",
+    "jd_index": 2,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 0.0,
+      "total_avg": 0.0
+    },
+    "score_total_normalized": 0.0
+  },
+  {
+    "Skill Match": {
+      "score": 15,
+      "reasoning": "Candidate's skills focus on web development (Python, JavaScript, Node.js) rather than the JD's core requirements for security management, physical security, and resource management. Only minor overlap exists in basic operating systems and cloud concepts (AWS)."
+    },
+    "Experience Match": {
+      "score": 10,
+      "reasoning": "The JD requires a manager to direct security functions and safety of facilities, implying seniority. The candidate is a Junior IT graduate with only one year of internship experience in IT support, showing a significant gap in leadership and security-specific responsibilities."
+    },
+    "Education Match": {
+      "score": 75,
+      "reasoning": "Candidate holds a Bachelor of Information Technology, which aligns with the educational threshold suggested by the JD's 3.5 requirement (typically Bachelor's level). While the major is IT rather than Security Management, it meets the formal degree criteria."
+    },
+    "Communication and Collaboration": {
+      "score": 55,
+      "reasoning": "CV mentions collaborating with senior engineers and university teams, indicating basic teamwork. However, there is no evidence of the high-level communication, negotiation, or instructing skills required for managing personnel and stakeholders in a Security Manager role."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 70,
+      "reasoning": "Candidate demonstrates execution capability through measurable outcomes, such as reducing response times by 20% and automating diagnostic scripts. This shows reliability in task completion, though not necessarily in the compliance or safety monitoring scope of the JD."
+    },
+    "Role-context Adaptability": {
+      "score": 30,
+      "reasoning": "There is a substantial context mismatch; the candidate targets IT/Web Development while the JD requires managing physical security, employee safety, and facility operations. No evidence suggests familiarity with safety protocols or the high-stakes environment of security management."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "industry": "IT",
+    "jd_index": 3,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 42.5,
+      "total_avg": 42.5
+    },
+    "score_total_normalized": 42.5
+  },
+  {
+    "Skill Match": {
+      "score": 10,
+      "reasoning": "Candidate lists technical programming skills (Python, JavaScript, SQL) but lacks the core JD requirements for corporate sustainability strategy, management of personnel/financial resources, and high-level stakeholder coordination."
+    },
+    "Experience Match": {
+      "score": 5,
+      "reasoning": "Candidate is a Junior IT graduate with 1 year of internship experience, while the JD describes a Chief Sustainability Officer role requiring executive leadership, strategic oversight, and experience managing shareholders and management."
+    },
+    "Education Match": {
+      "score": 15,
+      "reasoning": "Candidate holds a Bachelor of Information Technology (2023); the JD implies a senior executive level requiring advanced qualifications and domain knowledge in sustainability, law, or administration not present in the CV."
+    },
+    "Communication and Collaboration": {
+      "score": 30,
+      "reasoning": "CV demonstrates basic collaboration with senior engineers and team productivity improvements, but provides no evidence of the persuasion, negotiation, or communication with shareholders/external stakeholders required for the role."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 40,
+      "reasoning": "Candidate shows evidence of reliable task execution (reducing response times, automating scripts), but these operational IT tasks do not demonstrate the ability to enact corporate sustainability strategies or manage compliance at an executive level."
+    },
+    "Role-context Adaptability": {
+      "score": 20,
+      "reasoning": "Candidate's experience is limited to structured IT support and academic projects; there is no evidence of adapting to the high ambiguity, complex stakeholder management, or strategic decision-making context of a C-suite position."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "industry": "IT",
+    "jd_index": 1,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 20.0,
+      "total_avg": 20.0
+    },
+    "score_total_normalized": 20.0
+  },
+  {
+    "Skill Match": {
+      "score": 20,
+      "reasoning": "Candidate possesses generic technical skills such as 'Programming', 'Systems Analysis', and 'Troubleshooting' which appear in the JD. However, there is no evidence of critical Facilities Management specific skills required in the JD, such as 'Building and Construction', 'Equipment Maintenance', 'Equipment Selection', or facility-specific software (e.g., AutoCAD, Yardi, IBM Maximo)."
+    },
+    "Experience Match": {
+      "score": 10,
+      "reasoning": "Candidate's experience is in 'IT Support' focusing on workstations and network connectivity. The JD requires planning and coordinating operations of facilities and buildings, including 'Management of Personnel Resources' and 'Management of Material Resources'. There is no evidence of managing physical assets, grounds, or building operations."
+    },
+    "Education Match": {
+      "score": 50,
+      "reasoning": "Candidate holds a Bachelor of Information Technology, which generally meets the education level implied by the JD (approx. 2.78 on O*NET scale suggesting Bachelor's). However, the field of study (IT) does not align with the JD's knowledge requirements for 'Building and Construction', 'Mechanical', or 'Engineering and Technology' specific to facilities."
+    },
+    "Communication and Collaboration": {
+      "score": 40,
+      "reasoning": "CV mentions 'Collaborated with senior engineers' and 'Improved team productivity', indicating basic teamwork. However, the JD requires advanced interpersonal skills like 'Negotiation', 'Instructing', 'Persuasion', and 'Social Perceptiveness' in a facility context, for which there is no supporting evidence."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 50,
+      "reasoning": "Candidate demonstrates execution capability with quantifiable results (e.g., 'reduced average response time by 20%', 'automated diagnostic checks'). However, these metrics relate to IT ticketing and scripts, not the 'Quality Control Analysis', 'Public Safety', or 'Compliance' aspects central to Facilities Management."
+    },
+    "Role-context Adaptability": {
+      "score": 20,
+      "reasoning": "Candidate explicitly targets the 'IT' industry and identifies as a 'Junior IT graduate'. The JD describes a Facilities Manager role requiring adaptation to physical campus operations, multi-facility coordination, and potentially hazardous environment management, which contradicts the candidate's stated career focus and lack of relevant context exposure."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "industry": "IT",
+    "jd_index": 2,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 31.67,
+      "total_avg": 31.67
+    },
+    "score_total_normalized": 31.67
+  },
+  {
+    "Skill Match": {
+      "score": 15,
+      "reasoning": "Candidate has technical skills in Python, JavaScript, and IT support, but lacks core Security Manager skills listed in the JD such as Management of Personnel Resources, Physical Access Management, Incident Command Systems, and Public Safety knowledge."
+    },
+    "Experience Match": {
+      "score": 10,
+      "reasoning": "JD requires a manager to direct security functions and manage resources. Candidate is a Junior IT graduate with only 1 year of IT Support Intern experience and no evidence of management responsibilities or security operations leadership."
+    },
+    "Education Match": {
+      "score": 70,
+      "reasoning": "Candidate holds a Bachelor of Information Technology, which aligns with the typical educational baseline (O*NET 3.5/Bachelor's) for Security Managers. However, the curriculum focuses on IT development rather than Security Management or Public Safety."
+    },
+    "Communication and Collaboration": {
+      "score": 50,
+      "reasoning": "CV indicates collaboration with senior engineers and university group projects. However, there is no evidence of the advanced communication abilities required for the role, such as negotiation, instructing, or persuading stakeholders at a management level."
+    },
+    "Execution, Compliance, and Reliability": {
+      "score": 60,
+      "reasoning": "Candidate demonstrates execution capability through process improvements (reduced response time, automation scripts). However, there is no evidence of maintaining quality control or compliance within a security or safety regulatory environment as required by the JD."
+    },
+    "Role-context Adaptability": {
+      "score": 20,
+      "reasoning": "Candidate targets IT/Web Development roles. The JD context involves physical security, employee safety, and facility management. There is no evidence of the candidate's ability to adapt to the high-stakes, safety-critical management context described in the JD."
+    },
+    "cv_id": "junior_it_resume_1",
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "industry": "IT",
+    "jd_index": 3,
+    "jd_total": 3,
+    "group_scores": {
+      "objective_score_avg": 37.5,
+      "total_avg": 37.5
+    },
+    "score_total_normalized": 37.5
+  }
+]

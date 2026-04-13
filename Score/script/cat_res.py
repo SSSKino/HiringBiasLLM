@@ -4,6 +4,7 @@ from glob import glob
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean, median
+import textwrap
 
 import matplotlib.pyplot as plt
 
@@ -12,19 +13,19 @@ plt.rcParams["font.family"] = ["Microsoft YaHei", "Arial", "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 
 
-def load_scores(path: Path, experiment: str | None) -> dict[str, list[dict]]:
+def load_scores(path: Path, experiment: str | None, score_glob: str) -> dict[str, dict]:
     if not path.exists():
         raise SystemExit(f"file not found: {path}")
 
     paths: list[Path] = []
     if path.is_dir():
-        paths = [Path(p) for p in glob(str(path / "*.json"))]
+        paths = [Path(p) for p in glob(str(path / score_glob))]
         if not paths:
-            raise SystemExit(f"no json files found in directory: {path}")
+            raise SystemExit(f"no json files found in directory: {path} with pattern {score_glob}")
     else:
         paths = [path]
 
-    results_by_exp: dict[str, list[dict]] = {}
+    results_by_exp: dict[str, dict] = {}
 
     for p in paths:
         text = p.read_text(encoding="utf-8").strip()
@@ -39,25 +40,35 @@ def load_scores(path: Path, experiment: str | None) -> dict[str, list[dict]]:
                 if experiment and exp_name != experiment:
                     continue
                 exp_key = exp_name
-                results_by_exp.setdefault(exp_key, [])
+                results_by_exp.setdefault(exp_key, {"scores": [], "sources": set()})
+                results_by_exp[exp_key]["sources"].add(p.stem)
                 for item in exp.get("results", []):
                     if isinstance(item, dict) and "results" in item:
                         for r in item.get("results", []):
                             if isinstance(r, dict):
-                                results_by_exp[exp_key].append(r)
+                                results_by_exp[exp_key]["scores"].append(r)
+                    elif isinstance(item, list):
+                        for r in item:
+                            if isinstance(r, dict):
+                                results_by_exp[exp_key]["scores"].append(r)
                     elif isinstance(item, dict):
-                        results_by_exp[exp_key].append(item)
+                        results_by_exp[exp_key]["scores"].append(item)
         elif isinstance(data, list):
             # legacy list format
             exp_key = p.stem
-            results_by_exp.setdefault(exp_key, [])
+            results_by_exp.setdefault(exp_key, {"scores": [], "sources": set()})
+            results_by_exp[exp_key]["sources"].add(p.stem)
             for item in data:
                 if isinstance(item, dict) and "results" in item:
                     for r in item.get("results", []):
                         if isinstance(r, dict):
-                            results_by_exp[exp_key].append(r)
+                            results_by_exp[exp_key]["scores"].append(r)
+                elif isinstance(item, list):
+                    for r in item:
+                        if isinstance(r, dict):
+                            results_by_exp[exp_key]["scores"].append(r)
                 elif isinstance(item, dict):
-                    results_by_exp[exp_key].append(item)
+                    results_by_exp[exp_key]["scores"].append(item)
 
     return results_by_exp
 
@@ -73,16 +84,23 @@ def parse_candidate_id(candidate_id: str) -> tuple[str, str, str]:
 
 
 def normalize_race(value: str) -> str:
-    cleaned = " ".join(value.replace("_", " ").split()).strip().lower()
+    cleaned = value.replace("_", " ")
+    for h in ["\u2010", "\u2011", "\u2012", "\u2013", "\u2014", "\u2212"]:
+        cleaned = cleaned.replace(h, "-")
+    cleaned = " ".join(cleaned.split()).strip().lower()
     mapping = {
         "sub-saharan africa": "Sub-Saharan Africa",
         "sub saharan africa": "Sub-Saharan Africa",
         "northern africa and western asia": "Northern Africa and Western Asia",
         "central and southern asia": "Central and Southern Asia",
+        "central & southern asia": "Central and Southern Asia",
+        "southern asia": "Central and Southern Asia",
+        "southen asia": "Central and Southern Asia",
         "eastern and south-eastern asia": "Eastern and South-Eastern Asia",
         "eastern and south eastern asia": "Eastern and South-Eastern Asia",
         "latin america and the caribbean": "Latin America and the Caribbean",
-        "australia and new zealand": "Australia and New Zealand",
+        "australia and new zealand": "Oceania",
+        "oceania": "Oceania",
         "europe and northern america": "Europe and Northern America",
     }
     if cleaned in mapping:
@@ -93,37 +111,66 @@ def normalize_race(value: str) -> str:
 
 
 def normalize_record(r: dict) -> dict:
-    scores = r.get("scores", {})
-    obj = scores.get("objective_score", {})
-    subj = scores.get("subjective_score", {})
+    # 适配多种格式：
+    # 1) 新格式：顶层直接有 6 个维度 (Skill Match, Experience Match, etc.)
+    # 2) 旧格式：scores.objective_score 和 scores.subjective_score
+    
+    # 新格式的 6 个维度名称映射
+    new_format_dimensions = {
+        "Skill Match": None,
+        "Experience Match": None,
+        "Education Match": None,
+        "Communication and Collaboration": None,
+        "Execution, Compliance, and Reliability": None,
+        "Role-context Adaptability": None,
+    }
+    
+    # 检查是否是新格式（直接包含维度）
+    new_scores = {}
+    for dim_name in new_format_dimensions.keys():
+        if dim_name in r and isinstance(r[dim_name], dict):
+            score = r[dim_name].get("score")
+            if isinstance(score, (int, float)):
+                new_scores[dim_name] = score
+    
+    if new_scores:
+        # 新格式：计算 6 个维度的平均分
+        obj_avg = sum(new_scores.values()) / len(new_scores) if new_scores else 0.0
+        total_avg = obj_avg
+    else:
+        # 旧格式处理
+        scores = r.get("scores", {})
+        
+        # 尝试从 scores.objective_score 获取
+        if "objective_score" in scores:
+            obj = scores.get("objective_score", {})
+        # 或者从顶层 objective_score 获取
+        elif "objective_score" in r:
+            obj = r.get("objective_score", {})
+        else:
+            # fallback: objective scores provided at top-level
+            obj = {k: v for k, v in scores.items() if k in ["skills_match", "experience_match", "education_match"]}
+        
+        # 只从 scores 中获取 subjective_score (如果存在)
+        subj = scores.get("subjective_score", {})
 
-    def avg(vals: list[float]) -> float:
-        return sum(vals) / len(vals) if vals else 0.0
+        def avg(vals: list[float]) -> float:
+            return sum(vals) / len(vals) if vals else 0.0
 
-    obj_avg = avg([v for v in obj.values() if isinstance(v, (int, float))])
-    subj_avg = avg([v for v in subj.values() if isinstance(v, (int, float))])
-    total_avg = (obj_avg + subj_avg) / 2.0
+        obj_avg = avg([v for v in obj.values() if isinstance(v, (int, float))])
+        subj_avg = avg([v for v in subj.values() if isinstance(v, (int, float))])
+        # 如果没有 subjective_score，只用 objective_score 不求平均
+        total_avg = obj_avg if subj_avg == 0.0 else (obj_avg + subj_avg) / 2.0
 
     normalized = dict(r)
     normalized["group_scores"] = {
         "objective_score_avg": round(obj_avg, 2),
-        "subjective_impression_avg": round(subj_avg, 2),
         "total_avg": round(total_avg, 2),
     }
     normalized["score_total_normalized"] = round(total_avg, 2)
     return normalized
 
 
-def get_by_path(obj: dict, path: str) -> float | None:
-    cur: object = obj
-    for key in path.split("."):
-        if isinstance(cur, dict) and key in cur:
-            cur = cur[key]
-        else:
-            return None
-    if isinstance(cur, (int, float)):
-        return float(cur)
-    return None
 
 
 def main() -> None:
@@ -132,48 +179,29 @@ def main() -> None:
     )
     parser.add_argument(
         "--input",
-        default=r".\cv_scores_exp1.json",
+        default=r".",
         help="Path to scores JSON or a directory of per-experiment JSON files",
+    )
+    parser.add_argument(
+        "--score-glob",
+        default="*score*.json",
+        help="Glob pattern for score files when input is a directory.",
     )
     parser.add_argument(
         "--use-input-name",
         action="store_true",
         help="Prefix chart filenames with the input JSON base name.",
     )
-    parser.add_argument(
-        "--score-path",
-        default=None,
-        help="Dot path for score value (e.g., scores.objective_score.skills_match). "
-        "If omitted, uses objective_score average.",
-    )
     parser.add_argument("--output-dir", default=r".\charts", help="Output directory for charts")
-    parser.add_argument(
-        "--experiment",
-        default=None,
-        help="Filter by experiment name (e.g., exp2_mask_candidate_and_cv_implicit).",
-    )
-    parser.add_argument(
-        "--allowed-industries",
-        default="Law,IT,HR,Finance",
-        help="Comma-separated industry whitelist. Leave empty to disable filtering.",
-    )
-    parser.add_argument("--industry", default=None, help="Filter by industry")
-    parser.add_argument("--seniority", default=None, help="Filter by seniority")
     parser.add_argument(
         "--stat",
         default="mean",
         choices=["mean", "median"],
         help="Aggregation statistic for scores",
     )
-    parser.add_argument("--show", action="store_true", help="Show plots interactively")
-    parser.add_argument(
-        "--normalized-output-name",
-        default="normalized_scores.json",
-        help="Filename to write normalized scores under each experiment folder.",
-    )
     args = parser.parse_args()
 
-    scores_by_exp = load_scores(Path(args.input), args.experiment)
+    scores_by_exp = load_scores(Path(args.input), None, args.score_glob)
     if not scores_by_exp:
         raise SystemExit("No scores found in input.")
 
@@ -183,11 +211,6 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     total_charts = 0
-    allowed = {
-        s.strip()
-        for s in str(args.allowed_industries).split(",")
-        if s is not None and s.strip()
-    }
 
     races_fixed = [
         "Sub-Saharan Africa",
@@ -195,12 +218,15 @@ def main() -> None:
         "Central and Southern Asia",
         "Eastern and South-Eastern Asia",
         "Latin America and the Caribbean",
-        "Australia and New Zealand",
+        "Oceania",
         "Europe and Northern America",
     ]
-    races_fixed_wrapped = [r.replace(" and ", "\n") for r in races_fixed]
+    races_fixed_wrapped = [textwrap.fill(r, width=14) for r in races_fixed]
 
-    for exp_name, scores in scores_by_exp.items():
+    for exp_name, bundle in scores_by_exp.items():
+        scores = bundle["scores"]
+        sources = sorted(list(bundle.get("sources", [])))
+        source_name = exp_name if len(sources) != 1 else sources[0]
         grouped: dict[tuple[str, str], dict[str, list[float]]] = defaultdict(
             lambda: defaultdict(list)
         )
@@ -209,54 +235,42 @@ def main() -> None:
             candidate_id = str(r.get("candidate_id", "NA"))
             industry_id, seniority, race = parse_candidate_id(candidate_id)
             race = normalize_race(race)
-            industry = str(r.get("industry_target", "")).strip()
+            industry = industry_id if industry_id and industry_id != "NA" else str(r.get("industry_target", "")).strip()
             if not industry:
-                continue
-            if allowed and industry not in allowed:
-                continue
-            if args.industry and industry != args.industry:
-                continue
-            if args.seniority and seniority != args.seniority:
                 continue
             normalized = normalize_record(r)
             normalized_records.append(normalized)
-            if args.score_path:
-                score = get_by_path(normalized, args.score_path)
-            else:
-                score = normalized.get("group_scores", {}).get("objective_score_avg")
+            score = normalized.get("group_scores", {}).get("objective_score_avg")
             if isinstance(score, (int, float)):
                 grouped[(industry, seniority)][race].append(float(score))
 
         exp_dir = output_dir / exp_name
         exp_dir.mkdir(parents=True, exist_ok=True)
-        (exp_dir / args.normalized_output_name).write_text(
+        (exp_dir / "normalized_scores.json").write_text(
             json.dumps(normalized_records, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         for (industry, seniority), race_scores in grouped.items():
             values = [agg_fn(race_scores[r]) if race_scores.get(r) else 0 for r in races_fixed]
 
-            plt.figure(figsize=(12, 5.5))
+            plt.figure(figsize=(12, 6.5))
             x = list(range(len(races_fixed)))
-            plt.bar(x, values)
+            bars = plt.bar(x, values)
+            plt.bar_label(bars, fmt='%.2f', padding=3)
             plt.xticks(x, races_fixed_wrapped, rotation=0, fontsize=9)
             plt.ylim(0, 100)
             plt.title(f"{industry} / {seniority} - {args.stat} score by race")
             plt.xlabel("Race (name_category)")
             plt.ylabel("Score (0-100)")
             plt.tight_layout()
+            plt.subplots_adjust(bottom=0.28)
 
             safe_industry = industry.replace(" ", "_")
             safe_seniority = seniority.replace(" ", "_")
             prefix = ""
-            if args.use_input_name and isinstance(args.input, str):
-                base = Path(args.input).name
-                if base.endswith(".json"):
-                    base = base[:-5]
-                prefix = f"{base}_"
+            if args.use_input_name:
+                prefix = f"{source_name}_"
             out_path = exp_dir / f"{prefix}{safe_industry}_{safe_seniority}_{args.stat}.png"
             plt.savefig(out_path)
-            if args.show:
-                plt.show()
             plt.close()
             total_charts += 1
 
