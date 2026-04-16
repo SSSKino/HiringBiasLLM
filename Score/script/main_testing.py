@@ -52,7 +52,7 @@ def load_testing_config(path: Path) -> dict:
     cfg = load_json(path)
     if not isinstance(cfg, dict):
         raise SystemExit("testing_config.json must be a JSON object")
-    required = ["system_msg", "jd_instructions", "cv_instructions", "rubric"]
+    required = ["system_msg", "eval_instructions", "output_format", "rubric"]
     missing = [k for k in required if k not in cfg]
     if missing:
         raise SystemExit(f"testing_config.json missing keys: {', '.join(missing)}")
@@ -60,23 +60,29 @@ def load_testing_config(path: Path) -> dict:
 
 
 def build_prompt(candidates: list[dict], standard: list[dict], cfg: dict) -> list[dict]:
-    """构建prompt，将JD和CV内容插入到instructions中。"""
+    """构建prompt，将JD、CV和output_format插入到eval_instructions中。"""
     system_msg = cfg["system_msg"]
-    
+
     # 将JD转换为JSON字符串
     jd_content = json.dumps(standard, ensure_ascii=False, indent=2) if standard else ""
-    
+
     # 将CV处理为JSON列表
     cv_content = json.dumps(candidates, ensure_ascii=False, indent=2) if candidates else ""
-    
+
+    # 将output_format转换为JSON字符串（展示具体的返回格式）
+    output_format_content = json.dumps(cfg["output_format"], ensure_ascii=False, indent=2)
+
     # 用实际内容替换placeholder
-    jd_instructions = cfg["jd_instructions"].replace("[JD_CONTENT]", jd_content)
-    cv_instructions = cfg["cv_instructions"].replace("[CV_CONTENT]", cv_content)
-    
+    eval_instructions = (
+        cfg["eval_instructions"]
+        .replace("[JD_CONTENT]", jd_content)
+        .replace("[CV_CONTENT]", cv_content)
+        .replace("[OUTPUT_FORMAT]", output_format_content)
+    )
+
     return [
         {"role": "system", "content": system_msg},
-        {"role": "user", "content": jd_instructions},
-        {"role": "user", "content": cv_instructions},
+        {"role": "user", "content": eval_instructions},
     ]
 
 
@@ -103,34 +109,31 @@ def has_expected_score_shape(result: Any) -> bool:
     # 预期的6维度（小写+下划线）
     required_dimensions = {
         "skill_match",
-        "experience_match", 
+        "experience_match",
         "education_match",
         "communication_and_collaboration",
         "execution_compliance_reliability",
         "role_context_adaptability"
     }
-    
+
     def check_score_structure(scores_dict: dict) -> bool:
-        """检查scores字典是否包含所有6个维度，每个维度都有score、reasoning、evidence。"""
+        """检查scores字典是否包含所有6个维度，每个维度都有score和reasoning。"""
         if not isinstance(scores_dict, dict):
             return False
-        
+
         dict_keys = set(scores_dict.keys())
         if dict_keys != required_dimensions:
             return False
-        
+
         for dim, dim_data in scores_dict.items():
             if not isinstance(dim_data, dict):
                 return False
-            # 检查必需字段：score、reasoning、evidence
-            if "score" not in dim_data or "reasoning" not in dim_data or "evidence" not in dim_data:
+            # 检查必需字段：score、reasoning
+            if "score" not in dim_data or "reasoning" not in dim_data:
                 return False
             # score应该是整数0-100
             score = dim_data.get("score")
             if not isinstance(score, (int, float)) or not (0 <= score <= 100):
-                return False
-            # evidence应该是列表
-            if not isinstance(dim_data.get("evidence"), list):
                 return False
         return True
     
@@ -200,136 +203,6 @@ def attach_ids(result: Any, candidate_id: str | None, cv_id: str | None) -> Any:
         return result
     return result
 
-# def run_experiment(
-#     name: str,
-#     cv_path: Path,
-#     occupations_by_industry: dict,
-#     args: argparse.Namespace,
-#     client: OpenAI | None,
-#     review_mode: bool,
-#     mask_candidate_id: bool,
-#     mask_cv_id: bool,
-# ) -> dict:
-#     cvs = load_json(cv_path)
-#     if not isinstance(cvs, list):
-#         raise SystemExit(f"CV file must be a JSON list: {cv_path}")
-
-#     results: list[dict] = []
-#     review_payloads: list[dict] = []
-#     api_call_count = 0
-
-#     target_industry = args.industry
-#     occupations = occupations_by_industry.get(target_industry, [])
-#     if not isinstance(occupations, list):
-#         raise SystemExit(f"Invalid occupations list for industry: {target_industry}")
-
-#     def score_single_jd_cv_pair(cv: dict, cv_idx: int, occupation: dict, jd_index: int, total_jds: int) -> None:
-#         """为单个 JD+CV 对进行评分。单线程处理。"""
-#         nonlocal api_call_count
-        
-#         industry = str(cv.get("industry_target", "NA"))
-        
-#         if industry != target_industry:
-#             return
-        
-#         candidate_id = cv.get("candidate_id")
-#         cv_id = cv.get("cv_id", candidate_id)
-#         masked_cv = sanitize_cv(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id)
-        
-#         # 每个occupation单独compact成一个包含1个元素的列表
-#         single_job_standard = compact_job_standard([occupation], limit=1)
-        
-#         api_call_count += 1
-#         timestamp = time.strftime('%H:%M:%S')
-        
-#         if review_mode:
-#             review_payloads.append(
-#                 {
-#                     "candidates": [masked_cv],
-#                     "job_standard": single_job_standard,
-#                     "industry": industry,
-#                     "jd_index": jd_index,
-#                     "jd_total": total_jds,
-#                 }
-#             )
-#         else:
-#             print(f"[{name}] ⚙️ {timestamp} API #{api_call_count} → CV[{cv_idx}] + JD[{jd_index}]...")
-#             # 为每对1JD+1CV创建新客户端连接
-#             temp_client = OpenAI(api_key=args.api_key, base_url=args.base_url)
-#             result = score_candidates(temp_client, args.model, [masked_cv], single_job_standard, args.prompt_config)
-#             print(f"[{name}] ⚙️ {timestamp} API #{api_call_count} ← returned")
-#             if not has_expected_score_shape(result):
-#                 print(f"[{name}] ⚙️ {timestamp} API #{api_call_count} → retrying...")
-#                 # 重试时创建新客户端
-#                 temp_client = OpenAI(api_key=args.api_key, base_url=args.base_url)
-#                 result = score_candidates(temp_client, args.model, [masked_cv], single_job_standard, args.prompt_config)
-#                 print(f"[{name}] ⚙️ {timestamp} API #{api_call_count} ← retry returned")
-#             result = attach_ids(result, candidate_id, cv_id)
-#             result["industry"] = industry
-#             result["jd_index"] = jd_index
-#             result["jd_total"] = total_jds
-#             results.append(result)
-
-#     # 相关JD数量
-#     selected_occupations = occupations if args.JD_NUM is None else occupations[:args.JD_NUM]
-#     total_jds = len(selected_occupations)
-    
-#     # 预先计算会实际使用的CV数量（只计算行业匹配的）
-#     matching_cv_count = 0
-#     for cv in cvs:
-#         if isinstance(cv, dict):
-#             cv_industry = str(cv.get("industry_target", "NA"))
-#             if cv_industry == target_industry:
-#                 matching_cv_count += 1
-#                 if args.CV_NUM is not None and matching_cv_count >= args.CV_NUM:
-#                     break
-    
-#     # 单线程处理 (CV, JD) 对
-#     print(f"[{name}] Total CVs loaded: {len(cvs)}")
-#     print(f"[{name}] Target industry: {target_industry}")
-#     print(f"[{name}] CVs matching industry: {matching_cv_count}")
-#     print(f"[{name}] JD count: {total_jds}")
-#     print(f"[{name}] Actual CV+JD pairs to process: {matching_cv_count} × {total_jds} = {matching_cv_count * total_jds}")
-#     print(f"[{name}] Using single-threaded sequential processing")
-#     print(f"[{name}] ────────────────────────────────────────")
-    
-#     start_time = time.time()
-#     try:
-#         processed_cv_count = 0
-#         for cv_idx, cv in enumerate(cvs):
-#             if not isinstance(cv, dict):
-#                 continue
-#             # 检查行业匹配
-#             cv_industry = str(cv.get("industry_target", "NA"))
-#             if cv_industry != target_industry:
-#                 continue
-#             # 检查CV数量限制
-#             if args.CV_NUM is not None and processed_cv_count >= args.CV_NUM:
-#                 break
-#             processed_cv_count += 1
-            
-#             # 为这个CV以及所有JD依次处理
-#             for jd_index, occupation in enumerate(selected_occupations, start=1):
-#                 score_single_jd_cv_pair(cv, cv_idx, occupation, jd_index, total_jds)
-#     except KeyboardInterrupt:
-#         print(f"\n[{name}] ⚠️ Interrupted by user (Ctrl+C)")
-#         print(f"[{name}] Partial results: {len(results)} API calls")
-    
-#     elapsed = time.time() - start_time
-#     print(f"[{name}] ────────────────────────────────────────")
-#     print(f"[{name}] Completed: {processed_cv_count} CVs × {total_jds} JDs = {len(results)} API calls")
-#     print(f"[{name}] Total time: {elapsed:.2f}s")
-#     if len(results) > 0:
-#         print(f"[{name}] Average per API call: {elapsed/len(results):.2f}s")
-
-#     return {
-#         "name": name,
-#         "cv_path": str(cv_path),
-#         "mask_candidate_id": mask_candidate_id,
-#         "mask_cv_id": mask_cv_id,
-#         "results": results,
-#         "review_payloads": review_payloads,
-#     }
 def run_experiment(
     name: str,
     cv_path: Path,
@@ -358,14 +231,13 @@ def run_experiment(
         raise SystemExit(f"Invalid occupations list for industry: {target_industry}")
 
     selected_occupations = occupations if args.JD_NUM is None else occupations[:args.JD_NUM]
-    total_jds = len(selected_occupations)
 
     print(f"[{name}] Using multi-threaded processing (5s staggered start)")
 
     # ------------------------
     # Worker（线程执行函数）
     # ------------------------
-    def score_single_jd_cv_pair(cv: dict, cv_idx: int, occupation: dict, jd_index: int):
+    def score_single_jd_cv_pair(cv: dict, cv_idx: int, occupation: dict):
         nonlocal api_call_count
 
         industry = str(cv.get("industry_target", "NA"))
@@ -391,29 +263,31 @@ def run_experiment(
                         "candidates": [masked_cv],
                         "job_standard": single_job_standard,
                         "industry": industry,
-                        "jd_index": jd_index,
-                        "jd_total": total_jds,
                     }
                 )
             return
 
-        print(f"[{name}] ⚙️ {timestamp} API #{current_call} → CV[{cv_idx}] + JD[{jd_index}]...")
+        print(f"[{name}] ⚙️ {timestamp} API #{current_call} → CV[{cv_idx}] scoring...")
 
         # ✅ 复用 client（关键）
         result = score_candidates(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← returned")
 
-        # retry
+        # retry with debug info
         if not has_expected_score_shape(result):
+            # 打印调试信息
+            print(f"[{name}] ⚙️ {timestamp} API #{current_call} → format check failed, result: {json.dumps(result, ensure_ascii=False)[:200]}...")
             print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
             result = score_candidates(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
             print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
 
+            # 检查 retry 后的格式
+            if not has_expected_score_shape(result):
+                print(f"[{name}] ⚙️ {timestamp} API #{current_call} ⚠️ WARNING: retry also failed format check")
+
         result = attach_ids(result, candidate_id, cv_id)
         result["industry"] = industry
-        result["jd_index"] = jd_index
-        result["jd_total"] = total_jds
 
         with lock:
             results.append(result)
@@ -437,8 +311,8 @@ def run_experiment(
 
         processed_cv_count += 1
 
-        for jd_index, occupation in enumerate(selected_occupations, start=1):
-            tasks.append((cv, cv_idx, occupation, jd_index))
+        for occupation in selected_occupations:
+            tasks.append((cv, cv_idx, occupation))
 
     print(f"[{name}] Total tasks: {len(tasks)}")
 
@@ -447,7 +321,7 @@ def run_experiment(
     # ------------------------
     start_time = time.time()
 
-    max_workers = 5
+    max_workers = args.thread
 
     try:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -562,6 +436,12 @@ def main() -> None:
         default=1,
         help="Number of independent runs. Each run uses a new client and writes a separate output file.",
     )
+    parser.add_argument(
+        "--thread",
+        type=int,
+        default=1,
+        help="Number of worker threads for parallel API calls (default: 1).",
+    )
     args = parser.parse_args()
 
     args.prompt_config = load_testing_config(Path(args.config))
@@ -583,14 +463,8 @@ def main() -> None:
 
     # Pre-calc counts for confirmation
     target_industry = args.industry
-    jd_total = 0
     occupations = occupations_by_industry.get(args.industry, [])
-    if isinstance(occupations, list):
-        if args.JD_NUM is None:
-            jd_total = len(occupations)  # 使用全部
-        else:
-            jd_total = min(len(occupations), args.JD_NUM)
-    else:
+    if not isinstance(occupations, list):
         raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
 
     experiments = []
@@ -626,8 +500,6 @@ def main() -> None:
         )
 
     print(f"Industry: {target_industry}")
-    if args.industry:
-        print(f"Prepared JD count: {jd_total}")
     print(f"Experiments: {[e['name'] for e in experiments]}")
 
     confirm = input("Proceed with request? (y/n): ").strip().lower()
@@ -704,3 +576,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+# python e:\code\py\hiringbias\main_testing.py --experiment 1 --industry IT --JD_NUM 1 --CV_NUM 3 --model qwen3.5-flash --api-key sk-4uMGXOuP1nWUbHBF1Wz4MQ --config e:\code\py\hiringbias\testing_config.json

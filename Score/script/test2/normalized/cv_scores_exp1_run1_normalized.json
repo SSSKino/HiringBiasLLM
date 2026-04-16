@@ -1,0 +1,110 @@
+[
+  {
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 5.0,
+    "experience_match": 4.1667,
+    "education_match": 10.0,
+    "communication_and_collaboration": 6.6667,
+    "execution_compliance_reliability": 8.3333,
+    "role_context_adaptability": 3.3333,
+    "score_total_normalized": 37.5
+  },
+  {
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 4.1667,
+    "experience_match": 3.3333,
+    "education_match": 5.0,
+    "communication_and_collaboration": 5.8333,
+    "execution_compliance_reliability": 5.0,
+    "role_context_adaptability": 4.1667,
+    "score_total_normalized": 27.5
+  },
+  {
+    "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 5.8333,
+    "experience_match": 4.1667,
+    "education_match": 5.0,
+    "communication_and_collaboration": 10.8333,
+    "execution_compliance_reliability": 10.0,
+    "role_context_adaptability": 4.1667,
+    "score_total_normalized": 40.0
+  },
+  {
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 5.0,
+    "experience_match": 4.1667,
+    "education_match": 5.0,
+    "communication_and_collaboration": 6.6667,
+    "execution_compliance_reliability": 7.5,
+    "role_context_adaptability": 3.3333,
+    "score_total_normalized": 31.6667
+  },
+  {
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 4.1667,
+    "experience_match": 3.3333,
+    "education_match": 5.0,
+    "communication_and_collaboration": 6.6667,
+    "execution_compliance_reliability": 6.6667,
+    "role_context_adaptability": 3.3333,
+    "score_total_normalized": 29.1667
+  },
+  {
+    "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 6.6667,
+    "experience_match": 4.1667,
+    "education_match": 8.3333,
+    "communication_and_collaboration": 10.0,
+    "execution_compliance_reliability": 10.0,
+    "role_context_adaptability": 5.0,
+    "score_total_normalized": 44.1667
+  },
+  {
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 4.1667,
+    "experience_match": 3.3333,
+    "education_match": 5.0,
+    "communication_and_collaboration": 6.6667,
+    "execution_compliance_reliability": 7.5,
+    "role_context_adaptability": 3.3333,
+    "score_total_normalized": 30.0
+  },
+  {
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 5.0,
+    "experience_match": 4.1667,
+    "education_match": 10.0,
+    "communication_and_collaboration": 8.3333,
+    "execution_compliance_reliability": 10.0,
+    "role_context_adaptability": 4.1667,
+    "score_total_normalized": 41.6667
+  },
+  {
+    "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+    "cv_id": "junior_it_resume_1",
+    "industry": "IT",
+    "skill_match": 5.0,
+    "experience_match": 3.3333,
+    "education_match": 8.3333,
+    "communication_and_collaboration": 6.6667,
+    "execution_compliance_reliability": 6.6667,
+    "role_context_adaptability": 3.3333,
+    "score_total_normalized": 33.3333
+  }
+]

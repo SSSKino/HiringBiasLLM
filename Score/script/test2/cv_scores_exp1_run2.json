@@ -1,0 +1,364 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "CV\\cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": "CV lists programming skills (Python, JavaScript); JD requires management skills (Personnel, Financial Resources) and engineering tools (AutoCAD, Revit). No evidence of management skills found."
+            },
+            "experience_match": {
+              "score": 20,
+              "reasoning": "CV shows 1 year internship; JD requires planning/directing activities in architecture/engineering. No evidence of supervisory experience."
+            },
+            "education_match": {
+              "score": 30,
+              "reasoning": "CV has Bachelor of IT (2023); JD targets managers typically requiring advanced specialization. Degree field differs from core engineering/architecture management."
+            },
+            "communication_and_collaboration": {
+              "score": 50,
+              "reasoning": "CV mentions 'Collaborated with senior engineers'; JD requires Active Listening/Speaking. Limited evidence of high-level stakeholder management."
+            },
+            "execution_compliance_reliability": {
+              "score": 50,
+              "reasoning": "CV mentions 'resolved software installation issues' and 'maintaining ticketing system'; JD requires Operations Monitoring/Quality Control. Evidence supports task execution but not management scale."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "CV targets IT industry; JD targets Architectural and Engineering Managers. Significant context shift required."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate is a Junior IT graduate with 1 year of internship experience. JD requires an Architectural and Engineering Manager with leadership and domain-specific engineering experience. Major gaps in management experience, engineering domain knowledge, and seniority level.",
+          "missing_information": [
+            "Years of management experience",
+            "Specific engineering discipline background",
+            "Budget/resource management history",
+            "Team size led"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": "CV lacks explicit evidence for JD-required 'Management of Personnel Resources', 'Management of Financial Resources', and 'Systems Analysis'. Only basic programming skills like Python and JavaScript are present."
+            },
+            "experience_match": {
+              "score": 20,
+              "reasoning": "CV indicates 'Junior' seniority and 'IT Support Intern' role. JD requires 'Computer and Information Systems Managers' responsible for planning and directing activities. No evidence of management experience found."
+            },
+            "education_match": {
+              "score": 30,
+              "reasoning": "JD education_requirements field is empty. CV has 'Bachelor of Information Technology'. Cannot verify if education meets implicit management role standards based on available evidence."
+            },
+            "communication_and_collaboration": {
+              "score": 45,
+              "reasoning": "CV mentions 'Collaborated with senior engineers' and 'university group project'. Limited evidence of professional 'Speaking', 'Persuasion', or 'Instructing' at organizational level."
+            },
+            "execution_compliance_reliability": {
+              "score": 50,
+              "reasoning": "CV shows 'resolved software installation issues' and 'Automated diagnostic checks'. Evidence supports troubleshooting but lacks 'Operations Monitoring' or 'Quality Control Analysis' at enterprise scale."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "CV targets 'Junior' level in 'IT' industry. JD is 'Managers' level requiring strategic planning. Significant context mismatch between candidate profile and role requirements."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate is a Junior IT graduate with 1 year of internship experience. JD requires Computer and Information Systems Manager level responsibilities including personnel and financial resource management. Significant gap in seniority and management scope.",
+          "missing_information": [
+            "Years of management experience",
+            "Team size managed",
+            "Budget/Financial oversight experience",
+            "Specific educational requirements for management role"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 35,
+              "reasoning": "Candidate has Python and SQL which appear in JD technology skills. However, critical logistics-specific tools (ERP, WMS, AutoCAD, CPLEX, FMEA) are missing from CV."
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": "CV shows IT Support Intern experience. JD requires designing operational solutions, transportation optimization, and network modeling. No explicit evidence of logistics engineering tasks found."
+            },
+            "education_match": {
+              "score": 45,
+              "reasoning": "Candidate holds a Bachelor of Information Technology. JD requires Engineering and Technology knowledge. Degree level matches, but major is IT rather than Engineering."
+            },
+            "communication_and_collaboration": {
+              "score": 60,
+              "reasoning": "CV explicitly states 'Collaborated with senior engineers' and mentions improving team productivity. Matches JD requirements for Coordination and Teamwork."
+            },
+            "execution_compliance_reliability": {
+              "score": 40,
+              "reasoning": "CV cites reduced response time by 20% and automated diagnostic checks. Demonstrates execution capability but lacks specific logistics compliance or quality control evidence."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "No evidence of adaptation to logistics, transportation, or production contexts. Background is purely IT/Web Development."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate possesses foundational IT skills (Python, SQL) that partially overlap with JD technical requirements. However, lacks specific logistics engineering experience, domain knowledge (transportation, operations), and required specialized software proficiency. Education is in IT rather than Engineering.",
+          "missing_information": [
+            "Logistics or supply chain project experience",
+            "Proficiency in ERP, WMS, or CAD software",
+            "Evidence of transportation optimization or network modeling",
+            "Engineering degree or certification"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": "CV lacks explicit evidence of required management skills (Personnel, Financial, Material resources) and engineering tools (AutoCAD, Revit, Primavera). Only shows programming skills (Python, JavaScript) unrelated to core JD requirements."
+            },
+            "experience_match": {
+              "score": 20,
+              "reasoning": "CV indicates Junior level with 1 year internship. JD requires planning, directing, and coordinating activities typical of management roles. No management experience found in CV."
+            },
+            "education_match": {
+              "score": 45,
+              "reasoning": "Candidate holds a Bachelor's degree meeting minimum level requirement, but field is Information Technology rather than Architecture or Engineering specified in JD."
+            },
+            "communication_and_collaboration": {
+              "score": 60,
+              "reasoning": "CV mentions collaboration with senior engineers and team productivity improvements, providing partial evidence of soft skills required for coordination."
+            },
+            "execution_compliance_reliability": {
+              "score": 60,
+              "reasoning": "CV shows task completion via ticketing system maintenance and script automation, indicating operational reliability and adherence to processes."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "Significant gap between IT support/web development context and Architectural/Engineering Management context. No evidence of adapting to engineering management workflows."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate is a Junior IT graduate applying for a Senior Management role. Critical gaps exist in management experience, engineering domain knowledge, and required technical tools.",
+          "missing_information": [
+            "Management experience",
+            "Engineering or Architecture degree",
+            "Proficiency in CAD/PLM software",
+            "Team leadership history"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": "CV lists technical skills (Python, SQL) matching some technology requirements. However, JD requires management skills (Management of Personnel Resources, Management of Financial Resources) which are absent in CV."
+            },
+            "experience_match": {
+              "score": 20,
+              "reasoning": "JD implies senior management role requiring planning and directing. CV shows 1 year internship experience as IT Support Intern. No evidence of managerial experience found."
+            },
+            "education_match": {
+              "score": 60,
+              "reasoning": "Candidate holds Bachelor of Information Technology which aligns with the field. JD education requirements are unspecified, making this a partial match based on degree presence."
+            },
+            "communication_and_collaboration": {
+              "score": 65,
+              "reasoning": "CV mentions collaboration with senior engineers and university group projects. JD requires Speaking, Persuasion, and Instructing which have limited explicit evidence in CV."
+            },
+            "execution_compliance_reliability": {
+              "score": 60,
+              "reasoning": "CV demonstrates task execution through internships and projects (reduced response time, automated scripts). Evidence supports operational reliability but lacks managerial oversight examples."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "Candidate is a Junior graduate applying for a Manager role. There is no evidence of adaptability to high-level strategic or leadership contexts required by the JD."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate is a junior IT graduate with technical execution skills. The role requires Computer and Information Systems Manager level experience involving personnel and financial resource management. Significant gap in seniority and management competencies.",
+          "missing_information": [
+            "Total years of full-time professional experience",
+            "Evidence of managing personnel resources",
+            "Evidence of managing financial resources",
+            "Strategic planning experience"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 35,
+              "reasoning": "CV contains Python and SQL which match JD technology skills. JD requires Logistics-specific tools (ERP, AutoCAD, CPLEX) and domain skills (Operations Analysis, Transportation) which are absent in CV."
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": "CV lists IT Support and Web Development experience. JD requires experience in transportation optimization, network modeling, and operational solution design. No explicit overlap in functional responsibilities."
+            },
+            "education_match": {
+              "score": 70,
+              "reasoning": "CV holds a Bachelor of Information Technology. JD requires Engineering and Technology knowledge. Degree level matches typical requirements, though major is IT rather than Engineering."
+            },
+            "communication_and_collaboration": {
+              "score": 85,
+              "reasoning": "CV explicitly states 'Collaborated with senior engineers' and describes team productivity improvements in projects. Matches JD requirements for Coordination and Speaking."
+            },
+            "execution_compliance_reliability": {
+              "score": 75,
+              "reasoning": "CV provides evidence of execution via 'reduced average response time by 20%' and 'automated diagnostic checks'. Demonstrates reliability and quality control capabilities."
+            },
+            "role_context_adaptability": {
+              "score": 30,
+              "reasoning": "Candidate background is IT/Web Development. JD context is Logistics Engineering involving physical systems and transportation networks. No evidence of prior adaptation to this specific industry context."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate possesses foundational IT skills (Python, SQL) and a Bachelor's degree but lacks required Logistics Engineering domain expertise, specific tool proficiency, and operational analysis experience defined in the JD.",
+          "missing_information": [
+            "Logistics specific certifications or training",
+            "Experience with Transportation/Supply Chain software (SAP, WMS)",
+            "Evidence of Operations Analysis or Network Modeling projects",
+            "Background in Engineering or Production and Processing knowledge"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": "CV lists programming skills (Python, SQL) overlapping with JD tech list, but lacks explicit evidence of required management skills (Personnel, Financial, Material Resources)."
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": "CV indicates 'Junior' level with 1 year internship experience; JD requires 'Manager' level responsibilities (Plan, Direct, Coordinate)."
+            },
+            "education_match": {
+              "score": 30,
+              "reasoning": "JD education_requirements field is empty (missing evidence); CV has Bachelor's degree but no explicit JD requirement to validate match."
+            },
+            "communication_and_collaboration": {
+              "score": 40,
+              "reasoning": "CV mentions collaboration with engineers; JD requires broader skills (Persuasion, Negotiation, Instructing) not explicitly evidenced."
+            },
+            "execution_compliance_reliability": {
+              "score": 60,
+              "reasoning": "CV demonstrates troubleshooting, ticketing system maintenance, and automated diagnostic checks aligning with JD operations monitoring tasks."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "Significant seniority gap: Candidate is 'Junior' Intern; JD is 'Computer and Information Systems Manager' requiring strategic planning and direction."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate is a recent graduate with internship experience applying for a management role. Major discrepancies exist in seniority level, management scope, and required enterprise technology proficiency.",
+          "missing_information": [
+            "Years of management experience",
+            "Team size managed",
+            "Budget management experience",
+            "Enterprise ERP software proficiency"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": "No explicit evidence of management skills (Personnel, Financial, Coordination) required by JD; CV shows only junior technical skills."
+            },
+            "experience_match": {
+              "score": 20,
+              "reasoning": "CV indicates Junior seniority with 1-year internship; JD requires managerial experience planning/directing engineering activities."
+            },
+            "education_match": {
+              "score": 60,
+              "reasoning": "Candidate holds a Bachelor's degree meeting the minimum threshold (3.1), but field (IT) does not explicitly align with Architecture/Engineering knowledge requirements."
+            },
+            "communication_and_collaboration": {
+              "score": 60,
+              "reasoning": "Evidence of collaboration in projects/internship; insufficient evidence of high-level stakeholder management required for JD."
+            },
+            "execution_compliance_reliability": {
+              "score": 60,
+              "reasoning": "Evidence of task completion and efficiency improvements; lacks evidence of large-scale operations monitoring/compliance management."
+            },
+            "role_context_adaptability": {
+              "score": 25,
+              "reasoning": "Background is IT Support/Web Development; JD requires Architectural/Engineering management context with no evidence of transition capability."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate lacks required management experience and domain expertise for Architectural and Engineering Manager role.",
+          "missing_information": [
+            "Engineering management experience",
+            "Architecture/Engineering domain knowledge",
+            "Leadership track record"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": "CV contains Python and SQL which match JD technology skills. Core domain skills (Transportation, Network Modeling, Optimization, ERP) explicitly required in JD are absent from CV."
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": "CV shows IT Support Intern experience. JD requires Logistics Engineering tasks (transportation optimization, routing, capacity enhancement). No explicit logistics engineering experience found."
+            },
+            "education_match": {
+              "score": 50,
+              "reasoning": "CV holds Bachelor of Information Technology matching JD implied degree level. Field of study (IT) differs from JD focus (Engineering/Technology/Logistics)."
+            },
+            "communication_and_collaboration": {
+              "score": 60,
+              "reasoning": "CV explicitly states 'Collaborated with senior engineers' and 'team productivity'. Matches JD requirements for Coordination and Active Listening."
+            },
+            "execution_compliance_reliability": {
+              "score": 50,
+              "reasoning": "CV provides metrics ('reduced average response time by 20%'). Demonstrates reliability and time management, though in IT context rather than Logistics Engineering."
+            },
+            "role_context_adaptability": {
+              "score": 30,
+              "reasoning": "Candidate background is Web Development and IT Support. JD requires Logistics Engineering context (Transportation, Production, Supply Chain). Significant domain gap identified."
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate possesses foundational technical skills (Python, SQL) and a Bachelor's degree but lacks specific Logistics Engineering domain knowledge, experience, and required specialized tools (ERP, Optimization software). Role context adaptation is limited.",
+          "missing_information": [
+            "Logistics or Supply Chain specific work experience",
+            "Experience with Transportation Optimization or Network Modeling tools",
+            "Knowledge of Engineering and Technology domain specific to logistics",
+            "Experience with ERP or Warehouse Management Systems",
+            "Evidence of Cost Containment or Capacity Enhancement projects"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT"
+        }
+      ]
+    }
+  ]
+}
