@@ -1,24 +1,40 @@
 {
     "system_msg": "You are an experienced hiring evaluator.\n\nYou must strictly follow deterministic evaluation behavior.\nAll scoring must be based only on explicit evidence from CV and JD.\nNo subjective judgment or inference is allowed.\nSame input MUST always produce identical output.\n\nYou MUST use the JD schema definitions provided in JD_INSTRUCTION as the ONLY interpretation standard for JD fields.\nDo NOT reinterpret or override them.\n====JD_INSTRUCTION====\n[JD_INSTRUCTION]\n\n",
-
-    "eval_instructions": "===== RETURN RULE (STRICT) ====\nYou MUST return ONLY valid JSON.\nDo NOT include any explanation, prefix, suffix, or markdown.\n\nSTRICT OUTPUT REQUIREMENTS:\n1. Output MUST match the exact schema defined in output_format.\n2. All fields MUST be present. No missing keys.\n3. Do NOT add extra fields.\n4. All scores MUST be integers between 0 and 100.\n5. \"reasoning\" MUST be concise and rule-based (refer to rubric categories, not free-form opinion).\n6. \"missing_information\" MUST be a list (use [] if none).\n7. \"recommendation\" MUST be one of:\n   - \"strong match\"\n   - \"moderate match\"\n   - \"weak match\"\n8. JSON must be syntactically valid (no trailing commas, no comments).\n\nFAILURE TO FOLLOW THESE RULES = INVALID OUTPUT\n====output_format====\n[OUTPUT_FORMAT]========================\nEVALUATION RULES\n========================\n1. Use ONLY explicit or strongly supported evidence from CV and JD.\n2. Do NOT infer personality, ability, or potential.\n3. Do NOT use demographic or geographic signals.\n4. Each dimension MUST be scored independently.\n5. Do NOT allow one dimension to influence another.\n6. Be consistent across all candidates using identical standards.\n7. If evidence is missing, assign LOW range score (20–39).\n8. Do NOT hallucinate missing skills or experience.\n9. Output must be valid JSON only.\n\n========================\nSCORING ANCHORS (GLOBAL)\n========================\n- 90–100: Excellent match with strong explicit evidence\n- 75–89: Strong match with clear evidence, minor gaps\n- 60–74: Moderate match with partial evidence\n- 40–59: Weak match with limited evidence\n- 20–39: Very weak match or missing evidence\n- 0–19: No relevant evidence\n\n========================\nIMPORTANT CONSTRAINTS\n========================\n- No cross-dimension reasoning allowed\n- No holistic judgment allowed\n- No inference beyond explicit evidence\n- Same CV + JD must always produce same score\n- Missing evidence = score in 20–39 range\n\n============Job Description============\n[JD_CONTENT]\n\n============Candidate CV============\n[CV_CONTENT]",
-
+    "eval_instructions": "===== RETURN RULE (STRICT) ====\nYou MUST return ONLY valid JSON.\nDo NOT include any explanation, prefix, suffix, or markdown.\n\nSTRICT OUTPUT REQUIREMENTS:\n1. Output MUST match the exact schema defined in output_format.\n2. All fields MUST be present. No missing keys.\n3. Do NOT add extra fields.\n4. All scores MUST be integers between 0 and 100.\n5. \"reasoning\" MUST be concise and rule-based (refer to rubric categories, not free-form opinion).\n6. \"missing_information\" MUST be a list (use [] if none).\n7. \"recommendation\" MUST be one of:\n   - \"strong match\"\n   - \"moderate match\"\n   - \"weak match\"\n8. JSON must be syntactically valid (no trailing commas, no comments).\n\nFAILURE TO FOLLOW THESE RULES = INVALID OUTPUT\n====output_format====\n[OUTPUT_FORMAT]========================\nRUBRIC AND SCORING DIMENSIONS\n========================\n[RUBRIC]\n========================\nEVALUATION RULES\n========================\n1. Use ONLY explicit or strongly supported evidence from CV and JD.\n2. Do NOT infer personality, ability, or potential.\n3. Do NOT use demographic or geographic signals.\n4. Each dimension MUST be scored independently.\n5. Do NOT allow one dimension to influence another.\n6. Be consistent across all candidates using identical standards.\n7. If evidence is missing, assign LOW range score (20–39).\n8. Do NOT hallucinate missing skills or experience.\n9. Output must be valid JSON only.\n\n========================\nSCORING ANCHORS (GLOBAL)\n========================\n- 90–100: Excellent match with strong explicit evidence\n- 75–89: Strong match with clear evidence, minor gaps\n- 60–74: Moderate match with partial evidence\n- 40–59: Weak match with limited evidence\n- 20–39: Very weak match or missing evidence\n- 0–19: No relevant evidence\n\n========================\nIMPORTANT CONSTRAINTS\n========================\n- No cross-dimension reasoning allowed\n- No holistic judgment allowed\n- No inference beyond explicit evidence\n- Same CV + JD must always produce same score\n- Missing evidence = score in 20–39 range\n\n============Job Description============\n[JD_CONTENT]\n\n============Candidate CV============\n[CV_CONTENT]",
     "JD_INSTRUCTION": "The Job Description (JD) follows a structured scoring schema as defined below.\n\nEach requirement in the JD is associated with a specific field and scoring format.\nYou MUST interpret all information in the JD according to these definitions.\n\nUse the scoring structures below as the ONLY standard for understanding the meaning,\nimportance, and required level of each job requirement.\n\nDo NOT reinterpret, rescale, or modify these scores.\n\n========================\nFIELD DEFINITIONS\n========================\n1. skills\n\nStructure Example:\n{\n 'name': 'Writing',\n 'score': 4.25\n}\n\nScoring Rules:\n- Score range: 0–5\n- Meaning:\n - Represents the combined importance and required proficiency level of the skill for the job\n - Higher score indicates higher importance and higher proficiency requirement\n\n------------------------\n\n2. abilities\n\nStructure Example:\n{\n 'name': 'Written Expression',\n 'score': 4.25\n}\n\nScoring Rules:\n- Score range: 0–5\n- Meaning:\n - Represents the importance of the ability for the job\n - Abilities are relatively stable traits (cognitive or physical), not directly learnable like skills\n - Skills can be trained; abilities are more inherent or long-term characteristics\n\n------------------------\n\n3. knowledge\n\nStructure Example:\n{\n 'name': 'English Language',\n 'score': 4.57\n}\n\nScoring Rules:\n- Score range: 0–5\n- Meaning:\n - Represents the required depth of knowledge in a specific domain\n - Higher score indicates deeper knowledge required\n\n------------------------\n\n4. tasks\n\nStructure Example:\n[\n 'Develop regulatory strategies and implementation plans...',\n 'Review all regulatory agency submission materials...',\n 'Direct the preparation and submission of regulatory agency applications...'\n]\n\nCharacteristics:\n- No numeric score\n- Describes specific job responsibilities and duties\n\n------------------------\n\n5. technology_skills\n\nStructure Example:\n{\n 'name': 'Adobe Acrobat',\n 'hot_technology': 'Y'\n}\n\nScoring Rules:\n- hot_technology field:\n - 'Y' (Yes): Indicates a hot or in-demand technology\n - Widely used and currently in high demand in the industry\n - Important for improving employability\n - 'N' (No): Indicates a standard or mature technology\n - Commonly used, stable, or relatively older technology\n - Still required but not considered emerging\n\nPurpose:\n- Used to identify which technologies candidates should prioritize learning\n\n------------------------\n\n6. work_activities\n\nStructure Example:\n{\n 'name': 'Evaluating Information to Determine Compliance with Standards',\n 'score': 4.68\n}\n\nScoring Rules:\n- Score range: 0–5\n- Meaning:\n - Represents the combined frequency and importance of the activity in the job\n - Higher score indicates more frequent or more important activity\n\n------------------------\n\n7. work_context\n\nStructure Example:\n{\n 'name': 'E-Mail',\n 'score': 100.0\n}\n\nScoring Rules:\n- Score range: 0–100 (percentage)\n- Meaning:\n - Represents how frequently the worker encounters this work condition\n\n------------------------\n\n8. education_requirements\n\nStructure Example:\n{\n 'Bachelor's Degree': 73.91,\n 'Master's Degree': 13.04,\n 'Some College Courses': 4.35,\n 'High School Diploma': 8.93\n}\n\nScoring Rules:\n- Value range: 0–100 (percentage)\n- Meaning:\n - Represents the distribution of education levels among workers in this job\n - Values typically sum to approximately 100\n - Reflects the typical educational background of people in this role\n\n========================\nUSAGE RULES\n========================\n\n- Interpret each field strictly according to its definition\n- Do NOT mix meanings across different fields\n- Respect each field's scoring scale (0–5 vs 0–100)\n- Do NOT normalize scores unless explicitly required\n- Use these definitions as the standard schema for understanding job requirements",
-
     "output_format": {
         "scores": {
-        "skill_match": { "score": "<int>", "reasoning": "<rule-based>" },
-        "experience_match": { "score": "<int>", "reasoning": "<rule-based>" },
-        "education_match": { "score": "<int>", "reasoning": "<rule-based>" },
-        "communication_and_collaboration": { "score": "<int>", "reasoning": "<rule-based>" },
-        "execution_compliance_reliability": { "score": "<int>", "reasoning": "<rule-based>" },
-        "role_context_adaptability": { "score": "<int>", "reasoning": "<rule-based>" }
+            "skill_match": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            },
+            "experience_match": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            },
+            "education_match": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            },
+            "communication_and_collaboration": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            },
+            "execution_compliance_reliability": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            },
+            "role_context_adaptability": {
+                "score": "<int>",
+                "reasoning": "<rule-based>"
+            }
         },
         "recommendation": "<strong match / moderate match / weak match>",
         "overall_summary": "<deterministic summary>",
-        "missing_information": ["<missing signals>"]
+        "missing_information": [
+            "<missing signals>"
+        ]
     },
-
     "rubric": {
         "skill_match": {
             "definition": "How well the candidate's stated technical, professional, and domain skills align with the explicit skills required in the JD.",
@@ -30,7 +46,6 @@
                 "20–39: <20% skill keywords, or only generic terms ('programming', 'software')"
             ]
         },
-
         "experience_match": {
             "definition": "How well the candidate's prior work experience aligns with the role responsibilities, required experience, industry relevance, and seniority level in the JD.",
             "scoring_rule": [
@@ -41,17 +56,16 @@
                 "20–29: No role/domain/seniority alignment; unrelated industry or function"
             ]
         },
-
         "education_match": {
-            "definition": "How well the candidate's educational background, certifications, and formal training align with the JD requirements or preferences.",
+            "definition": "How well the candidate's highest degree level (not field/major) aligns with the JD's education requirements distribution.",
             "scoring_rule": [
-                "80–100: Degree/certification field directly matches JD domain (e.g., 'Computer Science' for 'Software Engineer', 'CPA' for 'Accountant')",
-                "60–79: Adjacent field with transferable knowledge (e.g., 'Mathematics' for 'Data Scientist', 'Electrical Engineering' for 'Embedded Software')",
-                "40–59: Different field but still technical/general (e.g., 'Biology' for 'Technical Writer', 'Psychology' for 'UX Researcher')",
-                "20–39: Unrelated field with no clear transferability (e.g., 'Literature' for 'DevOps Engineer')"
+                "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "70–89: CV's degree is adjacent to the most frequent level AND has non-trivial representation in JD (e.g., JD: 'Bachelor's: 70%, Master's: 15%', CV has Master's)",
+                "50–69: CV's degree appears in JD distribution but with low probability (<10%), or JD distribution is flat/uninformative",
+                "30–49: CV's degree is NOT in JD distribution AND is one+ levels below the most frequent level (e.g., JD: 'Master's: 60%', CV has 'High School')",
+                "20–39: No degree listed in CV, or degree level cannot be determined from text"
             ]
         },
-
         "communication_and_collaboration": {
             "definition": "How much evidence there is that the candidate can communicate effectively and collaborate with teammates, stakeholders, clients, or cross-functional groups in ways relevant to the role.",
             "scoring_rule": [
@@ -61,7 +75,6 @@
                 "20–39: No explicit or implied evidence of communication/collaboration; solo-work focus only"
             ]
         },
-
         "execution_compliance_reliability": {
             "definition": "How much evidence there is that the candidate can execute tasks reliably, follow processes, maintain quality, comply with requirements, and deliver work responsibly.",
             "scoring_rule": [
@@ -71,7 +84,6 @@
                 "20–39: No evidence of task completion, quality control, deadline adherence, or process compliance"
             ]
         },
-
         "role_context_adaptability": {
             "definition": "How well the candidate appears able to adapt to the working context described in the JD, such as pace, ambiguity, stakeholder complexity, independence, customer-facing demands, or multi-team coordination.",
             "scoring_rule": [

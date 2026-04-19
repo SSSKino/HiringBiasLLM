@@ -55,16 +55,20 @@ class CVScoringUtils:
         cfg = CVScoringUtils.load_json(path)
         if not isinstance(cfg, dict):
             raise SystemExit("testing_config.json must be a JSON object")
-        required = ["system_msg", "eval_instructions", "output_format", "rubric"]
+        required = ["system_msg", "eval_instructions", "output_format", "rubric", "JD_INSTRUCTION"]
         missing = [k for k in required if k not in cfg]
         if missing:
             raise SystemExit(f"testing_config.json missing keys: {', '.join(missing)}")
         return cfg
 
     @staticmethod
-    def build_prompt(candidates: list[dict], standard: list[dict], cfg: dict) -> list[dict]:
-        """构建prompt，将JD、CV和output_format插入到eval_instructions中。"""
-        system_msg = cfg["system_msg"]
+    def build_prompt(candidates: list[dict], standard: list[dict], cfg: dict, debug: bool = False) -> list[dict]:
+        """构建prompt，将JD、CV、JD_INSTRUCTION、RUBRIC和output_format插入到eval_instructions中。"""
+        # 获取JD_INSTRUCTION
+        jd_instruction = cfg.get("JD_INSTRUCTION", "")
+        
+        # 先替换system_msg中的占位符
+        system_msg = cfg["system_msg"].replace("[JD_INSTRUCTION]", jd_instruction)
 
         # 将JD转换为JSON字符串
         jd_content = json.dumps(standard, ensure_ascii=False, indent=2) if standard else ""
@@ -75,18 +79,38 @@ class CVScoringUtils:
         # 将output_format转换为JSON字符串（展示具体的返回格式）
         output_format_content = json.dumps(cfg["output_format"], ensure_ascii=False, indent=2)
 
+        # 将rubric转换为JSON字符串
+        rubric_content = json.dumps(cfg.get("rubric", {}), ensure_ascii=False, indent=2)
+
         # 用实际内容替换placeholder
         eval_instructions = (
             cfg["eval_instructions"]
             .replace("[JD_CONTENT]", jd_content)
             .replace("[CV_CONTENT]", cv_content)
             .replace("[OUTPUT_FORMAT]", output_format_content)
+            .replace("[RUBRIC]", rubric_content)
         )
 
-        return [
+        messages = [
             {"role": "system", "content": system_msg},
             {"role": "user", "content": eval_instructions},
         ]
+        
+        # 调试：仅在 debug=True 时保存 prompt 到文件
+        if debug:
+            debug_file = "debug_prompt.txt"
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write("=" * 80 + "\n")
+                f.write("SYSTEM MESSAGE\n")
+                f.write("=" * 80 + "\n")
+                f.write(system_msg + "\n\n")
+                f.write("=" * 80 + "\n")
+                f.write("USER MESSAGE\n")
+                f.write("=" * 80 + "\n")
+                f.write(eval_instructions + "\n")
+            print(f"[DEBUG] Prompt saved to {debug_file}")
+        
+        return messages
 
     @staticmethod
     def score(
@@ -268,6 +292,9 @@ def run_experiment(
                         "industry": industry,
                     }
                 )
+                # 为第一个请求构建并保存 prompt（用于调试）
+                if len(review_payloads) == 1:
+                    CVScoringUtils.build_prompt([masked_cv], single_job_standard, args.prompt_config, debug=True)
             return
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} → CV[{cv_idx}] scoring...")
@@ -442,7 +469,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    args.prompt_config = CVScoringUtils.load_prompt(Path(args.config))
+    args.prompt_config = CVScoringUtils.load_prompt(Path(args.prompt))
 
     jobs_data = CVScoringUtils.load_json(Path(args.jobs))
     occupations_by_industry = jobs_data.get("occupations", {})

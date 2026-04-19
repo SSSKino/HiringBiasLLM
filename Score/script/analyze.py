@@ -459,7 +459,7 @@ def generate_stability_charts(report: dict, scores_by_exp: dict, normalized_dir:
                     max_score_source_file = max_entry[1]
                     min_score_source_file = min_entry[1]
         
-        if max_diff_across_regions > 0:
+        if max_diff_across_regions >= 0:
             dimension_metadata.append({
                 'diff': max_diff_across_regions,
                 'region': max_diff_source_region,
@@ -504,7 +504,7 @@ def generate_stability_charts(report: dict, scores_by_exp: dict, normalized_dir:
                 max_total_score_source_file = max_entry[1]
                 min_total_score_source_file = min_entry[1]
     
-    if max_total_diff_across_regions > 0:
+    if max_total_diff_across_regions >= 0:
         dimension_metadata.append({
             'diff': max_total_diff_across_regions,
             'region': max_total_diff_source_region,
