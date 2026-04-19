@@ -5,203 +5,206 @@ import time
 import threading
 from pathlib import Path
 from typing import Any
-
 from openai import OpenAI
 
 
-def load_json(path: Path) -> Any:
-    if not path.exists():
-        raise SystemExit(f"file not found: {path}")
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        raise SystemExit(f"invalid JSON in {path}: {exc}") from exc
+class CVScoringUtils:
+    """Helper utilities for CV scoring pipeline."""
+    
+    @staticmethod
+    def load_json(path: Path) -> Any:
+        if not path.exists():
+            raise SystemExit(f"file not found: {path}")
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            raise SystemExit(f"invalid JSON in {path}: {exc}") from exc
 
+    @staticmethod
+    def get_JD_INFO(occupations: list[dict], limit: int | None) -> list[dict]:
+        """Compact job occupations. If limit is None, use all occupations."""
+        compact: list[dict] = []
+        # 如果 limit 是 None，表示使用全部；否则用 slice
+        target_occupations = occupations if limit is None else occupations[:limit]
+        for occ in target_occupations:
+            compact.append(
+                {
+                    "soc_code": occ.get("soc_code"),
+                    "title": occ.get("title"),
+                    "description": occ.get("description"),
+                    "skills": [s.get("name") for s in occ.get("skills", []) if isinstance(s, dict)],
+                    "abilities": [s.get("name") for s in occ.get("abilities", []) if isinstance(s, dict)],
+                    "knowledge": [s.get("name") for s in occ.get("knowledge", []) if isinstance(s, dict)],
+                    "tasks": [t.get("task") for t in occ.get("tasks", []) if isinstance(t, dict)],
+                    "technology_skills": [
+                        t.get("name") for t in occ.get("technology_skills", []) if isinstance(t, dict)
+                    ],
+                    "education_requirements": occ.get("education_requirements"),
+                }
+            )
+        return compact
 
-def compact_job_standard(occupations: list[dict], limit: int | None) -> list[dict]:
-    """Compact job occupations. If limit is None, use all occupations."""
-    compact: list[dict] = []
-    # 如果 limit 是 None，表示使用全部；否则用 slice
-    target_occupations = occupations if limit is None else occupations[:limit]
-    for occ in target_occupations:
-        compact.append(
-            {
-                "soc_code": occ.get("soc_code"),
-                "title": occ.get("title"),
-                "description": occ.get("description"),
-                "skills": [s.get("name") for s in occ.get("skills", []) if isinstance(s, dict)],
-                "abilities": [s.get("name") for s in occ.get("abilities", []) if isinstance(s, dict)],
-                "knowledge": [s.get("name") for s in occ.get("knowledge", []) if isinstance(s, dict)],
-                "tasks": [t.get("task") for t in occ.get("tasks", []) if isinstance(t, dict)],
-                "technology_skills": [
-                    t.get("name") for t in occ.get("technology_skills", []) if isinstance(t, dict)
-                ],
-                "education_requirements": occ.get("education_requirements"),
-            }
+    @staticmethod
+    def decompose_JD_to_Batch(items: list[dict], batch_size: int) -> list[list[dict]]:
+        if batch_size < 1:
+            raise SystemExit("--jobs-batch-size must be >= 1")
+        return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
+
+    @staticmethod
+    def load_prompt(path: Path) -> dict:
+        cfg = CVScoringUtils.load_json(path)
+        if not isinstance(cfg, dict):
+            raise SystemExit("testing_config.json must be a JSON object")
+        required = ["system_msg", "eval_instructions", "output_format", "rubric"]
+        missing = [k for k in required if k not in cfg]
+        if missing:
+            raise SystemExit(f"testing_config.json missing keys: {', '.join(missing)}")
+        return cfg
+
+    @staticmethod
+    def build_prompt(candidates: list[dict], standard: list[dict], cfg: dict) -> list[dict]:
+        """构建prompt，将JD、CV和output_format插入到eval_instructions中。"""
+        system_msg = cfg["system_msg"]
+
+        # 将JD转换为JSON字符串
+        jd_content = json.dumps(standard, ensure_ascii=False, indent=2) if standard else ""
+
+        # 将CV处理为JSON列表
+        cv_content = json.dumps(candidates, ensure_ascii=False, indent=2) if candidates else ""
+
+        # 将output_format转换为JSON字符串（展示具体的返回格式）
+        output_format_content = json.dumps(cfg["output_format"], ensure_ascii=False, indent=2)
+
+        # 用实际内容替换placeholder
+        eval_instructions = (
+            cfg["eval_instructions"]
+            .replace("[JD_CONTENT]", jd_content)
+            .replace("[CV_CONTENT]", cv_content)
+            .replace("[OUTPUT_FORMAT]", output_format_content)
         )
-    return compact
 
+        return [
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": eval_instructions},
+        ]
 
-def chunk_list(items: list[dict], batch_size: int) -> list[list[dict]]:
-    if batch_size < 1:
-        raise SystemExit("--jobs-batch-size must be >= 1")
-    return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
+    @staticmethod
+    def score(
+        client: OpenAI, model: str, candidates: list[dict], standard: list[dict], cfg: dict
+    ) -> dict[str, Any]:
+        messages = CVScoringUtils.build_prompt(candidates, standard, cfg)
+        resp = client.chat.completions.create(
+            model=model,
+            messages=messages,
+            temperature=0.0,
+            top_p=1,
+        )
+        content = resp.choices[0].message.content or ""
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError:
+            # fallback: wrap raw content
+            return {"raw_response": content}
 
+    @staticmethod
+    def check_APIReturn_Format(result: Any) -> bool:
+        """验证result是否有预期的评分结构（按照 testing_config.json 中的格式）。"""
+        # 预期的6维度（小写+下划线）
+        required_dimensions = {
+            "skill_match",
+            "experience_match",
+            "education_match",
+            "communication_and_collaboration",
+            "execution_compliance_reliability",
+            "role_context_adaptability"
+        }
 
-def load_testing_config(path: Path) -> dict:
-    cfg = load_json(path)
-    if not isinstance(cfg, dict):
-        raise SystemExit("testing_config.json must be a JSON object")
-    required = ["system_msg", "eval_instructions", "output_format", "rubric"]
-    missing = [k for k in required if k not in cfg]
-    if missing:
-        raise SystemExit(f"testing_config.json missing keys: {', '.join(missing)}")
-    return cfg
-
-
-def build_prompt(candidates: list[dict], standard: list[dict], cfg: dict) -> list[dict]:
-    """构建prompt，将JD、CV和output_format插入到eval_instructions中。"""
-    system_msg = cfg["system_msg"]
-
-    # 将JD转换为JSON字符串
-    jd_content = json.dumps(standard, ensure_ascii=False, indent=2) if standard else ""
-
-    # 将CV处理为JSON列表
-    cv_content = json.dumps(candidates, ensure_ascii=False, indent=2) if candidates else ""
-
-    # 将output_format转换为JSON字符串（展示具体的返回格式）
-    output_format_content = json.dumps(cfg["output_format"], ensure_ascii=False, indent=2)
-
-    # 用实际内容替换placeholder
-    eval_instructions = (
-        cfg["eval_instructions"]
-        .replace("[JD_CONTENT]", jd_content)
-        .replace("[CV_CONTENT]", cv_content)
-        .replace("[OUTPUT_FORMAT]", output_format_content)
-    )
-
-    return [
-        {"role": "system", "content": system_msg},
-        {"role": "user", "content": eval_instructions},
-    ]
-
-
-def score_candidates(
-    client: OpenAI, model: str, candidates: list[dict], standard: list[dict], cfg: dict
-) -> dict[str, Any]:
-    messages = build_prompt(candidates, standard, cfg)
-    resp = client.chat.completions.create(
-        model=model,
-        messages=messages,
-        temperature=0.0,
-        top_p=1,
-    )
-    content = resp.choices[0].message.content or ""
-    try:
-        return json.loads(content)
-    except json.JSONDecodeError:
-        # fallback: wrap raw content
-        return {"raw_response": content}
-
-
-def has_expected_score_shape(result: Any) -> bool:
-    """验证result是否有预期的评分结构（按照 testing_config.json 中的格式）。"""
-    # 预期的6维度（小写+下划线）
-    required_dimensions = {
-        "skill_match",
-        "experience_match",
-        "education_match",
-        "communication_and_collaboration",
-        "execution_compliance_reliability",
-        "role_context_adaptability"
-    }
-
-    def check_score_structure(scores_dict: dict) -> bool:
-        """检查scores字典是否包含所有6个维度，每个维度都有score和reasoning。"""
-        if not isinstance(scores_dict, dict):
-            return False
-
-        dict_keys = set(scores_dict.keys())
-        if dict_keys != required_dimensions:
-            return False
-
-        for dim, dim_data in scores_dict.items():
-            if not isinstance(dim_data, dict):
+        def check_score_structure(scores_dict: dict) -> bool:
+            """检查scores字典是否包含所有6个维度，每个维度都有score和reasoning。"""
+            if not isinstance(scores_dict, dict):
                 return False
-            # 检查必需字段：score、reasoning
-            if "score" not in dim_data or "reasoning" not in dim_data:
+
+            dict_keys = set(scores_dict.keys())
+            if dict_keys != required_dimensions:
                 return False
-            # score应该是整数0-100
-            score = dim_data.get("score")
-            if not isinstance(score, (int, float)) or not (0 <= score <= 100):
-                return False
-        return True
-    
-    # 格式1：直接的 scores 对象（顶层是 scores）
-    if check_score_structure(result):
-        return True
-    
-    # 格式2：包含 scores 字段的对象（如 {"candidate_id": "...", "scores": {...}, ...}）
-    if isinstance(result, dict) and "scores" in result:
-        if check_score_structure(result["scores"]):
+
+            for dim, dim_data in scores_dict.items():
+                if not isinstance(dim_data, dict):
+                    return False
+                # 检查必需字段：score、reasoning
+                if "score" not in dim_data or "reasoning" not in dim_data:
+                    return False
+                # score应该是整数0-100
+                score = dim_data.get("score")
+                if not isinstance(score, (int, float)) or not (0 <= score <= 100):
+                    return False
             return True
-    
-    # 格式3：嵌套的结果列表
-    if isinstance(result, dict) and "results" in result and isinstance(result["results"], list):
-        if not result["results"]:
-            return False
-        for item in result["results"]:
-            if isinstance(item, dict) and "scores" in item:
-                if not check_score_structure(item["scores"]):
-                    return False
-        return True
-    
-    # 格式4：直接的结果列表
-    if isinstance(result, list):
-        if not result:
-            return False
-        for item in result:
-            if isinstance(item, dict) and "scores" in item:
-                if not check_score_structure(item["scores"]):
-                    return False
-        return True
-    
-    return False
+        
+        # 格式1：直接的 scores 对象（顶层是 scores）
+        if check_score_structure(result):
+            return True
+        
+        # 格式2：包含 scores 字段的对象（如 {"candidate_id": "...", "scores": {...}, ...}）
+        if isinstance(result, dict) and "scores" in result:
+            if check_score_structure(result["scores"]):
+                return True
+        
+        # 格式3：嵌套的结果列表
+        if isinstance(result, dict) and "results" in result and isinstance(result["results"], list):
+            if not result["results"]:
+                return False
+            for item in result["results"]:
+                if isinstance(item, dict) and "scores" in item:
+                    if not check_score_structure(item["scores"]):
+                        return False
+            return True
+        
+        # 格式4：直接的结果列表
+        if isinstance(result, list):
+            if not result:
+                return False
+            for item in result:
+                if isinstance(item, dict) and "scores" in item:
+                    if not check_score_structure(item["scores"]):
+                        return False
+            return True
+        
+        return False
 
+    @staticmethod
+    def mask_CV_KEY(cv: dict, mask_candidate_id: bool, mask_cv_id: bool) -> dict:
+        masked = dict(cv)
+        if mask_candidate_id and "candidate_id" in masked:
+            masked.pop("candidate_id")
+        if mask_cv_id and "cv_id" in masked:
+            masked.pop("cv_id")
+        return masked
 
-def sanitize_cv(cv: dict, mask_candidate_id: bool, mask_cv_id: bool) -> dict:
-    masked = dict(cv)
-    if mask_candidate_id and "candidate_id" in masked:
-        masked.pop("candidate_id")
-    if mask_cv_id and "cv_id" in masked:
-        masked.pop("cv_id")
-    return masked
-
-
-def attach_ids(result: Any, candidate_id: str | None, cv_id: str | None) -> Any:
-    if isinstance(result, dict) and "results" in result and isinstance(result["results"], list):
-        for item in result["results"]:
-            if isinstance(item, dict):
-                if cv_id is not None:
-                    item["cv_id"] = cv_id
-                if candidate_id is not None:
-                    item["candidate_id"] = candidate_id
+    @staticmethod
+    def attach_ids(result: Any, candidate_id: str | None, cv_id: str | None) -> Any:
+        if isinstance(result, dict) and "results" in result and isinstance(result["results"], list):
+            for item in result["results"]:
+                if isinstance(item, dict):
+                    if cv_id is not None:
+                        item["cv_id"] = cv_id
+                    if candidate_id is not None:
+                        item["candidate_id"] = candidate_id
+            return result
+        if isinstance(result, list):
+            for item in result:
+                if isinstance(item, dict):
+                    if cv_id is not None:
+                        item["cv_id"] = cv_id
+                    if candidate_id is not None:
+                        item["candidate_id"] = candidate_id
+            return result
+        if isinstance(result, dict):
+            if cv_id is not None:
+                result["cv_id"] = cv_id
+            if candidate_id is not None:
+                result["candidate_id"] = candidate_id
+            return result
         return result
-    if isinstance(result, list):
-        for item in result:
-            if isinstance(item, dict):
-                if cv_id is not None:
-                    item["cv_id"] = cv_id
-                if candidate_id is not None:
-                    item["candidate_id"] = candidate_id
-        return result
-    if isinstance(result, dict):
-        if cv_id is not None:
-            result["cv_id"] = cv_id
-        if candidate_id is not None:
-            result["candidate_id"] = candidate_id
-        return result
-    return result
 
 def run_experiment(
     name: str,
@@ -215,7 +218,7 @@ def run_experiment(
 ) -> dict:
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
-    cvs = load_json(cv_path)
+    cvs = CVScoringUtils.load_json(cv_path)
     if not isinstance(cvs, list):
         raise SystemExit(f"CV file must be a JSON list: {cv_path}")
 
@@ -247,8 +250,8 @@ def run_experiment(
         candidate_id = cv.get("candidate_id")
         cv_id = cv.get("cv_id", candidate_id)
 
-        masked_cv = sanitize_cv(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id)
-        single_job_standard = compact_job_standard([occupation], limit=1)
+        masked_cv = CVScoringUtils.mask_CV_KEY(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id)
+        single_job_standard = CVScoringUtils.get_JD_INFO([occupation], limit=1)
 
         with lock:
             api_call_count += 1
@@ -270,23 +273,23 @@ def run_experiment(
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} → CV[{cv_idx}] scoring...")
 
         # ✅ 复用 client（关键）
-        result = score_candidates(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
+        result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← returned")
 
         # retry with debug info
-        if not has_expected_score_shape(result):
+        if not CVScoringUtils.check_APIReturn_Format(result):
             # 打印调试信息
             print(f"[{name}] ⚙️ {timestamp} API #{current_call} → format check failed, result: {json.dumps(result, ensure_ascii=False)[:200]}...")
             print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
-            result = score_candidates(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
+            result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
             print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
 
             # 检查 retry 后的格式
-            if not has_expected_score_shape(result):
+            if not CVScoringUtils.check_APIReturn_Format(result):
                 print(f"[{name}] ⚙️ {timestamp} API #{current_call} ⚠️ WARNING: retry also failed format check")
 
-        result = attach_ids(result, candidate_id, cv_id)
+        result = CVScoringUtils.attach_ids(result, candidate_id, cv_id)
         result["industry"] = industry
 
         with lock:
@@ -379,9 +382,9 @@ def main() -> None:
         help="Prefix for per-experiment outputs when running multiple experiments.",
     )
     parser.add_argument(
-        "--config",
+        "--prompt",
         default=r".\testing_config.json",
-        help="Path to testing_config.json for prompt and rubric.",
+        help="Path to prompt json file.",
     )
     parser.add_argument("--model", default=os.getenv("LLM_MODEL", "YOUR_MODEL_NAME"))
     parser.add_argument("--api-key", default=os.getenv("LLM_API_KEY", "YOUR_API_KEY"))
@@ -420,11 +423,6 @@ def main() -> None:
         help="If set, write request payloads to this file and do not call the API.",
     )
     parser.add_argument(
-        "--append-output",
-        action="store_true",
-        help="Append each result as JSONL to --output (one line per CV).",
-    )
-    parser.add_argument(
         "--experiment",
         required=True,
         choices=["1", "2", "3", "all"],
@@ -444,9 +442,9 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    args.prompt_config = load_testing_config(Path(args.config))
+    args.prompt_config = CVScoringUtils.load_prompt(Path(args.config))
 
-    jobs_data = load_json(Path(args.jobs))
+    jobs_data = CVScoringUtils.load_json(Path(args.jobs))
     occupations_by_industry = jobs_data.get("occupations", {})
     if not isinstance(occupations_by_industry, dict):
         raise SystemExit("Invalid jobs dataset: occupations must be an object")
@@ -573,9 +571,7 @@ def main() -> None:
 
     return
 
-
 if __name__ == "__main__":
     main()
-
 
 # python e:\code\py\hiringbias\main_testing.py --experiment 1 --industry IT --JD_NUM 1 --CV_NUM 3 --model qwen3.5-flash --api-key sk-4uMGXOuP1nWUbHBF1Wz4MQ --config e:\code\py\hiringbias\testing_config.json
