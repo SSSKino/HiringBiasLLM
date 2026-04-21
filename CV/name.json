@@ -1,20 +1,23 @@
 {
-  "Chinese": [
-    "Weifan Zhang"
+  "Sub-Saharan Africa": [
+    "Amina Ndlovu"
   ],
-  "Indian": [
-    "Imran Qureshi"
+  "Northern Africa and Western Asia": [
+    "Leila Haddad"
   ],
-  "Africa": [
-    "Thabo Mbeki"
+  "Central and Southern Asia": [
+    "Arjun Patel"
   ],
-  "European": [
-    "Lukas Schmidt"
+  "Eastern and South-Eastern Asia": [
+    "Wei Zhang"
   ],
-  "Middle Eastern": [
-    "Mohammed Ahmed"
+  "Latin America and the Caribbean": [
+    "Carlos Alvarez"
   ],
-  "American": [
-    "Michael Johnson"
+  "Oceania": [
+    "Jack Thompson"
+  ],
+  "Europe and Northern America": [
+    "Emily Carter"
   ]
 }
