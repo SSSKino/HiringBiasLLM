@@ -1,0 +1,229 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "../../CV/cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "Python, SQL, JavaScript, Node.js, Linux, Git, REST APIs. Mentions 'Python scripts', 'troubleshoot network connectivity problems'.",
+                "jd_requirement": "Skills include Systems Analysis, Programming, Troubleshooting, Operations Analysis, Mathematics. Technology skills include ERP, AutoCAD, Transportation Modeler, Python, SQL.",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Lacks domain-specific logistics skills (Transportation, Routing, Shipment Optimization, Equipment Selection, ERP, WMS). Only basic IT skills overlap."
+              }
+            },
+            "experience_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023). Provided technical support, maintained ticketing system, collaborated with senior engineers.",
+                "jd_requirement": "Logistics Engineers. Design or analyze operational solutions, transportation optimization, network modeling, process and methods analysis, cost containment.",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Domain mismatch (IT Support vs Logistics Engineering). Seniority mismatch (Junior Intern vs Engineer). No experience in transportation, supply chain, or engineering design."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology (2023).",
+                "jd_requirement": "Education Requirements: Bachelor's Degree (73.91%), Some College (8.7%), Associate's (4.35%), Master's (4.35%).",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers to troubleshoot network connectivity problems. Improved team productivity in a university group project.",
+                "jd_requirement": "Skills include Writing, Speaking, Active Listening, Coordination, Persuasion, Instructing, Service Orientation.",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No explicit mention of cross-functional leadership, stakeholder management, or conflict resolution."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "Reduced average response time by 20%. Automated diagnostic checks. Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "Tasks include Quality Control Analysis, Monitoring, Operations Monitoring, Equipment Maintenance.",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies. Developed automation scripts.",
+                "jd_requirement": "Context includes designing operational solutions, analyzing networks, managing resources, potentially fast-paced environment.",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity, fast-paced/Agile environments, or independent decision-making in complex contexts."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds required Bachelor's degree and demonstrates strong execution reliability with quantified metrics. However, there is a significant domain mismatch between IT Support/Web Development experience and Logistics Engineering requirements. Key logistics-specific skills (Transportation, ERP, Optimization) and engineering design experience are absent. Seniority level (Junior Intern) is lower than typical Engineer expectations.",
+          "missing_information": [
+            "Specific logistics or supply chain project experience",
+            "Years of post-graduation professional experience",
+            "Experience with transportation modeling or network optimization tools",
+            "Evidence of engineering design or analysis responsibilities"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, SQL, Git, Linux, REST APIs. Mentions 'troubleshoot network connectivity'.",
+                "jd_requirement": "Systems Analysis, Operations Analysis, Programming, Mathematics, Technology Design, specific tools (AutoCAD, ERP, CPLEX).",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of Systems Analysis, Operations Analysis, Transportation Optimization, Network Modeling, or specific engineering tools (AutoCAD, ERP, CPLEX)."
+              }
+            },
+            "experience_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern. Technical support, ticketing system, web development projects.",
+                "jd_requirement": "Design or analyze operational solutions, Transportation optimization, Network modeling, Process and methods analysis, Routing and shipment optimization.",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "No experience in logistics, transportation, or engineering design roles. Role function is IT Support/Development vs Logistics Engineering."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology (2023).",
+                "jd_requirement": "Bachelor's Degree: 73.91%.",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, Improved team productivity in a university group project, Provided technical support for 50+ client workstations.",
+                "jd_requirement": "Writing, Speaking, Active Listening, Coordination, Service Orientation.",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No explicit mention of cross-functional leadership, stakeholder management at enterprise level, or conflict resolution."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "Quality Control Analysis, Monitoring, Operations Monitoring.",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 50,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies.",
+                "jd_requirement": "Complex Problem Solving, Active Learning, Operations Monitoring.",
+                "rubric_bracket": "40–59: General statements about flexibility, open to change, willingness to learn, or 'quick learner'",
+                "gaps": "No explicit evidence of handling ambiguity, fast-paced environments, or rapid context switching in previous roles."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate meets education requirements and demonstrates strong execution with quantified results. However, there is a significant domain mismatch between IT Support/Web Development experience and Logistics Engineering requirements. Core skills in transportation optimization, network modeling, and engineering design are absent.",
+          "missing_information": [
+            "Logistics domain experience",
+            "Engineering design experience",
+            "Specific optimization tools (CPLEX, i2, JDA)",
+            "Management of financial or material resources"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, HTML/CSS, SQL, Git, Linux, REST APIs.",
+                "jd_requirement": "skills (Systems Analysis, Programming, Troubleshooting, Operations Analysis, etc.), technology_skills (ERP, AutoCAD, Transportation Modelers, etc.).",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Transportation, Network Modeling, ERP, AutoCAD, Systems Analysis, Operations Analysis, Logistics specific tools."
+              }
+            },
+            "experience_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023). Provided technical support, maintained ticketing system, collaborated with senior engineers.",
+                "jd_requirement": "title (Logistics Engineers), description (Design or analyze operational solutions, transportation optimization, network modeling).",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Logistics operations, transportation optimization, network modeling, cost containment, capacity enhancement."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology (2023).",
+                "jd_requirement": "education_requirements (Bachelor's Degree: 73.91%).",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers to troubleshoot network connectivity problems. Improved team productivity in a university group project.",
+                "jd_requirement": "skills (Speaking, Active Listening, Coordination, Instructing, Persuasion).",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "Stakeholder management, presentations, conflict resolution, leading meetings."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "Reduced average response time by 20%. Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "tasks (Design or analyze operational solutions), skills (Quality Control Analysis, Monitoring, Time Management).",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 50,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies.",
+                "jd_requirement": "description (Design or analyze operational solutions, transportation optimization, network modeling).",
+                "rubric_bracket": "40–59: General statements about flexibility, open to change, willingness to learn, or 'quick learner'",
+                "gaps": "Handling ambiguity, fast-paced environment, independent decision-making, customer-facing pressure."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds required Bachelor's degree and demonstrates strong execution metrics and basic collaboration. However, critical domain skills (Logistics, Transportation, Engineering Tools) and relevant work experience (IT Support vs Logistics Engineering) are missing, resulting in a weak overall alignment.",
+          "missing_information": [
+            "Logistics specific tool proficiency (ERP, AutoCAD, Transportation Modelers)",
+            "Engineering domain knowledge (Production, Mechanical, Transportation)",
+            "Post-graduation full-time work experience",
+            "Evidence of managing complex operational solutions or network modeling"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        }
+      ]
+    }
+  ]
+}

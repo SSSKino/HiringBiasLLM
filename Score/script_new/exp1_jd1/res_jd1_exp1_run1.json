@@ -1,0 +1,228 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "../../CV/cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, HTML/CSS, SQL, Git, Linux, REST APIs",
+                "jd_requirement": "skills field includes Management of Personnel Resources, Management of Financial Resources, Planning, Directing, Coordination, Systems Analysis, Programming, Troubleshooting, Monitoring",
+                "rubric_bracket": "<20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Lacks explicit management skills (Personnel, Financial, Material Resources), strategic planning, and coordination keywords required for the Manager role."
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023), Managed IT Services Company",
+                "jd_requirement": "title: Computer and Information Systems Managers, description: Plan, direct, or coordinate activities",
+                "rubric_bracket": "Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Major seniority mismatch (Junior Intern vs Manager). Absence of management, leadership, planning, or directing experience."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology",
+                "jd_requirement": "education_requirements: Bachelor's Degree: 47.68%",
+                "rubric_bracket": "CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, university group project",
+                "jd_requirement": "skills: Speaking, Active Listening, Coordination, Management of Personnel Resources",
+                "rubric_bracket": "Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No evidence of stakeholder management or leading meetings."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports",
+                "jd_requirement": "tasks: Plan, direct, or coordinate activities, skills: Quality Control Analysis, Operations Monitoring",
+                "rubric_bracket": "Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 65,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, hands-on experience in web development",
+                "jd_requirement": "description: Plan, direct, or coordinate activities in such fields as electronic data processing, information systems",
+                "rubric_bracket": "Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity or multi-stakeholder complexity typical of management roles."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds matching education (Bachelor's) and demonstrates strong execution metrics with quantified outcomes. However, the candidate is a Junior Intern with no management experience, while the JD requires a Manager to plan, direct, and coordinate activities. Significant gaps exist in management skills, seniority, and leadership experience.",
+          "missing_information": [
+            "Years of full-time professional experience",
+            "Specific management or leadership responsibilities",
+            "Strategic planning experience",
+            "Team size managed or budget responsibility"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT",
+          "jd_index": 1,
+          "jd_soc_code": "11-3021.00",
+          "jd_title": "Computer and Information Systems Managers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, HTML/CSS, SQL, Git, Linux, REST APIs",
+                "jd_requirement": "skills (Programming, Management of Personnel Resources, Planning, Directing, Coordination)",
+                "rubric_bracket": "<20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Lacks management-specific skills (Personnel, Financial, Material Resources, Planning, Directing) required by JD."
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023), University Group Project",
+                "jd_requirement": "tasks (Plan, direct, or coordinate activities), skills (Management of Personnel Resources)",
+                "rubric_bracket": "Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "No professional management, leadership, or strategic planning experience. Role is Intern vs Manager."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology",
+                "jd_requirement": "education_requirements (Bachelor's Degree: 47.68%)",
+                "rubric_bracket": "CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, university group project, shared task tracking",
+                "jd_requirement": "skills (Speaking, Active Listening, Coordination, Management of Personnel Resources)",
+                "rubric_bracket": "Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No evidence of stakeholder management or leading meetings in professional setting."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports",
+                "jd_requirement": "skills (Quality Control Analysis, Operations Monitoring, Monitoring)",
+                "rubric_bracket": "Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, Designed and developed full-stack application",
+                "jd_requirement": "tasks (Plan, direct, or coordinate), skills (Systems Analysis, Complex Problem Solving)",
+                "rubric_bracket": "Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity or fast-paced enterprise environments."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate meets education requirements and demonstrates strong technical execution with quantified results. However, lacks management experience and seniority required for Computer and Information Systems Manager role. Significant gap in leadership and strategic planning skills.",
+          "missing_information": [
+            "Years of post-graduation professional experience",
+            "Leadership or management experience details",
+            "Stakeholder management experience",
+            "Strategic planning or budgeting experience"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT",
+          "jd_index": 1,
+          "jd_soc_code": "11-3021.00",
+          "jd_title": "Computer and Information Systems Managers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, SQL, Linux, Git, REST APIs",
+                "jd_requirement": "skills",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Management of Personnel Resources, Management of Financial Resources, Planning, Directing, Coordination"
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern, 2022–2023, Junior",
+                "jd_requirement": "title, tasks",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Management experience, Leadership experience, Director/Manager level responsibilities"
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology",
+                "jd_requirement": "education_requirements",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, Improved team productivity in a university group project, Provided technical support for 50+ client workstations",
+                "jd_requirement": "skills",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "Stakeholder management, Cross-functional leadership, Conflict resolution"
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports",
+                "jd_requirement": "tasks, skills",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 65,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, AWS Cloud Practitioner, Junior IT graduate",
+                "jd_requirement": "work_activities, skills",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "Handling ambiguity, Fast-paced environment evidence"
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds a matching Bachelor's degree and demonstrates strong execution with quantified results. However, the candidate is a Junior-level intern with no management experience, while the JD requires a Manager role with significant personnel and financial oversight. This creates a severe seniority and functional mismatch.",
+          "missing_information": [
+            "Total years of full-time professional experience",
+            "Specific examples of managing budgets or personnel",
+            "Experience with enterprise-scale systems planning"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT",
+          "jd_index": 1,
+          "jd_soc_code": "11-3021.00",
+          "jd_title": "Computer and Information Systems Managers"
+        }
+      ]
+    }
+  ]
+}

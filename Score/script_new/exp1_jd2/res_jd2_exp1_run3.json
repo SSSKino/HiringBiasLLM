@@ -1,0 +1,228 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "../../CV/cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, HTML/CSS, SQL, Git, Linux, REST APIs",
+                "jd_requirement": "skills field includes Management of Personnel Resources, Management of Financial Resources, Management of Material Resources, Coordination, Planning, Programming, Systems Analysis",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of management skills (personnel, financial, material), coordination, or strategic planning found in CV."
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023), 1 year experience, Junior seniority level",
+                "jd_requirement": "title: Architectural and Engineering Managers, description: Plan, direct, or coordinate activities",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "CV lacks management, leadership, planning, or directing experience required for Manager role."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology",
+                "jd_requirement": "education_requirements: Bachelor's Degree: 45.52%",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, team productivity in a university group project",
+                "jd_requirement": "skills: Active Listening, Speaking, Coordination, Management of Personnel Resources",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No evidence of stakeholder management, client management, or leading meetings."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports",
+                "jd_requirement": "skills: Quality Control Analysis, Operations Monitoring, Troubleshooting",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, Interested in building scalable applications",
+                "jd_requirement": "description: Plan, direct, or coordinate activities in such fields as architecture and engineering",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity, fast-paced environments, or independent decision-making at managerial level."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds a matching Bachelor's degree and demonstrates strong execution with quantified results. However, the candidate is a Junior intern with no management experience, while the JD requires an Architectural and Engineering Manager. Significant gaps exist in leadership, personnel management, and domain alignment.",
+          "missing_information": [
+            "Total years of professional experience",
+            "Specific management or leadership responsibilities",
+            "Budget or resource allocation experience"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT",
+          "jd_index": 2,
+          "jd_soc_code": "11-9041.00",
+          "jd_title": "Architectural and Engineering Managers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, HTML/CSS, SQL, Git, Linux, REST APIs",
+                "jd_requirement": "skills field includes Management of Personnel Resources, Management of Financial Resources, Coordination, Planning, Directing, Systems Analysis, Programming",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of management, financial, or personnel resource skills required for Manager role"
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023), Junior IT graduate",
+                "jd_requirement": "title: Architectural and Engineering Managers, description: Plan, direct, or coordinate activities",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "CV is Junior/Intern level; JD requires Manager/Director level with leadership and planning experience"
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology, University of Technology Sydney, 2023",
+                "jd_requirement": "education_requirements: Bachelor's Degree: 45.52% (most frequent)",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, university group project, team productivity",
+                "jd_requirement": "skills: Instructing, Persuasion, Negotiation, Coordination, Management of Personnel Resources",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No evidence of stakeholder management, client management, or leading meetings"
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Improved team productivity, Reduced manual troubleshooting time",
+                "jd_requirement": "skills: Quality Control Analysis, Operations Monitoring, Troubleshooting",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 65,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, Interested in building scalable applications",
+                "jd_requirement": "skills: Complex Problem Solving, Active Learning, Systems Analysis",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job",
+                "gaps": "No explicit evidence of handling ambiguity or fast-paced environments"
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds a matching Bachelor's degree and demonstrates strong execution with quantified results. However, there is a critical seniority mismatch (Junior Intern vs Manager) and lack of required management skills (personnel, financial, planning). Technical skills overlap is limited to basic programming.",
+          "missing_information": [
+            "Years of full-time professional experience",
+            "Specific management team size led",
+            "Budget management experience",
+            "Domain expertise in Architecture/Engineering"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT",
+          "jd_index": 2,
+          "jd_soc_code": "11-9041.00",
+          "jd_title": "Architectural and Engineering Managers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, Node.js, SQL, Git, Linux, REST APIs. Mentions troubleshooting.",
+                "jd_requirement": "skills field includes Management of Personnel Resources, Financial Resources, Material Resources, Systems Analysis, Programming, Troubleshooting.",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of management skills (Personnel, Financial, Material resources), Coordination, or Systems Analysis in professional context."
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023). University group project leadership.",
+                "jd_requirement": "title: Architectural and Engineering Managers. Description: Plan, direct, or coordinate activities.",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Major seniority mismatch (Intern vs Manager). Absence of professional management, planning, or directing experience."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology (2023).",
+                "jd_requirement": "education_requirements: Bachelor's Degree 45.52% (most frequent).",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers. Improved team productivity in a university group project.",
+                "jd_requirement": "skills: Active Listening, Speaking, Coordination, Management of Personnel Resources.",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No evidence of professional stakeholder management or leading meetings."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%. Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "skills: Quality Control Analysis, Monitoring, Operations Monitoring.",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies.",
+                "jd_requirement": "tasks: Plan, direct, or coordinate activities. skills: Complex Problem Solving, Critical Thinking.",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity or fast-paced environments."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds matching education level but lacks required managerial experience and seniority. Technical skills align partially with JD but do not cover critical management competencies. Strong execution metrics found in internship context.",
+          "missing_information": [
+            "Professional management experience",
+            "Budget or financial resource management",
+            "Team leadership history",
+            "Architecture or Engineering domain expertise"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT",
+          "jd_index": 2,
+          "jd_soc_code": "11-9041.00",
+          "jd_title": "Architectural and Engineering Managers"
+        }
+      ]
+    }
+  ]
+}

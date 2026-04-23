@@ -1,0 +1,227 @@
+{
+  "industry": "IT",
+  "experiments": [
+    {
+      "name": "exp1_mask_candidate_and_cv_nonimplicit",
+      "cv_path": "../../CV/cv_random_names.json",
+      "mask_candidate_id": true,
+      "mask_cv_id": true,
+      "results": [
+        {
+          "scores": {
+            "skill_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, SQL, Git, Linux, REST APIs, troubleshooting network connectivity problems.",
+                "jd_requirement": "skills field includes Systems Analysis, Operations Analysis, Programming, Troubleshooting, Equipment Selection, etc.",
+                "rubric_bracket": "<20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of Systems Analysis, Operations Analysis, Transportation, Logistics, or specific engineering tools (AutoCAD, ERP)."
+              }
+            },
+            "experience_match": {
+              "score": 25,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern, technical support, ticketing system maintenance, web development projects.",
+                "jd_requirement": "Logistics Engineers, design/analyze operational solutions, transportation optimization, network modeling.",
+                "rubric_bracket": "Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "No logistics, transportation, or supply chain experience. Role function differs (Support vs Engineering Design)."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology, University of Technology Sydney, 2023.",
+                "jd_requirement": "education_requirements shows Bachelor's Degree at 73.91%.",
+                "rubric_bracket": "CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, university group project, provided technical support for 50+ client workstations.",
+                "jd_requirement": "skills field includes Coordination, Speaking, Instructing, Management of Personnel Resources.",
+                "rubric_bracket": "Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No explicit evidence of cross-functional leadership, stakeholder negotiation, or mentoring."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "reduced average response time by 20%, Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "tasks imply quality control, monitoring, and reliable delivery of operational solutions.",
+                "rubric_bracket": "Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "learning modern cloud technologies, Developed Python scripts to automatically collect system logs.",
+                "jd_requirement": "working context involves complex operational solutions, transportation optimization, and technology design.",
+                "rubric_bracket": "Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity or fast-paced engineering environments."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds matching education level but lacks domain-specific experience in logistics and engineering. Technical skills overlap minimally with JD requirements. Strong execution metrics noted but insufficient for role alignment.",
+          "missing_information": [
+            "Logistics or Supply Chain experience",
+            "Transportation optimization knowledge",
+            "Engineering software proficiency (AutoCAD, ERP, etc.)",
+            "Management or leadership experience"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Sub-Saharan_Africa",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "Python, SQL, JavaScript, Node.js, Linux, Git, REST APIs. Mentions troubleshooting network connectivity.",
+                "jd_requirement": "Skills: Systems Analysis, Programming, Troubleshooting, Operations Analysis. Technology Skills: AutoCAD, ERP, FMEA, Transportation Modeler, Python, SQL.",
+                "rubric_bracket": "20–39: <20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "Lacks domain-specific logistics skills (Transportation, Routing, Network Modeling), Engineering tools (AutoCAD, ERP, FMEA), and Systems Analysis in engineering context."
+              }
+            },
+            "experience_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022–2023). Managed IT Services Company. Technical support, ticketing system maintenance, network troubleshooting.",
+                "jd_requirement": "Role: Logistics Engineers. Tasks: Design or analyze operational solutions, transportation optimization, network modeling, process and methods analysis.",
+                "rubric_bracket": "20–39: Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "CV domain is IT Support/Web Development. JD domain is Logistics Engineering. CV seniority is Junior/Intern. JD implies Engineer level responsibility."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology, University of Technology Sydney, 2023.",
+                "jd_requirement": "Education Requirements: Bachelor's Degree: 73.91%.",
+                "rubric_bracket": "90–100: CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers to troubleshoot network connectivity problems. Improved team productivity in a university group project.",
+                "jd_requirement": "Skills: Speaking, Active Listening, Coordination, Instructing, Persuasion. Management of Personnel Resources.",
+                "rubric_bracket": "60–79: Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No explicit evidence of cross-functional stakeholder management, presentations, or mentoring/coaching in professional setting."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "Reduced average response time by 20%. Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "Skills: Quality Control Analysis, Monitoring, Operations Monitoring. Tasks: Design or analyze operational solutions.",
+                "rubric_bracket": "80–100: Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence (e.g., 'followed ISO 9001')",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies. Developed scripts to automate diagnostics.",
+                "jd_requirement": "Skills: Active Learning, Complex Problem Solving, Time Management. Knowledge: Engineering and Technology, Transportation.",
+                "rubric_bracket": "60–79: Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit mention of handling ambiguity, fast-paced environments, or customer-facing pressure in professional context."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds required Bachelor's degree and demonstrates strong execution with quantified results. However, domain expertise in Logistics Engineering is absent, with CV focusing on IT Support and Web Development. Technical skills overlap on Python/SQL but lack critical logistics tools (ERP, AutoCAD, Transportation Modeling). Experience level (Intern/Junior) does not align with Engineer role expectations.",
+          "missing_information": [
+            "Logistics specific project experience",
+            "Engineering domain knowledge proof",
+            "Management/Leadership experience"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Northern_Africa_and_Western_Asia",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        },
+        {
+          "scores": {
+            "skill_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "Python, JavaScript, SQL, Git, Linux, REST APIs, Troubleshooting, Programming.",
+                "jd_requirement": "Skills field includes Systems Analysis, Operations Analysis, Transportation, Equipment Selection, AutoCAD, ERP software, FMEA software, Programming, Troubleshooting.",
+                "rubric_bracket": "<20% skill keywords, or only generic terms ('programming', 'software')",
+                "gaps": "No evidence of Logistics specific skills (Transportation, Routing, Network Modeling), Engineering tools (AutoCAD, ERP, FMEA), or Resource Management skills."
+              }
+            },
+            "experience_match": {
+              "score": 30,
+              "reasoning": {
+                "cv_evidence": "IT Support Intern (2022-2023), Managed IT Services Company. Tasks: Technical support, ticketing system maintenance, troubleshooting network connectivity.",
+                "jd_requirement": "Tasks involve designing/analyzing operational solutions, transportation optimization, network modeling, process analysis, cost containment, capacity enhancement.",
+                "rubric_bracket": "Very weak match; different role function, different domain, or major seniority mismatch, with minimal transferable relevance.",
+                "gaps": "Different domain (IT vs Logistics Engineering), different function (Support vs Engineering Design), major seniority mismatch (Intern vs Engineer)."
+              }
+            },
+            "education_match": {
+              "score": 95,
+              "reasoning": {
+                "cv_evidence": "Bachelor of Information Technology, University of Technology Sydney, 2023.",
+                "jd_requirement": "Education_requirements distribution: Bachelor's Degree (73.91%), Some College (8.7%), Associate's (4.35%), Master's (4.35%).",
+                "rubric_bracket": "CV's highest degree exactly matches the JD's most frequent education level (e.g., JD: 'Bachelor's: 73.91%', CV has Bachelor's)",
+                "gaps": "none"
+              }
+            },
+            "communication_and_collaboration": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Collaborated with senior engineers, Improved team productivity in a university group project, Provided technical support for 50+ client workstations.",
+                "jd_requirement": "Skills include Writing, Speaking, Active Listening, Coordination, Persuasion, Instructing, Service Orientation.",
+                "rubric_bracket": "Mentions teamwork, project collaboration, peer coordination, or 'worked with X team' without scale/impact detail",
+                "gaps": "No explicit evidence of cross-functional stakeholder management, presentations/demos, or leading meetings at a professional level."
+              }
+            },
+            "execution_compliance_reliability": {
+              "score": 85,
+              "reasoning": {
+                "cv_evidence": "Reduced average response time by 20%, Automated diagnostic checks, Reduced manual troubleshooting time by generating structured reports.",
+                "jd_requirement": "Tasks imply quality control, monitoring, process adherence, and reliable delivery of operational solutions.",
+                "rubric_bracket": "Contains quantified outcomes: %, $, time saved, KPIs met, error rates reduced, SLA compliance, or explicit process adherence",
+                "gaps": "none"
+              }
+            },
+            "role_context_adaptability": {
+              "score": 70,
+              "reasoning": {
+                "cv_evidence": "Interested in building scalable applications and learning modern cloud technologies, Developed Python scripts to automatically collect system logs.",
+                "jd_requirement": "Context involves design/analysis, optimization, cost containment, and managing complex operational solutions.",
+                "rubric_bracket": "Mentions adapting to new tools/tech stacks, changing priorities, learning new domains on the job, or working in matrix organizations",
+                "gaps": "No explicit evidence of handling ambiguity, fast-paced environments, or independent decision-making in a professional engineering context."
+              }
+            }
+          },
+          "recommendation": "weak match",
+          "overall_summary": "Candidate holds the required Bachelor's degree and demonstrates strong execution reliability with quantified outcomes. However, the candidate's background is in IT Support and Web Development, which differs significantly from the Logistics Engineering domain. Key JD skills such as Transportation, Operations Analysis, and Engineering tools (AutoCAD, ERP) are absent. The seniority level (Intern/Junior) also mismatches the Engineer role expectations.",
+          "missing_information": [
+            "Specific logistics engineering tools (e.g., AutoCAD, ERP, Transportation Modelers)",
+            "Domain knowledge in Transportation, Operations Analysis, or Production Processing",
+            "Years of professional engineering experience post-graduation"
+          ],
+          "cv_id": "junior_it_resume_1",
+          "candidate_id": "IT_Junior_Central_and_Southern_Asia",
+          "industry": "IT",
+          "jd_index": 3,
+          "jd_soc_code": "13-1081.01",
+          "jd_title": "Logistics Engineers"
+        }
+      ]
+    }
+  ]
+}
