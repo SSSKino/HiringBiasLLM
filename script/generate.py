@@ -257,3 +257,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+# python generate.py --cv path/to/cv.json --names path/to/name.json --output path/to/output.json

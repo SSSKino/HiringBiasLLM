@@ -1,4 +1,0 @@
-  Law: 13
-  IT: 15
-  HR: 8
-  Finance: 7

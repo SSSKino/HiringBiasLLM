@@ -1,74 +1,186 @@
 # HiringBiasLLM
-本研究旨在考察在候选人资质大致相当的前提下，姓名、地区线索等显性或隐性身份信号是否会导致大语言模型（LLM）在简历评分中产生系统性偏差。实验流程为：以 O*NET 岗位数据生成结构化职位描述（JD），构建基础简历（CV）模板，通过仅变换姓名或在摘要中嵌入地区提示的方式生成身份变体简历，调用 LLM 按统一评分标准进行评估，最终对评分结果进行聚合分析与可视化。
+
+本研究旨在考察在候选人资质大致相当的前提下，姓名、地区线索等显性或隐性身份信号是否会导致大语言模型（LLM）在简历评分中产生系统性偏差。
 
 ## 目录结构
+
 ```
-HiringBiasLLM-main/
-├── CV/                       # 简历数据与变体生成脚本
-│   ├── cv.json               # 基础简历集
-│   ├── name.json             # 按类别组织的姓名库
-│   ├── cv_random_names.json  # 仅替换姓名的简历集
-│   ├── cv_random_name_implicit.json  # 替换姓名并添加地区提示的简历集
-│   └── script/
-│       ├── generate.py       # 身份变体生成脚本
-│       └── summarize.py      # 数据分布摘要脚本
-├── JobDesc/                  # 职位描述数据预处理
-│   ├── extract.py            # O*NET 数据抽取与结构化脚本
-│   ├── onet_job_dataset.filtered.json  # 全量岗位数据集
-│   ├── onet_job_dataset_finance_hr.json
-│   └── onet_job_dataset_it_hr.json
-├── Score/                    # 评分实验与结果分析
-│   ├── script/
-│   │   ├── main_testing.py   # 批量评分主脚本
-│   │   ├── cat_res.py        # 结果聚合与绘图脚本
-│   │   ├── testing_config_objective.json   # 客观维度评分配置
-│   │   └── testing_config_subobj.json      # 综合评分配置
-│   ├── charts/               # 生成图表存储目录
-│   ├── test1/                # 历史实验结果
-│   └── test2/
-├── tmp/                      # 中间聚合结果
-├── Documentation.md          # 实验设计说明
-└── README.md                 
+githubbk/
+├── script/                           # 所有脚本程序
+│   ├── generate.py                   # CV变体生成脚本：根据基础简历和姓名库生成带身份变体的简历
+│   ├── extract.py                    # O*NET数据抽取脚本：从原始数据中提取职位描述
+│   ├── main_testing.py               # 批量评分主脚本：调用LLM进行简历-职位评分
+│   ├── analyze.py                    # 分析与可视化脚本：评分结果聚合、标准化、分组统计
+│   └── summarize.py                  # 数据分布摘要脚本：输出简历数据的统计信息
+│
+├── json/                             # 所有数据文件
+│   ├── cv.json                       # 基础简历集（不含身份线索）
+│   ├── cv_random_names.json          # 仅替换姓名的简历变体
+│   ├── cv_random_name_implicit.json  # 替换姓名+地区提示的简历变体
+│   ├── name.json                     # 按类别组织的姓名库
+│   ├── onet_job_dataset.filtered.json        # 全量职位数据集（处理后）
+│   ├── onet_job_dataset_it_hr.json           # IT行业职位数据
+│   ├── onet_job_dataset_finance_hr.json      # 金融行业职位数据
+│   └── prompt.json                   # LLM评分提示词配置
+│
+├── Documentation.md                  # 详细的实验设计与逻辑说明
+├── README.md                         # 本文件
+└── 反馈总结.docx                    # 研究反馈记录
 ```
 
-## 实验逻辑
-本研究将候选人简历解耦为能力信息（教育背景、工作经验、技能等）与身份线索（姓名、地域暗示）两部分。通过固定前者、系统操纵后者，观察 LLM 评分在不同身份条件下的分布差异。
 
-已实现的实验条件包括：
-仅姓名差异（cv_random_names.json）
-姓名 + 摘要地域提示（cv_random_name_implicit.json）
-candidate_id 与 cv_id 的遮蔽处理亦在部分配置中实现。
+## 核心脚本功能说明
 
-## 各模块功能说明
-### 1. CV/ ：简历数据与变体生成
-cv.json ：不含身份线索的基础简历母版。
-name.json ：分类姓名库，用于批量替换。
-CV/script/generate.py ：读取基础简历与姓名库，按指定策略生成带 name_category、region 等字段的简历变体，同时输出隐式地区提示版本。
-CV/script/summarize.py ：输出简历数据在行业、资历、姓名类别等维度的分布统计，用于数据校验。
+### 1. generate.py - CV变体生成
+**功能**：读取基础简历和姓名库，生成带身份变体的简历集合
 
-### 2. JobDesc/ ：职位描述构造
-JobDesc/extract.py ：从 O*NET 原始 Excel 数据中抽取目标职业，整合技能、能力、知识、任务、技术工具、教育要求、工作活动、工作情境等维度，生成结构化 JSON 数据集。
-onet_job_dataset.filtered.json ：处理后可直接用于评分的岗位库。
+**输入**：
+- `--cv` (default: `json/cv.json`) - 基础简历集
+- `--names` (default: `json/name.json`) - 姓名库（支持按类别组织）
+- `--n` (default: 1) - 每条简历生成的变体数量
 
-### 3. Score/ ：评分实验与结果分析
-Score/script/main_testing.py ：实验执行核心。读取 CV 与 JD 数据，根据评分配置文件构建 prompt，调用 OpenAI 兼容 API 获取评分。支持多线程与自动重试。
-Score/script/testing_config_*.json ：评分标准文件，定义 system prompt、评分维度与 rubric。
-Score/script/cat_res.py ：聚合多个实验轮次的评分结果，按行业、资历、身份类别分组计算均值/中位数，并生成柱状图输出至 charts/ 目录。
+**输出**：
+- `json/cv_random_names.json` 或指定的输出路径
 
-### 4. tmp/ 与图表输出
-tmp/ ：保存标准化后的中间聚合结果（如 normalized_scores*.json），便于快速查阅。
-Score/charts/ ：按实验名称组织存储的可视化图表。
+**关键字段**：
+- `name_category`: 姓名类别（地区、民族等分类）
+- `region`: 对应的地区标签
+- `candidate_id`: 格式为 `{industry}_{seniority}_{region}`
+- `cv_id`: 原始简历ID
 
-## 数据流概览
-岗位准备：JobDesc/extract.py → 结构化 JD 数据集。
-简历变体生成：CV/script/generate.py → 身份变体 CV 文件。
-批量评分：Score/script/main_testing.py → 每条 (CV, JD) 对产生一条评分记录。
-聚合与可视化：Score/script/cat_res.py → 分组统计与图表输出。
+**使用示例**：
+```bash
+python script/generate.py --cv json/cv.json --names json/name.json --output json/cv_random_names.json --seed 42
+```
 
-## 运行依赖与环境
-建议环境：Python 3.10+，所需第三方库：
-bash
+### 2. extract.py - O*NET数据抽取
+**功能**：从O*NET原始数据中抽取职位信息，生成结构化职位描述
+
+**输入**：O*NET Excel数据源
+
+**输出**：
+- `json/onet_job_dataset.filtered.json` - 全量职位数据
+- `json/onet_job_dataset_it_hr.json` - IT行业职位
+- `json/onet_job_dataset_finance_hr.json` - 金融行业职位
+
+### 3. main_testing.py - 批量评分
+**功能**：调用LLM API对简历进行评分，支持多轮实验和自动重试
+
+**输入**：
+- `--cv` (default: `json/cv_random_names.json`) - 简历集
+- `--jd` (default: `json/onet_job_dataset.filtered.json`) - 职位集
+- `--prompt-config` (default: `testing_config.json`) - 评分标准配置
+- `--model` - LLM模型名称（从环境变量获取）
+- `--api-key` - API密钥（从环境变量获取）
+- `--industry` (default: `IT`) - 筛选行业
+
+**输出**：
+- `cv_scores_exp1_run1.json`, `cv_scores_exp1_run2.json` 等 - 分批次的评分结果
+
+**评分维度**（6个维度）：
+- skill_match: 技能匹配度
+- experience_match: 经验匹配度
+- education_match: 教育匹配度
+- communication_and_collaboration: 沟通协作能力
+- execution_compliance_reliability: 执行力和可靠性
+- role_context_adaptability: 角色适应性
+
+**使用示例**：
+```bash
+python script/main_testing.py \
+  --cv json/cv_random_names.json \
+  --jd json/onet_job_dataset_it_hr.json \
+  --prompt-config testing_config.json \
+  --model gpt-4 \
+  --industry IT
+```
+
+### 4. analyze.py - 评分分析与可视化
+**功能**：规范化评分结果、按地区分组统计、生成可视化图表
+
+**处理流程**：
+1. 加载所有 `cv_scores_*.json` 评分文件
+2. 规范化评分（每个维度除以6，总分为平均值）
+3. 按候选人ID提取地区信息
+4. 生成规范化的JSON文件（`normalized/` 目录）
+5. 生成两类图表：
+   - **Chart 1**: 按地区显示平均评分
+   - **Chart 2**: 按维度显示评分变异性（max-min差值及来源文件）
+
+**输入**：
+- `--input` (default: `.`) - 分数文件或目录
+- `--score-glob` (default: `*score*.json`) - 文件匹配模式
+
+**输出**：
+- `normalized/`: 规范化的评分文件
+- `stability_charts/`: 生成的图表
+  - `regions_by_source_*.png` - 各数据源的地区评分图
+  - `score_variability_by_segment.png` - 评分变异性分析图
+
+**使用示例**：
+```bash
+python script/analyze.py --input . --chart-dir charts --normalized-dir normalized
+```
+
+### 5. summarize.py - 数据分布统计
+**功能**：输出简历数据在行业、资历、姓名类别等维度的分布统计
+
+**用途**：验证生成的简历数据分布是否符合预期
+
+---
+
+## 实验工作流
+
+```
+1. 数据准备
+   ├─ 获取基础简历 (cv.json) 和姓名库 (name.json)
+   └─ 获取O*NET职位数据
+
+2. 简历变体生成
+   └─ python script/generate.py
+      生成 cv_random_names.json 和其他变体
+
+3. 职位描述准备
+   └─ python script/extract.py
+      生成 onet_job_dataset.filtered.json
+
+4. 批量评分
+   └─ python script/main_testing.py
+      生成 cv_scores_exp1_run1.json 等评分文件
+      （支持多轮运行，自动生成新的run文件）
+
+5. 结果分析
+   └─ python script/analyze.py
+      输出规范化数据和图表
+      - normalized_*.json 文件
+      - 地区评分对比图
+      - 维度变异性分析图
+```
+
+## 环境要求
+
+Python 3.10+
+
+**依赖包**：
+```bash
 pip install openai pandas openpyxl matplotlib
-openai：API 调用
-pandas、openpyxl：O*NET 数据预处理
-matplotlib：绘图
+```
+
+- `openai`: LLM API调用
+- `pandas`: 数据处理
+- `openpyxl`: Excel数据读取
+- `matplotlib`: 图表生成
+
+**环境变量**：
+```bash
+export LLM_MODEL="gpt-4"
+export LLM_API_KEY="your-api-key"
+export LLM_BASE_URL="https://api.openai.com/v1"
+```
+
+## 关键概念
+
+- **candidate_id**: 候选人标识，格式 `{industry}_{seniority}_{region}`，用于提取地区信息进行分组分析
+- **规范化评分**: 每个维度分数 ÷ 6（单个维度范围0-16.67），总分为六个维度的平均值（范围0-100）
+- **地区变异性**: 同一地区内不同评分文件产生的最大-最小差值，用于检测评分偏差
+- **评分维度**: 6个评分维度代表不同能力方面，总分为其平均值
