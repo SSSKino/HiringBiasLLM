@@ -68,11 +68,22 @@ python script/generate.py --cv json/cv.json --names json/name.json --output json
 
 **输入**：
 - `--cv` (default: `json/cv_random_names.json`) - 简历集
-- `--jd` (default: `json/onet_job_dataset.filtered.json`) - 职位集
-- `--prompt-config` (default: `testing_config.json`) - 评分标准配置
+- `--jobs` (default: `json/onet_job_dataset.filtered.json`) - 职位集
+- `--prompt` (default: `testing_config.json`) - 评分标准配置
 - `--model` - LLM模型名称（从环境变量获取）
 - `--api-key` - API密钥（从环境变量获取）
 - `--industry` (default: `IT`) - 筛选行业
+- `--JD_NUM` (default: 3 or all)  
+  使用的职位数量，或 "all" 表示全部
+- `--JD_START` (default: 1)  
+  JD 起始索引（1-based）
+- `--experiment` (required: 1 / 2 / 3 / all)  
+  选择运行的实验类型：
+
+  - 1：仅姓名变化（non-implicit CV，隐藏 candidate_id / cv_id）
+  - 2：姓名 + 隐式身份信息（implicit CV，隐藏 candidate_id / cv_id）
+  - 3：隐式 CV + 显式 candidate_id 暴露（隐藏 cv_id）
+  - all：依次运行 exp1 → exp2 → exp3
 
 **输出**：
 - `cv_scores_exp1_run1.json`, `cv_scores_exp1_run2.json` 等 - 分批次的评分结果
