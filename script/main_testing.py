@@ -7,6 +7,30 @@ from pathlib import Path
 from typing import Any
 from openai import OpenAI
 
+
+def normalize_industry_label(value: str) -> str:
+    """Normalize industry aliases to canonical labels used by the pipeline."""
+    raw = (value or "").strip()
+    lower = raw.lower()
+    if lower in ("law", "legal"):
+        return "Legal"
+    if lower == "it":
+        return "IT"
+    if lower == "hr":
+        return "HR"
+    if lower == "finance":
+        return "Finance"
+    return raw
+
+
+def get_occupations_for_industry(occupations_by_industry: dict, target_industry: str) -> list:
+    """Get occupations by canonical industry label with alias fallback."""
+    if target_industry in occupations_by_industry:
+        return occupations_by_industry[target_industry]
+    if target_industry == "Legal" and "Law" in occupations_by_industry:
+        return occupations_by_industry["Law"]
+    return []
+
 class CVScoringUtils:
     """Helper utilities for CV scoring pipeline."""
     
@@ -131,7 +155,7 @@ class CVScoringUtils:
 
     @staticmethod
     def check_APIReturn_Format(result: Any) -> bool:
-        """验证result是否有预期的评分结构（按照 testing_config.json 中的格式）。"""
+        """验证 result 是否符合预期评分结构（不要求 reasoning）。"""
         # 预期的6维度（小写+下划线）
         required_dimensions = {
             "skill_match",
@@ -143,7 +167,7 @@ class CVScoringUtils:
         }
 
         def check_score_structure(scores_dict: dict) -> bool:
-            """检查scores字典是否包含所有6个维度，每个维度都有score和reasoning。"""
+            """检查 scores 字典是否包含所有 6 个维度，且每个维度都有合法 score。"""
             if not isinstance(scores_dict, dict):
                 return False
 
@@ -154,8 +178,8 @@ class CVScoringUtils:
             for dim, dim_data in scores_dict.items():
                 if not isinstance(dim_data, dict):
                     return False
-                # 检查必需字段：score、reasoning
-                if "score" not in dim_data or "reasoning" not in dim_data:
+                # 检查必需字段：score（不要求 reasoning）
+                if "score" not in dim_data:
                     return False
                 # score应该是整数0-100
                 score = dim_data.get("score")
@@ -231,6 +255,7 @@ class CVScoringUtils:
 
 def run_experiment(
     name: str,
+    target_industry: str,
     cv_path: Path,
     occupations_by_industry: dict,
     args: argparse.Namespace,
@@ -238,6 +263,7 @@ def run_experiment(
     review_mode: bool,
     mask_candidate_id: bool,
     mask_cv_id: bool,
+    output_path: Path | None = None,
 ) -> dict:
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -250,9 +276,10 @@ def run_experiment(
 
     lock = threading.Lock()
     api_call_count = 0
+    stream_first_result = True
+    stream_file = None
 
-    target_industry = args.industry
-    occupations = occupations_by_industry.get(target_industry, [])
+    occupations = get_occupations_for_industry(occupations_by_industry, target_industry)
     if not isinstance(occupations, list):
         raise SystemExit(f"Invalid occupations list for industry: {target_industry}")
 
@@ -268,15 +295,30 @@ def run_experiment(
         else occupations[jd_start_index : jd_start_index + args.JD_NUM]
     )
 
+    # 结果流式写入：每个结果返回后立即落盘，避免大量结果占用内存
+    if (not review_mode) and output_path is not None:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        stream_file = output_path.open("w", encoding="utf-8")
+        stream_file.write('{\n')
+        stream_file.write(f'  "industry": {json.dumps(target_industry, ensure_ascii=False)},\n')
+        stream_file.write('  "experiments": [\n')
+        stream_file.write('    {\n')
+        stream_file.write(f'      "name": {json.dumps(name, ensure_ascii=False)},\n')
+        stream_file.write(f'      "cv_path": {json.dumps(str(cv_path), ensure_ascii=False)},\n')
+        stream_file.write(f'      "mask_candidate_id": {json.dumps(mask_candidate_id)},\n')
+        stream_file.write(f'      "mask_cv_id": {json.dumps(mask_cv_id)},\n')
+        stream_file.write('      "results": [\n')
+        stream_file.flush()
+
     print(f"[{name}] Using multi-threaded processing (5s staggered start)")
 
     # ------------------------
     # Worker（线程执行函数）
     # ------------------------
     def score_single_jd_cv_pair(cv: dict, cv_idx: int, occupation: dict, jd_index: int):
-        nonlocal api_call_count
+        nonlocal api_call_count, stream_first_result
 
-        industry = str(cv.get("industry_target", "NA"))
+        industry = normalize_industry_label(str(cv.get("industry_target", "NA")))
         if industry != target_industry:
             return
 
@@ -336,7 +378,14 @@ def run_experiment(
         result.update(jd_info)
 
         with lock:
-            results.append(result)
+            if stream_file is not None:
+                if not stream_first_result:
+                    stream_file.write(',\n')
+                stream_file.write("        " + json.dumps(result, ensure_ascii=False))
+                stream_file.flush()
+                stream_first_result = False
+            else:
+                results.append(result)
 
     # ------------------------
     # 构建任务列表
@@ -348,7 +397,7 @@ def run_experiment(
         if not isinstance(cv, dict):
             continue
 
-        cv_industry = str(cv.get("industry_target", "NA"))
+        cv_industry = normalize_industry_label(str(cv.get("industry_target", "NA")))
         if cv_industry != target_industry:
             continue
 
@@ -389,8 +438,16 @@ def run_experiment(
 
     elapsed = time.time() - start_time
 
+    if stream_file is not None:
+        stream_file.write('\n      ]\n')
+        stream_file.write('    }\n')
+        stream_file.write('  ]\n')
+        stream_file.write('}\n')
+        stream_file.close()
+
     print(f"[{name}] ────────────────────────────────────────")
-    print(f"[{name}] Completed: {len(results)} API calls")
+    completed_count = len(results) if stream_file is None else api_call_count
+    print(f"[{name}] Completed: {completed_count} API calls")
     print(f"[{name}] Total time: {elapsed:.2f}s")
 
     return {
@@ -512,16 +569,33 @@ def main() -> None:
     def new_client() -> OpenAI:
         return OpenAI(api_key=args.api_key, base_url=args.base_url)
 
+    def sanitize_filename_part(value: str) -> str:
+        return "".join(ch if ch.isalnum() or ch in ("-", "_") else "_" for ch in value)
+
     # Pre-calc counts for confirmation
-    target_industry = args.industry
-    occupations = occupations_by_industry.get(args.industry, [])
-    if not isinstance(occupations, list):
-        raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
-    if args.JD_START > len(occupations):
-        raise SystemExit(
-            f"--JD_START {args.JD_START} is out of range for industry {args.industry}; "
-            f"only {len(occupations)} jobs available"
-        )
+    if args.industry.lower() == "all":
+        selected_industries = [
+            normalize_industry_label(name)
+            for name, occs in occupations_by_industry.items()
+            if isinstance(occs, list) and occs
+        ]
+        # 去重并保持顺序
+        selected_industries = list(dict.fromkeys(selected_industries))
+        if not selected_industries:
+            raise SystemExit("No valid industries found in jobs dataset")
+    else:
+        target_industry = normalize_industry_label(args.industry)
+        occupations = get_occupations_for_industry(occupations_by_industry, target_industry)
+        if not isinstance(occupations, list):
+            raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
+        if not occupations:
+            raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
+        if args.JD_START > len(occupations):
+            raise SystemExit(
+                f"--JD_START {args.JD_START} is out of range for industry {target_industry}; "
+                f"only {len(occupations)} jobs available"
+            )
+        selected_industries = [target_industry]
 
     experiments = []
     if args.experiment in ("1", "all"):
@@ -555,7 +629,10 @@ def main() -> None:
             }
         )
 
-    print(f"Industry: {target_industry}")
+    if len(selected_industries) == 1:
+        print(f"Industry: {selected_industries[0]}")
+    else:
+        print(f"Industry: all ({len(selected_industries)} industries)")
     jd_end = "all remaining" if args.JD_NUM is None else args.JD_START + args.JD_NUM - 1
     print(f"JD selection: start={args.JD_START}, end={jd_end}")
     print(f"Experiments: {[e['name'] for e in experiments]}")
@@ -571,59 +648,55 @@ def main() -> None:
         for run_idx in range(1, args.runs + 1):
             run_client = None if review_mode else new_client()
             run_suffix = f"_run{run_idx}"
-            for exp in experiments:
-                exp_result = run_experiment(
-                    name=exp["name"],
-                    cv_path=exp["cv_path"],
-                    occupations_by_industry=occupations_by_industry,
-                    args=args,
-                    client=run_client,
-                    review_mode=review_mode,
-                    mask_candidate_id=exp["mask_candidate_id"],
-                    mask_cv_id=exp["mask_cv_id"],
-                )
-                if review_mode:
-                    exp_payload = {
-                        "industry": target_industry,
-                        "experiments": [
-                            {
-                                "name": exp_result["name"],
-                                "cv_path": exp_result["cv_path"],
-                                "payloads": exp_result["review_payloads"],
-                            }
-                        ],
-                    }
-                    review_out = (
+            for target_industry in selected_industries:
+                industry_tag = sanitize_filename_part(target_industry)
+                for exp in experiments:
+                    default_out_path = Path(f"{args.output_prefix}_{industry_tag}_{exp['key']}{run_suffix}.json")
+                    can_use_base_output = (
                         base_output
-                        if base_output and args.experiment != "all" and args.runs == 1
-                        else Path(f"{args.output_prefix}_{exp['key']}{run_suffix}_review.json")
+                        and args.experiment != "all"
+                        and args.runs == 1
+                        and len(selected_industries) == 1
                     )
-                    Path(review_out).write_text(
-                        json.dumps(exp_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+                    out_path = base_output if can_use_base_output else default_out_path
+
+                    exp_result = run_experiment(
+                        name=exp["name"],
+                        target_industry=target_industry,
+                        cv_path=exp["cv_path"],
+                        occupations_by_industry=occupations_by_industry,
+                        args=args,
+                        client=run_client,
+                        review_mode=review_mode,
+                        mask_candidate_id=exp["mask_candidate_id"],
+                        mask_cv_id=exp["mask_cv_id"],
+                        output_path=None if review_mode else out_path,
                     )
-                    print(f"Wrote review payloads to {Path(review_out).resolve()}")
-                else:
-                    exp_output = {
-                        "industry": target_industry,
-                        "experiments": [
-                            {
-                                "name": exp_result["name"],
-                                "cv_path": exp_result["cv_path"],
-                                "mask_candidate_id": exp_result["mask_candidate_id"],
-                                "mask_cv_id": exp_result["mask_cv_id"],
-                                "results": exp_result["results"],
-                            }
-                        ],
-                    }
-                    out_path = (
-                        base_output
-                        if base_output and args.experiment != "all" and args.runs == 1
-                        else Path(f"{args.output_prefix}_{exp['key']}{run_suffix}.json")
-                    )
-                    Path(out_path).write_text(
-                        json.dumps(exp_output, ensure_ascii=False, indent=2), encoding="utf-8"
-                    )
-                    print(f"Wrote experiment results to {Path(out_path).resolve()}")
+                    if review_mode:
+                        exp_payload = {
+                            "industry": target_industry,
+                            "experiments": [
+                                {
+                                    "name": exp_result["name"],
+                                    "cv_path": exp_result["cv_path"],
+                                    "payloads": exp_result["review_payloads"],
+                                }
+                            ],
+                        }
+                        default_review_path = Path(
+                            f"{args.output_prefix}_{industry_tag}_{exp['key']}{run_suffix}_review.json"
+                        )
+                        review_out = base_output if can_use_base_output else default_review_path
+                        Path(review_out).write_text(
+                            json.dumps(exp_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+                        )
+                        print(
+                            f"[{target_industry}] Wrote review payloads to {Path(review_out).resolve()}"
+                        )
+                    else:
+                        print(
+                            f"[{target_industry}] Wrote experiment results to {Path(out_path).resolve()}"
+                        )
     except KeyboardInterrupt:
         print("\n⚠️ Interrupted by user (Ctrl+C)")
         print("Saved partial results if any.")
@@ -633,5 +706,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-# python e:\code\py\hiringbias\main_testing.py --experiment 1 --industry IT --JD_NUM 1 --CV_NUM 3 --model qwen3.5-flash --api-key sk-4uMGXOuP1nWUbHBF1Wz4MQ --config e:\code\py\hiringbias\testing_config.json
