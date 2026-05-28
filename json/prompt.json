@@ -5,28 +5,22 @@
     "output_format": {
         "scores": {
             "skill_match": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             },
             "experience_match": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             },
             "education_match": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             },
             "communication_and_collaboration": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             },
             "execution_compliance_reliability": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             },
             "role_context_adaptability": {
-                "score": "<int>",
-                "reasoning": "<rule-based>"
+                "score": "<int>"
             }
         },
         "recommendation": "<strong match / moderate match / weak match>",

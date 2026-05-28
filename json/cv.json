@@ -438,7 +438,7 @@
     },
     {
         "candidate_id": "LEG_JUN_01",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Junior",
         "name": "Olivia Brown",
         "education": [
@@ -480,7 +480,7 @@
     },
     {
         "candidate_id": "LEG_JUN_02",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Junior",
         "name": "Ahmed Hassan",
         "education": [
@@ -522,7 +522,7 @@
     },
     {
         "candidate_id": "LEG_JUN_03",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Junior",
         "name": "Maria Silva",
         "education": [
@@ -564,7 +564,7 @@
     },
     {
         "candidate_id": "LEG_SEN_01",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Senior",
         "name": "James Walker",
         "education": [
@@ -616,7 +616,7 @@
     },
     {
         "candidate_id": "LEG_SEN_02",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Senior",
         "name": "Priya Nair",
         "education": [
@@ -668,7 +668,7 @@
     },
     {
         "candidate_id": "LEG_SEN_03",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Senior",
         "name": "Chen Li",
         "education": [
@@ -720,7 +720,7 @@
     },
     {
         "candidate_id": "LEG_MAN_01",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Managerial",
         "name": "Robert Johnson",
         "education": [
@@ -772,7 +772,7 @@
     },
     {
         "candidate_id": "LEG_MAN_02",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Managerial",
         "name": "Fatima Al-Zahra",
         "education": [
@@ -824,7 +824,7 @@
     },
     {
         "candidate_id": "LEG_MAN_03",
-        "industry_target": "Legal",
+       "industry_target": "Legal",
         "seniority_level": "Managerial",
         "name": "Alejandro Torres",
         "education": [
