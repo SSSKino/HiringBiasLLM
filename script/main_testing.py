@@ -178,7 +178,7 @@ class CVScoringUtils:
             for dim, dim_data in scores_dict.items():
                 if not isinstance(dim_data, dict):
                     return False
-                # 检查必需字段：score（不要求 reasoning）
+                # 检查必需字段：score、reasoning
                 if "score" not in dim_data:
                     return False
                 # score应该是整数0-100
