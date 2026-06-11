@@ -168,8 +168,8 @@ def main() -> None:
                 clone["region"] = key
                 industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                 seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
-                region = str(clone.get("name_category", "NA")).replace(" ", "_")
-                clone["candidate_id"] = f"{industry}_{seniority}_{region}"
+                clone["candidate_id"] = f"{industry}_{seniority}"
+
                 clone["cv_id"] = item.get("candidate_id")
                 output.append(clone)
     else:
@@ -201,8 +201,8 @@ def main() -> None:
                     clone["region"] = key
                     industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                     seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
-                    region = str(clone.get("name_category", "NA")).replace(" ", "_")
-                    clone["candidate_id"] = f"{industry}_{seniority}_{region}"
+                    clone["candidate_id"] = f"{industry}_{seniority}"
+
                     clone["cv_id"] = item.get("candidate_id")
                     output.append(clone)
         else:
@@ -224,8 +224,8 @@ def main() -> None:
                     clone["region"] = category
                     industry = str(clone.get("industry_target", "NA")).replace(" ", "_")
                     seniority = str(clone.get("seniority_level", "NA")).replace(" ", "_")
-                    region = str(clone.get("name_category", "NA")).replace(" ", "_")
-                    clone["candidate_id"] = f"{industry}_{seniority}_{region}"
+                    clone["candidate_id"] = f"{industry}_{seniority}"
+
                     clone["cv_id"] = item.get("candidate_id")
                     output.append(clone)
 

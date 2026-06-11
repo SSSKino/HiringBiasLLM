@@ -82,11 +82,11 @@ python script/generate.py --cv json/cv.json --names json/name.json --output json
 
   - 1：仅姓名变化（non-implicit CV，隐藏 candidate_id / cv_id）
   - 2：姓名 + 隐式身份信息（implicit CV，隐藏 candidate_id / cv_id）
-  - 3：隐式 CV + 显式 candidate_id 暴露（隐藏 cv_id）
+  - 3：隐式 CV + 显式 region（隐藏 cv_id）
   - all：依次运行 exp1 → exp2 → exp3
 
 **输出**：
-- `cv_scores_exp1_run1.json`, `cv_scores_exp1_run2.json` 等 - 分批次的评分结果
+- `cv_scores_exp1_run1.json`, 如果多次运行记得将结果保存到别处防止覆盖。
 
 **评分维度**（6个维度）：
 - skill_match: 技能匹配度

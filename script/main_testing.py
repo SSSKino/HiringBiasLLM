@@ -219,12 +219,23 @@ class CVScoringUtils:
         return False
 
     @staticmethod
-    def mask_CV_KEY(cv: dict, mask_candidate_id: bool, mask_cv_id: bool) -> dict:
+    def mask_CV_KEY(
+        cv,
+        mask_candidate_id,
+        mask_cv_id,
+        mask_region=False,
+    ):
         masked = dict(cv)
-        if mask_candidate_id and "candidate_id" in masked:
-            masked.pop("candidate_id")
-        if mask_cv_id and "cv_id" in masked:
-            masked.pop("cv_id")
+
+        if mask_candidate_id:
+            masked.pop("candidate_id", None)
+
+        if mask_cv_id:
+            masked.pop("cv_id", None)
+
+        if mask_region:
+            masked.pop("region", None)
+
         return masked
 
     @staticmethod
@@ -263,6 +274,7 @@ def run_experiment(
     review_mode: bool,
     mask_candidate_id: bool,
     mask_cv_id: bool,
+    mask_region: bool,
     output_path: Path | None = None,
 ) -> dict:
     from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -325,7 +337,7 @@ def run_experiment(
         candidate_id = cv.get("candidate_id")
         cv_id = cv.get("cv_id", candidate_id)
 
-        masked_cv = CVScoringUtils.mask_CV_KEY(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id)
+        masked_cv = CVScoringUtils.mask_CV_KEY(cv, mask_candidate_id=mask_candidate_id, mask_cv_id=mask_cv_id, mask_region=mask_region)
         single_job_standard = CVScoringUtils.get_JD_INFO([occupation], limit=1)
         jd_info = {
             "jd_index": jd_index,
@@ -626,6 +638,7 @@ def main() -> None:
                 "cv_path": Path(args.cv_implicit),
                 "mask_candidate_id": False,
                 "mask_cv_id": True,
+                "mask_region": False, # EXP3: region is included as explicit feature
             }
         )
 
@@ -670,6 +683,7 @@ def main() -> None:
                         review_mode=review_mode,
                         mask_candidate_id=exp["mask_candidate_id"],
                         mask_cv_id=exp["mask_cv_id"],
+                        mask_region=exp["mask_region"],
                         output_path=None if review_mode else out_path,
                     )
                     if review_mode:
