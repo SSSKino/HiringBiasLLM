@@ -143,7 +143,7 @@ class CVScoringUtils:
         resp = client.chat.completions.create(
             model=model,
             messages=messages,
-            temperature=0.0,
+            temperature=0.1,
             top_p=1,
         )
         content = resp.choices[0].message.content or ""
@@ -178,9 +178,11 @@ class CVScoringUtils:
             for dim, dim_data in scores_dict.items():
                 if not isinstance(dim_data, dict):
                     return False
-                # 检查必需字段：score、reasoning
+                # No-reason prompt: only require score. Original check also required "reasoning".
                 if "score" not in dim_data:
                     return False
+                # if "score" not in dim_data or "reasoning" not in dim_data:
+                #     return False
                 # score应该是整数0-100
                 score = dim_data.get("score")
                 if not isinstance(score, (int, float)) or not (0 <= score <= 100):
@@ -235,6 +237,7 @@ class CVScoringUtils:
 
         if mask_region:
             masked.pop("region", None)
+            masked.pop("name_category", None)
 
         return masked
 
@@ -319,6 +322,7 @@ def run_experiment(
         stream_file.write(f'      "cv_path": {json.dumps(str(cv_path), ensure_ascii=False)},\n')
         stream_file.write(f'      "mask_candidate_id": {json.dumps(mask_candidate_id)},\n')
         stream_file.write(f'      "mask_cv_id": {json.dumps(mask_cv_id)},\n')
+        stream_file.write(f'      "mask_region": {json.dumps(mask_region)},\n')
         stream_file.write('      "results": [\n')
         stream_file.flush()
 
@@ -373,20 +377,22 @@ def run_experiment(
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← returned")
 
+        # No-reason prompt: skip retry block because outputs intentionally omit "reasoning".
         # retry with debug info
-        if not CVScoringUtils.check_APIReturn_Format(result):
-            # 打印调试信息
-            print(f"[{name}] ⚙️ {timestamp} API #{current_call} → format check failed, result: {json.dumps(result, ensure_ascii=False)[:200]}...")
-            print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
-            result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
-            print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
-
-            # 检查 retry 后的格式
-            if not CVScoringUtils.check_APIReturn_Format(result):
-                print(f"[{name}] ⚙️ {timestamp} API #{current_call} ⚠️ WARNING: retry also failed format check")
+        # if not CVScoringUtils.check_APIReturn_Format(result):
+        #     # 打印调试信息
+        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} → format check failed, result: {json.dumps(result, ensure_ascii=False)[:200]}...")
+        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
+        #     result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
+        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
+        #
+        #     # 检查 retry 后的格式
+        #     if not CVScoringUtils.check_APIReturn_Format(result):
+        #         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ⚠️ WARNING: retry also failed format check")
 
         result = CVScoringUtils.attach_ids(result, candidate_id, cv_id)
         result["industry"] = industry
+        result["region"] = cv.get("region")
         result.update(jd_info)
 
         with lock:
@@ -443,7 +449,10 @@ def run_experiment(
                 time.sleep(5)
 
             for future in as_completed(futures):
-                pass
+                try:
+                    future.result()
+                except Exception as exc:
+                    print(f"[{name}] Worker failed: {exc}")
 
     except KeyboardInterrupt:
         print(f"\n[{name}] ⚠️ Interrupted by user")
@@ -467,6 +476,7 @@ def run_experiment(
         "cv_path": str(cv_path),
         "mask_candidate_id": mask_candidate_id,
         "mask_cv_id": mask_cv_id,
+        "mask_region": mask_region,
         "results": results,
         "review_payloads": review_payloads,
     }
@@ -522,7 +532,7 @@ def main() -> None:
     parser.add_argument(
         "--industry",
         default="IT",
-        help="Only score CVs for this industry (default: IT).",
+        help="Industry to score, or 'all' for every industry (default: IT).",
     )
     parser.add_argument(
         "--CV_NUM",
@@ -597,17 +607,17 @@ def main() -> None:
             raise SystemExit("No valid industries found in jobs dataset")
     else:
         target_industry = normalize_industry_label(args.industry)
+        selected_industries = [target_industry]
+
+    for target_industry in selected_industries:
         occupations = get_occupations_for_industry(occupations_by_industry, target_industry)
-        if not isinstance(occupations, list):
-            raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
-        if not occupations:
-            raise SystemExit(f"Invalid occupations list for industry: {args.industry}")
+        if not isinstance(occupations, list) or not occupations:
+            raise SystemExit(f"Invalid occupations list for industry: {target_industry}")
         if args.JD_START > len(occupations):
             raise SystemExit(
                 f"--JD_START {args.JD_START} is out of range for industry {target_industry}; "
                 f"only {len(occupations)} jobs available"
             )
-        selected_industries = [target_industry]
 
     experiments = []
     if args.experiment in ("1", "all"):
@@ -618,6 +628,7 @@ def main() -> None:
                 "cv_path": Path(args.cv),
                 "mask_candidate_id": True,
                 "mask_cv_id": True,
+                "mask_region": True,
             }
         )
     if args.experiment in ("2", "all"):
@@ -628,6 +639,7 @@ def main() -> None:
                 "cv_path": Path(args.cv_implicit),
                 "mask_candidate_id": True,
                 "mask_cv_id": True,
+                "mask_region": True,
             }
         )
     if args.experiment in ("3", "all"):
@@ -638,7 +650,7 @@ def main() -> None:
                 "cv_path": Path(args.cv_implicit),
                 "mask_candidate_id": False,
                 "mask_cv_id": True,
-                "mask_region": False, # EXP3: region is included as explicit feature
+                "mask_region": False,  # EXP3: region is included as an explicit feature.
             }
         )
 
