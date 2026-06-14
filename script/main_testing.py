@@ -143,7 +143,7 @@ class CVScoringUtils:
         resp = client.chat.completions.create(
             model=model,
             messages=messages,
-            temperature=0.1,
+            temperature=0.0,
             top_p=1,
         )
         content = resp.choices[0].message.content or ""
