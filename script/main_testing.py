@@ -291,6 +291,7 @@ def run_experiment(
 
     lock = threading.Lock()
     api_call_count = 0
+    successful_count = 0
     stream_first_result = True
     stream_file = None
 
@@ -332,7 +333,7 @@ def run_experiment(
     # Worker（线程执行函数）
     # ------------------------
     def score_single_jd_cv_pair(cv: dict, cv_idx: int, occupation: dict, jd_index: int):
-        nonlocal api_call_count, stream_first_result
+        nonlocal api_call_count, successful_count, stream_first_result
 
         industry = normalize_industry_label(str(cv.get("industry_target", "NA")))
         if industry != target_industry:
@@ -372,23 +373,52 @@ def run_experiment(
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} → CV[{cv_idx}] scoring...")
 
-        # ✅ 复用 client（关键）
-        result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
+        def score_with_api_retry():
+            try:
+                return CVScoringUtils.score(
+                    client,
+                    args.model,
+                    [masked_cv],
+                    single_job_standard,
+                    args.prompt_config,
+                )
+            except Exception as exc:
+                print(
+                    f"[{name}] ⚠️ {timestamp} API #{current_call} "
+                    f"request failed: {exc}"
+                )
+                print(
+                    f"[{name}] ⚙️ {timestamp} API #{current_call} → "
+                    "retrying request in 5s..."
+                )
+                time.sleep(5)
+                return CVScoringUtils.score(
+                    client,
+                    args.model,
+                    [masked_cv],
+                    single_job_standard,
+                    args.prompt_config,
+                )
+
+        result = score_with_api_retry()
 
         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← returned")
 
-        # No-reason prompt: skip retry block because outputs intentionally omit "reasoning".
-        # retry with debug info
-        # if not CVScoringUtils.check_APIReturn_Format(result):
-        #     # 打印调试信息
-        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} → format check failed, result: {json.dumps(result, ensure_ascii=False)[:200]}...")
-        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
-        #     result = CVScoringUtils.score(client, args.model, [masked_cv], single_job_standard, args.prompt_config)
-        #     print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
-        #
-        #     # 检查 retry 后的格式
-        #     if not CVScoringUtils.check_APIReturn_Format(result):
-        #         print(f"[{name}] ⚙️ {timestamp} API #{current_call} ⚠️ WARNING: retry also failed format check")
+        if not CVScoringUtils.check_APIReturn_Format(result):
+            print(
+                f"[{name}] ⚙️ {timestamp} API #{current_call} → "
+                f"format check failed, result: "
+                f"{json.dumps(result, ensure_ascii=False)[:200]}..."
+            )
+            print(f"[{name}] ⚙️ {timestamp} API #{current_call} → retrying...")
+            result = score_with_api_retry()
+            print(f"[{name}] ⚙️ {timestamp} API #{current_call} ← retry returned")
+
+            if not CVScoringUtils.check_APIReturn_Format(result):
+                print(
+                    f"[{name}] ⚙️ {timestamp} API #{current_call} "
+                    "⚠️ WARNING: retry also failed format check"
+                )
 
         result = CVScoringUtils.attach_ids(result, candidate_id, cv_id)
         result["industry"] = industry
@@ -404,6 +434,7 @@ def run_experiment(
                 stream_first_result = False
             else:
                 results.append(result)
+            successful_count += 1
 
     # ------------------------
     # 构建任务列表
@@ -467,8 +498,11 @@ def run_experiment(
         stream_file.close()
 
     print(f"[{name}] ────────────────────────────────────────")
-    completed_count = len(results) if stream_file is None else api_call_count
-    print(f"[{name}] Completed: {completed_count} API calls")
+    completed_count = len(review_payloads) if review_mode else successful_count
+    failed_count = 0 if review_mode else len(tasks) - successful_count
+    print(f"[{name}] Completed: {completed_count}/{len(tasks)} tasks")
+    if failed_count:
+        print(f"[{name}] Failed after retries: {failed_count} tasks")
     print(f"[{name}] Total time: {elapsed:.2f}s")
 
     return {
