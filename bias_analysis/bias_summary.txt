@@ -1,0 +1,7 @@
+INTER-MODEL AGREEMENT ANALYSIS
+==================================================
+
+Exp1 Mean Std: 5.4241
+Exp3 Mean Std: 5.2015
+
+Region information reduced disagreement between models.
